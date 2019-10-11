@@ -1,0 +1,217 @@
+/* Meilenstein 1 */
+body {
+    margin-top: 20px;
+}
+
+header.row {
+    margin-bottom: 5px;
+}
+
+ul.nav {
+    padding-left: 20px;
+}
+
+nav a {
+    border-right: 1px solid black;
+}
+
+nav a.last {
+    border-right: 0 solid black;
+}
+
+a.nav-link {
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+}
+
+nav li:last-child a {
+    border-right: 0 solid black;
+}
+
+nav.col-5 {
+    height: 50px;
+    width: 500px;
+}
+
+a {
+    color: #00b5ad
+}
+
+.btn {
+    background-color: #00b5ad;
+    border-color: #00b5ad
+}
+
+.copyright {
+    height: 50px;
+}
+
+.splash img {
+    width: 100%
+}
+
+.not-splash img {
+    width: 75%
+}
+
+.splash, button {
+    margin-bottom: 12px;
+    width: 150px;
+}
+
+.searchbutton {
+    width: 37px;
+    height: 37px;
+}
+
+.signinbtn {
+    margin-left: 80px;
+}
+
+#legga {
+    margin-left: 30px
+}
+
+.fa-copyright {
+    margin-top: 13px;
+}
+
+.form-control {
+    width: 80%
+}
+
+#filter {
+    margin-left: 30px;
+}
+
+#kategorien {
+    width: 180px;
+    height: 30px;
+    margin-left: 12px;
+    margin-top: 17px;
+}
+
+.card {
+    background-color: peachpuff;
+    margin-top: 60px;
+}
+
+#login {
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.nav-link, .underline {
+    text-decoration: underline;
+}
+
+.form-check {
+    padding-left: .0rem;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+.align-text-center {
+    text-align: center;
+}
+
+.grauerText {
+    color: #4e555b
+}
+
+.produkt {
+    margin-bottom: 0;
+}
+
+img {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.smallimg {
+    height: 70%;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#titel {
+    margin-left: 45px;
+    margin-bottom: 15px;
+}
+
+.cols {
+    text-align: center;
+    padding-left: 0px;
+}
+
+#details {
+    margin-left: 300px;
+    margin-bottom: 15px;
+}
+
+#produktimg {
+    height: 50%;
+    width: 100%;
+
+}
+
+#spreis {
+    font-size: large;
+    margin-top: 10px;
+}
+
+#preis {
+    font-size: x-large;
+    font-weight: bold;
+    font-family: "Droid Sans Mono";
+    margin-top: 22px;
+}
+
+#produktcol {
+    width: 500px;
+    height: 430px;
+    margin-left: 75px;
+    margin-right: 25px;
+}
+
+.btn-lg {
+    width: 160px;
+    margin-top: 18px;
+}
+
+#email, #password {
+    width: 10.5rem;
+}
+
+#email {
+    margin-bottom: 5px;
+}
+
+#myTab {
+    padding-left: .0rem;
+}
+
+#beschreibung, #zutaten {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+#name {
+    height: 35px;
+    width: 400px;
+}
+
+#bewertung {
+    height: 35px;
+    width: 112px;
+}
+
+#sendbtn {
+    margin-left: 110px;
+    width: 100px;
+    font-family: "Comic Sans MS";
+}
