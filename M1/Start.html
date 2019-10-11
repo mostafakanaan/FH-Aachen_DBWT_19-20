@@ -1,38 +1,66 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>eMensa - Startseite</title>
-        <meta name="description" content="Startseite der eMensa">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-    </head>
-    <body>
-        <!-- Top -->
-        <div class="container-fluid">
-            <div class="row" id="navrow">
-                <div class="col" id="logo">
-                    <h2>e-Mensa</h2>
-                </div>
-                <div class="col" id="space"></div>
-                <!-- Navigation-->
-                <div class="col" id="Start">Start</div>
-                <div class="col" id="Start">Mahlzeiten</div>
-                <div class="col" id="Start">Bestellung</div>
-                <div class="col" id="Start">FH-Aachen</div>
-                
-                <div class="col" id="space"></div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>eMensa - Startseite</title>
+    <meta name="description" content="Startseite der eMensa">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+</head>
 
 
+
+<body>
+    <!-- Top -->
+    <div class="container-fluid">
+
+        <header class="row">
+            <div class="col-3">
+                <h1>e-Mensa</h1>
             </div>
-        </div>
+            <nav class="col-6">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link">Start</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Produkte.html">Mahlzeiten</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Bestellung</a></li>
+                    <li class="nav-item"><a class="nav-link active" target="_blank" href="https://www.fh-aachen.de/">FH-Aachen</a></li>
+                </ul>
+            </nav>
+            <div class="col-3">
+                <form action="http://www.google.de/search" class="row" method="get" >
+                    <input id="suchbegriff" type="text" name="q" class="form-control" placeholder="Suchen.."/>
+                    <input type="hidden" name="as_sitesearch" value="https://www.fh-aachen.de/"/>
+                    <button class="searchbutton" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </header>
 
+        <!-- Down -->
+        <hr>
+        <footer class="row">
+            <div class="col-3 copyright">
+                <i class="far fa-copyright"></i> 2019 DBWT
+            </div>
+            <nav class="col-6">
+                <ul class="nav"><!-- die Deko-Striche evtl schöner -->
+                    <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Registrieren</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Zutatenliste</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Impressum.html">Impressum</a></li>
+                </ul>
+            </nav>
+        </footer>
 
+    </div>
 
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js\bootstrap.min.js"></script>
     <script src="js\jquery-3.4.1.slim.min.js"></script>
     <script src="js\popper.min.js"></script>
-    </body>
+</body>
 </html>
