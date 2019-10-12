@@ -16,8 +16,13 @@
 form h3 {
     border-bottom:2px solid gray;
     padding-bottom: 2px;
+    
 }
 
 fieldset{
     border-style: none;
+}
+form button {
+    float: left;
+    margin-left:10px;
 }
