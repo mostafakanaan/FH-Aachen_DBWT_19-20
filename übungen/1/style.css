@@ -1,0 +1,23 @@
+.container {
+
+    width: 650px;
+}
+.area {
+    text-align: center;
+}
+#ueberschrift {
+    text-align: center;
+
+}
+
+#formular {
+    text-align: center;
+}
+form h3 {
+    border-bottom:2px solid gray;
+    padding-bottom: 2px;
+}
+
+fieldset{
+    border-style: none;
+}
