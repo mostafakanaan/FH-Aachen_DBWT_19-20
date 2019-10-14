@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>eMensa - Detail</title>
     <meta name="description" content="Startseite der eMensa">
