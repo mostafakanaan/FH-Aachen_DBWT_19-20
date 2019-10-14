@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>eMensa - Startseite</title>
+    <title>eMensa - Produkte</title>
     <meta name="description" content="Startseite der eMensa">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -39,10 +39,8 @@ include 'inc/footer.html'
 ?>
 
     </div>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js\bootstrap.min.js"></script>
-    <script src="js\jquery-3.4.1.slim.min.js"></script>
-    <script src="js\popper.min.js"></script>
+<?php
+include 'inc/js.html' 
+?>
 </body>
 </html>

@@ -18,5 +18,9 @@ include 'inc/navbar.html'
         <?php
 include 'inc/footer.html'
 ?>
+
+<?php
+include 'inc/js.html' 
+?>
 </body>
 </html>
