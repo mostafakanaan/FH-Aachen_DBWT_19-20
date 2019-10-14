@@ -6,5 +6,17 @@
     <title>Impressum</title>
 </head>
 <body>
+
+<!--Header bzw Nav include -->
+<?php
+include 'inc/navbar.html'
+?>
+
+
+
+        <!-- Footer -->
+        <?php
+include 'inc/footer.html'
+?>
 </body>
 </html>

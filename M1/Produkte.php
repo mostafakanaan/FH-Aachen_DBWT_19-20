@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="de">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,22 @@
     </head>
     <body>
 
+    <!--Header bzw Nav include -->
+<?php
+include 'inc/navbar.html'
+?>
 
 
 
+
+
+
+
+
+        <!-- Footer -->
+        <?php
+include 'inc/footer.html'
+?>
 
 
                 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
