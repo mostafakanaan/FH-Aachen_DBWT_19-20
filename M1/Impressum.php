@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="3; URL=Start.html">
-    <title>Impressum</title>
+    <title>eMensa - Impressum</title>
 </head>
 <body>
 
