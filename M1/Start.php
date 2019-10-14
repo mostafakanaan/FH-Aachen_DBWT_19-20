@@ -24,8 +24,42 @@ include 'inc/navbar.html'
 ?>
 
         <!-- content area -->
-        <main>
-            <img src="img/placeholder.png" alt="placeholder" height="150" width="1800">
+        <main><div class="row">
+        <div class="col splash">
+            <img src="img/Mensa.jpg" alt="Food"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <p>Der Dienst <b>e-Mensa</b> ist noch beta. Sie können bereits
+                <a class="underline" href="Produkte.html">Mahlzeiten</a> durchstöbern, aber noch nicht bestellen.
+            </p>
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-8"><h2>Leckere Gerichte vorbestellen</h2>
+                    <p id="legga">... und gemeinsam mit Kommilitonen und Freunden essen</p></div>
+                <div class="col-4">
+                    <div class="row">
+                    <button type="button" class="btn btn-primary signinbtn"><i class="far fa-hand-point-right"></i> Registrieren</button>
+                    </div>
+                    <div class="row">
+                    <button type="button" class="btn btn-primary signinbtn"><i class="fas fa-sign-in-alt"></i> Anmelden</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <p>Registrieren Sie sich <a class="underline" href="#">hier</a>, um über die Veröffentlichung
+                des Dienstes per Mail informiert zu werden.
+            </p>
+        </div>
+        <div class="col not-splash">
+            <img src="img/Food.jpg" alt="Food"/>
+        </div>
+    </div>
 
         </main>
         
