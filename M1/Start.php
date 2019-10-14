@@ -12,9 +12,6 @@
     integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
     crossorigin="anonymous">
 </head>
-
-<!-- TODO: Trennstrich unter nav, nav auslagern, -->
-
 <body>
     <div class="container">
 <!--Header bzw Nav include -->
@@ -68,7 +65,7 @@ include 'inc/navbar.html'
 
         <!-- Footer -->
 <?php
-include 'inc/footer.html'
+include 'inc/footer.php'
 ?>
 
     </div>

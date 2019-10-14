@@ -1,7 +1,9 @@
 <hr> <!-- Trennlinie über Footer-->
         <footer class="row">
             <div class="col-3 copyright">
-                <i class="far fa-copyright"></i> 2019 DBWT
+                <i class="far fa-copyright"></i> <?php
+                echo date("d.m.Y", time())
+                ?> DBWT
             </div>
             <nav class="col-6">
                 <ul class="nav"><!-- die Deko-Striche evtl schöner -->
