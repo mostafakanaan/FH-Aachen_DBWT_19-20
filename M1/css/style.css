@@ -99,6 +99,7 @@ a {
 .card {
     background-color: peachpuff;
     margin-top: 60px;
+    width: 15rem; height: 310px;
 }
 
 #login {
