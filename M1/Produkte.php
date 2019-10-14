@@ -14,19 +14,99 @@
 </head>
 
     <body>
-
+        <div class="container">
     <!--Header bzw Nav include -->
 <?php
 include 'inc/navbar.html'
 ?>
 
+<main>
 
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Speisenliste filtern</h5>
+                    <div class="form-group">
+                        <select class="form-contro align-items-center" id="kategorien">
 
+                            <option disabled selected class="align-text-center">Kategorien :</option>
+                            <option>Asiatisch</option>
+                            <option>Burger</option>
+                            <option>Deutsche Gerichte</option>
+                            <option>Döner</option>
+                            <option>Hähnchen</option>
+                            <option>Kuchen</option>
+                            <option>Pizza</option>
+                            <option>Rindfleisch</option>
+                            <option>Salate</option>
+                            <option>Schnitzel</option>
+                            <option>Wok</option>
+                        </select>
+                    </div>
 
+                    <div class="form-check">
+                        <ul style="list-style: none">
+                            <li><input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">nur verfügbare</label></li>
+                            <li><input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                <label class="form-check-label" for="defaultCheck2">nur vegetarische</label></li>
+                            <li><input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                                <label class="form-check-label" for="defaultCheck3">nur vegane</label></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn btn-primary" id="filter">Speisen filtern</a>
+                </div>
+            </div>
+        </div>
 
+<div class="col-9">
+            <div class="row" id="titel">
+                <h2>Verfügbare Speisen (Bestseller)</h2>
+            </div>
 
+            <div class="row" style="height: 183px; width: 900px;">
+                <div class="col-2 cols"><img src="img/CWok.jpg" alt="Curry Wok" class="smallimg">
+                    <p class="produkt">Curry Wok</p>
+                    <a href="Detail.html" class="underline">Details</a>
+                </div>
+                <div class="col-2 cols"><img src="img/Schnitzel.jpg" alt="Schnitzel" class="smallimg">
+                    <p class="produkt">Schnitzel</p>
+                    <a href="Detail.html" class="underline">Details</a>
+                </div>
+                <div class="col-2 cols"><img src="img/Bratrolle.jpg" alt="Bratrolle" class="smallimg">
+                    <p class="grauerText produkt">Bratrolle</p>
+                    <p class="grauerText">vergriffen</p>
+                </div>
+                <div class="col-2 cols"><img src="img/Krautsalat.jpg" alt="Krautsalat" class="smallimg">
+                    <p class="produkt">Krautsalat</p>
+                    <a href="Detail.html" class="underline">Details</a>
+                </div>
+            </div>
+            <div class="row"><br></div>
+            <div class="row" style="height: 183px; width: 900px;">
+                <div class="col-2 cols"><img src="img/falafel.jpg" alt="Falafel" class="smallimg">
+                    <p class="produkt">Falafel</p>
+                    <a href="Detail.html" class="underline">Details</a>
+                </div>
+                <div class="col-2 cols"><img src="img/Currywurst.png" alt="Currywurst" class="smallimg">
+                    <p class="produkt">Currywurst</p>
+                    <a href="Detail.html" class="underline">Details</a>
+                </div>
+                <div class="col-2 cols"><img src="img/Kaesestulle.jpg" alt="Kaesestulle" class="smallimg">
+                    <p class="produkt">Käsestulle</p>
+                    <a href="Detail.html" class="underline">Details</a>
+                </div>
+                <div class="col-2 cols"><img src="img/spiegelei.jpg" alt="Spiegelei" class="smallimg">
+                    <p class="produkt">Spiegelei</p>
+                    <a href="Detail.html" class="underline">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-
+</main>
         <!-- Footer -->
         <?php
 include 'inc/footer.html'
@@ -36,5 +116,6 @@ include 'inc/footer.html'
 <?php
 include 'inc/js.html' 
 ?>
+    </div>
     </body>
 </html>
