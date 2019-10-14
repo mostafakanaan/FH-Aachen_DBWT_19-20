@@ -29,7 +29,7 @@ include 'inc/navbar.html'
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
+        <div class="col-4">   <!--Side Text  -->
             <p>Der Dienst <b>e-Mensa</b> ist noch beta. Sie können bereits
                 <a class="underline" href="Produkte.php">Mahlzeiten</a> durchstöbern, aber noch nicht bestellen.
             </p>
