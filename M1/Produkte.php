@@ -68,11 +68,11 @@ include 'inc/navbar.html'
             <div class="row" style="height: 183px; width: 900px;">
                 <div class="col-2 cols"><img src="img/CWok.jpg" alt="Curry Wok" class="smallimg">
                     <p class="produkt">Curry Wok</p>
-                    <a href="Detail.html" class="underline">Details</a>
+                    <a href="Detail.php" class="underline">Details</a>
                 </div>
                 <div class="col-2 cols"><img src="img/Schnitzel.jpg" alt="Schnitzel" class="smallimg">
                     <p class="produkt">Schnitzel</p>
-                    <a href="Detail.html" class="underline">Details</a>
+                    <a href="Detail.php" class="underline">Details</a>
                 </div>
                 <div class="col-2 cols"><img src="img/Bratrolle.jpg" alt="Bratrolle" class="smallimg">
                     <p class="grauerText produkt">Bratrolle</p>
@@ -80,26 +80,26 @@ include 'inc/navbar.html'
                 </div>
                 <div class="col-2 cols"><img src="img/Krautsalat.jpg" alt="Krautsalat" class="smallimg">
                     <p class="produkt">Krautsalat</p>
-                    <a href="Detail.html" class="underline">Details</a>
+                    <a href="Detail.php" class="underline">Details</a>
                 </div>
             </div>
             <div class="row"><br></div>
             <div class="row" style="height: 183px; width: 900px;">
                 <div class="col-2 cols"><img src="img/falafel.jpg" alt="Falafel" class="smallimg">
                     <p class="produkt">Falafel</p>
-                    <a href="Detail.html" class="underline">Details</a>
+                    <a href="Detail.php" class="underline">Details</a>
                 </div>
                 <div class="col-2 cols"><img src="img/Currywurst.png" alt="Currywurst" class="smallimg">
                     <p class="produkt">Currywurst</p>
-                    <a href="Detail.html" class="underline">Details</a>
+                    <a href="Detail.php" class="underline">Details</a>
                 </div>
                 <div class="col-2 cols"><img src="img/Kaesestulle.jpg" alt="Kaesestulle" class="smallimg">
                     <p class="produkt">Käsestulle</p>
-                    <a href="Detail.html" class="underline">Details</a>
+                    <a href="Detail.php" class="underline">Details</a>
                 </div>
                 <div class="col-2 cols"><img src="img/spiegelei.jpg" alt="Spiegelei" class="smallimg">
                     <p class="produkt">Spiegelei</p>
-                    <a href="Detail.html" class="underline">Details</a>
+                    <a href="Detail.php" class="underline">Details</a>
                 </div>
             </div>
         </div>
