@@ -16,8 +16,7 @@
 <!-- TODO: Trennstrich unter nav, nav auslagern, -->
 
 <body>
-    <!-- Top -->
-    <div class="container-fluid">
+    <div class="container">
 <!--Header bzw Nav include -->
 <?php
 include 'inc/navbar.html'
@@ -26,13 +25,13 @@ include 'inc/navbar.html'
         <!-- content area -->
         <main><div class="row">
         <div class="col splash">
-            <img src="img/Mensa.jpg" alt="Food"/>
+            <img src="img/banner.jpg" id="banner" alt="eMensa Banner - Quelle: https://unsplash.com/photos/CgVqj1l-u44 "/>
         </div>
     </div>
     <div class="row">
         <div class="col-4">
             <p>Der Dienst <b>e-Mensa</b> ist noch beta. Sie können bereits
-                <a class="underline" href="Produkte.html">Mahlzeiten</a> durchstöbern, aber noch nicht bestellen.
+                <a class="underline" href="Produkte.php">Mahlzeiten</a> durchstöbern, aber noch nicht bestellen.
             </p>
         </div>
         <div class="col-8">
@@ -57,7 +56,7 @@ include 'inc/navbar.html'
             </p>
         </div>
         <div class="col not-splash">
-            <img src="img/Food.jpg" alt="Food"/>
+            <img src="img/food.jpg" id="food" alt="Food Quelle: https://www.freepik.com/premium-photo/hand-drawn-pieces-pizza-pizza-sharing-share-business-shareholders_2359324.htm"/>
         </div>
     </div>
 
