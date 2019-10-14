@@ -230,6 +230,9 @@ img {
 }
 #food{
     object-fit: cover;
-    height: 180px;
-    width: 1000px;
+    height: 160px;
+    width: 700px;
+}
+#buttons{
+    margin-bottom: 10px;
 }

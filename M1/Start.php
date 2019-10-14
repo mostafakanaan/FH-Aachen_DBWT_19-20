@@ -38,7 +38,7 @@ include 'inc/navbar.html'
             <div class="row">
                 <div class="col-8"><h2>Leckere Gerichte vorbestellen</h2>
                     <p id="legga">... und gemeinsam mit Kommilitonen und Freunden essen</p></div>
-                <div class="col-4">
+                <div class="col-4" id="buttons">
                     <div class="row">
                     <button type="button" class="btn btn-primary signinbtn"><i class="far fa-hand-point-right"></i> Registrieren</button>
                     </div>
