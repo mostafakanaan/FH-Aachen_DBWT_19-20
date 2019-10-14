@@ -109,13 +109,11 @@ include 'inc/navbar.html'
 </main>
         <!-- Footer -->
         <?php
-include 'inc/footer.html'
-?>
-
-
-<?php
-include 'inc/js.html' 
+include 'inc/footer.php'
 ?>
     </div>
-    </body>
+    <?php
+include 'inc/js.html' 
+?>
+</body>
 </html>

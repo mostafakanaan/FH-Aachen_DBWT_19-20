@@ -118,9 +118,9 @@ include 'inc/navbar.html'
 
             <!-- Footer -->
 <?php
-include 'inc/footer.html'
+include 'inc/footer.php'
 ?>
-</div>
+    </div>
 <?php
 include 'inc/js.html' 
 ?>

@@ -58,16 +58,10 @@ include 'inc/navbar.html'
     </div>
 
         </main>
-        
-
-
-
-
         <!-- Footer -->
 <?php
 include 'inc/footer.php'
 ?>
-
     </div>
 <?php
 include 'inc/js.html' 
