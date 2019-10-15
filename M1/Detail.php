@@ -75,7 +75,7 @@ include 'inc/navbar.html'
                     Hefe, Aroma, Dextrose, Zitronensaftpulver.
                 </div>
                 <div class="tab-pane" id="bewertungen" role="tabpanel">
-                    <form action="http://bc5.m2c-lab.fh-aachen.de/form.php" method="post">
+                    <form action="http://bc5.m2c-lab.fh-aachen.de/form.php" method="post" id="bewertungsform">
                         <input type="hidden" name="matrikel" value="3167397"/>
                         <input type="hidden" name="kontrolle" value="KAN"/>
                         <div class="form-group">
@@ -83,9 +83,9 @@ include 'inc/navbar.html'
                         </div>
                         <div class="row">
                             <div class="col-3">
-                                <div class="form-group">
+                                <div class="form-group" id="bewertung">
                                     <select class="form-control" name="bewertung" id="bewertung">
-                                        <option disabled selected class="align-text-center">Bewertung:</option>
+                                        <option disabled selected class="align-text-center">Bewertung</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -95,8 +95,7 @@ include 'inc/navbar.html'
                                 </div>
                             </div>
                             <div class="col3">
-                                <button type="submit" id="sendbtn" class="btn btn-primary"><i
-                                        class="far fa-check-circle"></i> Senden
+                                <button type="submit" id="sendbtn" class="btn btn-primary" id="bewertungsubmit"><i class="far fa-check-circle"></i> Senden
                                 </button>
                             </div>
                         </div>

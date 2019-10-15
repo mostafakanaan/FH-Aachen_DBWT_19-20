@@ -226,8 +226,10 @@ img {
 }
 
 #sendbtn {
-    margin-left: 110px;
-    width: 100px;
+    position: absolute;
+    bottom: -25px;
+    right: 1px;
+    width: 80px;
     font-family: "Comic Sans MS";
 }
 
@@ -248,8 +250,21 @@ img {
 #loginbutton{
 position: absolute;
 right: 28px;
-bottom: 1px}
+bottom: 1px
+}
+
 #login{
     width: 13rem; 
     height: 220px;
+}
+
+#name{
+width: 180px;    
+}
+#bewertung{
+    width: 122px;
+    height: 36px;
+}
+.far fa-check-circle{
+    
 }
