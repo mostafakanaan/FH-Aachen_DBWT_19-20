@@ -103,7 +103,11 @@ a {
 .card {
     background-image: url("https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     margin-top: 60px;
-    width: 13rem; height: 14rem;
+    width: 13rem; height: 13rem;
+}
+
+#bigcard {
+    width: 15rem; height: 17rem;
 }
 
 #login {
@@ -131,7 +135,7 @@ a {
 .form-check {
     padding-left: .0rem;
     margin-top: 25px;
-    margin-bottom: 35px;
+    margin-bottom: 18px;
 }
 
 .align-text-center {

@@ -25,7 +25,7 @@ include 'inc/navbar.html'
 
     <div class="row">
         <div class="col-3">
-            <div class="card">
+            <div class="card" id="bigcard">
                 <div class="card-body">
                     <h5 class="card-title">Speisenliste filtern</h5>
                     <div class="form-group">
