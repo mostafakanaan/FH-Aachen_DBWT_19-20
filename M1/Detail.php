@@ -48,12 +48,7 @@ include 'inc/navbar.html'
             <img src="img/Schnitzel.jpg" id="produktimg" alt="Falafel"/>
             <hr>
             <!-- Nav tabs -->
-                
-
-
-
-
-            <!-- <ul class="nav nav-tabs" id="myTab" role="tablist"> 
+            <ul class="nav nav-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#beschreibung" role="tab"
                        aria-controls="beschreibung" aria-selected="true">Beschreibung</a>
@@ -67,7 +62,7 @@ include 'inc/navbar.html'
                        aria-controls="bewertungen" aria-selected="false">Bewertungen</a>
                 </li>
             </ul>
-            -->
+        
 
             <!-- Tab panes -->
             <div class="tab-content">
@@ -115,7 +110,7 @@ include 'inc/navbar.html'
         </div>
         <div class="col-2 align-text-center" id="preiscol">
             <p id="spreis"><b>Gast-</b>Preis :</p>
-            <p id="preis">5, 95€</p>
+            <p id="preis">5,95€</p>
             <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-utensils"></i> Vorbestellen
             </button>
         </div>
@@ -129,8 +124,10 @@ include 'inc/navbar.html'
 include 'inc/footer.php'
 ?>
     </div>
-<?php
-include 'inc/js.html' 
+
+    <?php
+include 'inc/js.html'
 ?>
+
     </body>
 </html>
