@@ -86,19 +86,19 @@ include 'inc/navbar.html'
             </div>
             <div class="row"><br></div>
             <div class="row">
-                <div class="col-3 cols"><img src="img/falafel.jpg" alt="Falafel" class="smallimg">
+                <div class="col-3 cols productcol"><img src="img/falafel.jpg" alt="Falafel" class="smallimg">
                     <p class="produkt">Falafel</p>
                     <a href="Detail.php" class="underline">Details</a>
                 </div>
-                <div class="col-3 cols"><img src="img/Currywurst.png" alt="Currywurst" class="smallimg">
+                <div class="col-3 cols productcol"><img src="img/Currywurst.png" alt="Currywurst" class="smallimg">
                     <p class="produkt">Currywurst</p>
                     <a href="Detail.php" class="underline">Details</a>
                 </div>
-                <div class="col-3 cols"><img src="img/Kaesestulle.jpg" alt="Kaesestulle" class="smallimg">
+                <div class="col-3 cols productcol"><img src="img/Kaesestulle.jpg" alt="Kaesestulle" class="smallimg">
                     <p class="produkt">Käsestulle</p>
                     <a href="Detail.php" class="underline">Details</a>
                 </div>
-                <div class="col-3 cols"><img src="img/spiegelei.jpg" alt="Spiegelei" class="smallimg">
+                <div class="col-3 cols productcol"><img src="img/spiegelei.jpg" alt="Spiegelei" class="smallimg">
                     <p class="produkt">Spiegelei</p>
                     <a href="Detail.php" class="underline">Details</a>
                 </div>

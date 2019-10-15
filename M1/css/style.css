@@ -38,6 +38,10 @@ nav.col-5 {
     width: 500px;
 }
 
+.productcol {
+    height: 200px;
+}
+
 a {
     color: #00b5ad
 }
@@ -141,7 +145,8 @@ img {
 .smallimg {
     height: 60%;
     width: 90%;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #titel {
