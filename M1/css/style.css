@@ -236,3 +236,11 @@ img {
 #buttons{
     margin-bottom: 10px;
 }
+#loginbutton{
+position: absolute;
+right: 28px;
+bottom: 1px}
+#login{
+    width: 13rem; 
+    height: 220px;
+}
