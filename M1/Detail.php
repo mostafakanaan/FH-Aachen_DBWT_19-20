@@ -27,12 +27,12 @@ include 'inc/navbar.html'
 
     <div class="row">
         <div class="col-2" id="logincol">
-            <div class="card" id="login" style="width: 13rem; height: 200px;">
+            <div class="card" id="login">
                 <div class="card-body align-text-center">
                     <h6 class="card-title align-text-center"><i class="fas fa-sign-in-alt"></i> Login</h6>
                     <div class="form-group">
                         <input type="email" class="form-control" id="email" placeholder="Benutzer">
-                        <input type="password" class="form-control" id="password" placeholder="Passwort">
+                        <input type="password" class="form-control" id="password" placeholder="Passwort"> 
                     </div>
                     <a class="btn btn-dark align-text-center" href="#">Anmelden</a>
                 </div>
@@ -46,12 +46,7 @@ include 'inc/navbar.html'
             <img src="img/Schnitzel.jpg" id="produktimg" alt="Falafel"/>
             <hr>
             <!-- Nav tabs -->
-                
-
-
-
-
-            <!-- <ul class="nav nav-tabs" id="myTab" role="tablist"> 
+            <ul class="nav nav-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#beschreibung" role="tab"
                        aria-controls="beschreibung" aria-selected="true">Beschreibung</a>
@@ -65,7 +60,7 @@ include 'inc/navbar.html'
                        aria-controls="bewertungen" aria-selected="false">Bewertungen</a>
                 </li>
             </ul>
-            -->
+        
 
             <!-- Tab panes -->
             <div class="tab-content">
@@ -78,7 +73,7 @@ include 'inc/navbar.html'
                     Hefe, Aroma, Dextrose, Zitronensaftpulver.
                 </div>
                 <div class="tab-pane" id="bewertungen" role="tabpanel">
-                    <form action="http://bc5.m2c-lab.fh-aachen.de/form.php" method="post">
+                    <form action="http://bc5.m2c-lab.fh-aachen.de/form.php" method="post" id="bewertungsform">
                         <input type="hidden" name="matrikel" value="3167397"/>
                         <input type="hidden" name="kontrolle" value="KAN"/>
                         <div class="form-group">
@@ -86,9 +81,9 @@ include 'inc/navbar.html'
                         </div>
                         <div class="row">
                             <div class="col-3">
-                                <div class="form-group">
+                                <div class="form-group" id="bewertung">
                                     <select class="form-control" name="bewertung" id="bewertung">
-                                        <option disabled selected class="align-text-center">Bewertung:</option>
+                                        <option disabled selected class="align-text-center">Bewertung</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -98,8 +93,7 @@ include 'inc/navbar.html'
                                 </div>
                             </div>
                             <div class="col3">
-                                <button type="submit" id="sendbtn" class="btn btn-primary"><i
-                                        class="far fa-check-circle"></i> Senden
+                                <button type="submit" id="sendbtn" class="btn btn-primary" id="bewertungsubmit"><i class="far fa-check-circle"></i> Senden
                                 </button>
                             </div>
                         </div>
@@ -113,7 +107,7 @@ include 'inc/navbar.html'
         </div>
         <div class="col-2 align-text-center" id="preiscol">
             <p id="spreis"><b>Gast-</b>Preis :</p>
-            <p id="preis">5, 95€</p>
+            <p id="preis">5,95€</p>
             <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-utensils"></i> Vorbestellen
             </button>
         </div>
@@ -127,8 +121,10 @@ include 'inc/navbar.html'
 include 'inc/footer.php'
 ?>
     </div>
-<?php
-include 'inc/js.html' 
+
+    <?php
+include 'inc/js.html'
 ?>
+
     </body>
 </html>
