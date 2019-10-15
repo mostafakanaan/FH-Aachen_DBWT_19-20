@@ -56,7 +56,7 @@ include 'inc/navbar.html'
                                 <label class="form-check-label" for="defaultCheck3">nur vegane</label></li>
                         </ul>
                     </div>
-                    <a href="#" class="btn btn-primary" id="filter">Speisen filtern</a>
+                    <a href="#" class="btn btn-dark" id="filter">Speisen filtern</a>
                 </div>
             </div>
         </div>

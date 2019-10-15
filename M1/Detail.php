@@ -30,15 +30,14 @@ include 'inc/navbar.html'
             <div class="card" id="login" style="width: 13rem; height: 200px;">
                 <div class="card-body align-text-center">
                     <h6 class="card-title align-text-center"><i class="fas fa-sign-in-alt"></i> Login</h6>
-                    <hr>
                     <div class="form-group">
                         <input type="email" class="form-control" id="email" placeholder="Benutzer">
                         <input type="password" class="form-control" id="password" placeholder="Passwort">
                     </div>
-                    <a class="underline align-text-center" href="#">Anmelden</a>
+                    <a class="btn btn-dark align-text-center" href="#">Anmelden</a>
                 </div>
             </div>
-            <p style="width: 13rem; font-size: 14px;">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise
+            <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise
                 für
                 Mitarbeiter oder Studenten zu sehen.
             </p>

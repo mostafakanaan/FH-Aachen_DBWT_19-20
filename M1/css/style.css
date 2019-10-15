@@ -101,7 +101,7 @@ a {
 }
 
 .card {
-    background-color: peachpuff;
+    background-image: url("https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     margin-top: 60px;
     width: 15rem; height: 310px;
 }
@@ -109,6 +109,10 @@ a {
 #login {
     margin-top: 0px;
     margin-bottom: 25px;
+}
+
+#register {
+    width: 13rem; font-size: 15px;
 }
 
 .card-title {
