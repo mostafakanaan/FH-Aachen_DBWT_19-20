@@ -184,6 +184,10 @@ img {
     margin-right: 25px;
 }
 
+#bottom_nav {
+    margin-top: 4px;
+}
+
 .btn-lg {
     width: 160px;
     margin-top: 18px;
