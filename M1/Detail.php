@@ -47,7 +47,12 @@ include 'inc/navbar.html'
             <img src="img/Schnitzel.jpg" id="produktimg" alt="Falafel"/>
             <hr>
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                
+
+
+
+
+            <!-- <ul class="nav nav-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#beschreibung" role="tab"
                        aria-controls="beschreibung" aria-selected="true">Beschreibung</a>
@@ -61,6 +66,7 @@ include 'inc/navbar.html'
                        aria-controls="bewertungen" aria-selected="false">Bewertungen</a>
                 </li>
             </ul>
+            -->
 
             <!-- Tab panes -->
             <div class="tab-content">
