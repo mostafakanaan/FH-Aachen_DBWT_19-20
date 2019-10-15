@@ -103,7 +103,7 @@ a {
 .card {
     background-image: url("https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     margin-top: 60px;
-    width: 15rem; height: 15rem;
+    width: 13rem; height: 14rem;
 }
 
 #login {
@@ -117,6 +117,11 @@ a {
 
 .card-title {
     text-align: center;
+}
+
+.card-body {
+    justify-content:center;
+    align-content: center;
 }
 
 .nav-link, .underline {
