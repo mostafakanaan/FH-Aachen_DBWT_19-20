@@ -139,14 +139,14 @@ img {
 }
 
 .smallimg {
-    height: 70%;
-    width: 100%;
+    height: 60%;
+    width: 90%;
     margin-bottom: 10px;
 }
 
 #titel {
-    margin-left: 45px;
-    margin-bottom: 15px;
+    justify-content:center;
+    text-align: center;
 }
 
 .cols {
