@@ -234,14 +234,29 @@ img {
     width: 400px;
 }
 
-#bewertung {
+#bewertung  {
+    height: 37px;
+    width: 125px;
+}
+#name{
+    width: 145px;
+}
+#mahlzeiten{
+    width: 125px;
     height: 35px;
-    width: 112px;
+
+}
+#bemerkung{
+        position: absolute;
+        bottom: 10px;
+        left: 200px;
+    margin-bottom: 80px;
+    
 }
 
 #sendbtn {
     margin-left: 110px;
-    width: 100px;
+    width: 80px;
     font-family: "Comic Sans MS";
 }
 

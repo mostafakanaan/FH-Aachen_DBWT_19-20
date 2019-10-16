@@ -61,7 +61,7 @@ include 'inc/navbar.html'
                 </li>
             </ul>
         
-
+            
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane active" id="beschreibung" role="tabpanel">Dünne panierte gebratene Scheibe Schweinefleisch mit
@@ -76,10 +76,27 @@ include 'inc/navbar.html'
                     <form action="http://bc5.m2c-lab.fh-aachen.de/form.php" method="post" id="bewertungsform">
                         <input type="hidden" name="matrikel" value="3167397"/>
                         <input type="hidden" name="kontrolle" value="KAN"/>
+                        <div class="form-group" id="mahlzeiten">
+                            <select class="form-control" name="mahlzeiten" id="mahlzeiten">
+                                <option disabled selected class="align-text-center">Mahlzeiten</option>
+                                <option>Curry Wok</option>
+                                <option>Schnitzel</option>
+                                <option>Bratrolle</option>
+                                <option>Krautsalat</option>
+                                <option>Falafel</option>
+                                <option>Currywurst</option>
+                                <option>Käsestulle</option>
+                                <option>Spiegelei</option>
+                            </select>
+                        </div>
                         <div class="form-group">
-                            <input id="name" class="form-control" name="benutzer" placeholder="Name">
+                            <input id="name" class="form-control" name="benutzer" placeholder="Name" id="name">
                         </div>
                         <div class="row">
+                            <div class="form-group" id=bemerkung>
+                                <textarea class="form-control" name="bemerkung"
+                                          placeholder="Wie hat's Ihnen geschmeckt?"></textarea>
+                            </div>
                             <div class="col-3">
                                 <div class="form-group" id="bewertung">
                                     <select class="form-control" name="bewertung" id="bewertung">
@@ -96,10 +113,6 @@ include 'inc/navbar.html'
                                 <button type="submit" id="sendbtn" class="btn btn-primary" id="bewertungsubmit"><i class="far fa-check-circle"></i> Senden
                                 </button>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" name="bemerkung"
-                                      placeholder="Wie hat's Ihnen geschmeckt?"></textarea>
                         </div>
                     </form>
                 </div>
