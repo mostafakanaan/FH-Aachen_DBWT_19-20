@@ -25,7 +25,7 @@ include 'inc/navbar.html'
         <h2 class="align-text-center" id="details">Details für "Schnitzel"</h2>
     </div>
 
-    <div class="row">
+    <div class="row" id="loginrow">
         <div class="col-2" id="logincol">
             <div class="card" id="login">
                 <div class="card-body align-text-center">
@@ -37,15 +37,27 @@ include 'inc/navbar.html'
                     <a class="btn btn-dark align-text-center" href="#">Anmelden</a>
                 </div>
             </div>
-            <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise
-                für
-                Mitarbeiter oder Studenten zu sehen.
-            </p>
         </div>
         <div class="col-6" id="produktcol">
             <img src="img/Schnitzel.jpg" id="produktimg" alt="Falafel"/>
             <hr>
-            <!-- Nav tabs -->
+            
+        </div>
+        <div class="col-2 align-text-center" id="preiscol">
+            <p id="spreis"><b>Gast-</b>Preis :</p>
+            <p id="preis">5,95€</p>
+            <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-utensils"></i> Vorbestellen
+            </button>
+        </div>
+    </div>   
+
+    <div class="row" id="ratingrow">
+    	<div class="col-3">
+			<p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder Studenten zu sehen.
+    		</p>
+		</div>
+		<div class="col-6">
+			<!-- Nav tabs -->
             <ul class="nav nav-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#beschreibung" role="tab"
@@ -117,19 +129,11 @@ include 'inc/navbar.html'
                     </form>
                 </div>
             </div>
-        </div>
-        <div class="col-2 align-text-center" id="preiscol">
-            <p id="spreis"><b>Gast-</b>Preis :</p>
-            <p id="preis">5,95€</p>
-            <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-utensils"></i> Vorbestellen
-            </button>
-        </div>
-    </div>    
-
+		</div>
+    </div> 
 </main>
 
-
-            <!-- Footer -->
+<!-- Footer -->
 <?php
 include 'inc/footer.php'
 ?>

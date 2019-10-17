@@ -1,6 +1,7 @@
 /* Meilenstein 1 */
 body {
     margin-top: 10px;
+    height: 100%;
 }
 
 header.row {
@@ -273,4 +274,12 @@ img {
 }
 #buttons{
     margin-bottom: 10px;
+}
+
+#loginrow {
+    height: 220px;
+}
+
+#ratingrow {
+    height: 215px;
 }
