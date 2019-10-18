@@ -93,7 +93,7 @@ include 'inc/navbar.html'
                         </div>
                         <div class="form-group" id="mahlzeiten">
                             <select class="form-control" name="mahlzeit" id="mahlzeiten">
-                                <option disabled selected class="align-text-center">Mahlzeiten</option>
+                                <option disabled selected class="align-text-center">Mahlzeit</option>
                                 <option>Curry Wok</option>
                                 <option>Schnitzel</option>
                                 <option>Bratrolle</option>
@@ -137,11 +137,7 @@ include 'inc/navbar.html'
 
 <!-- Footer -->
 <?php
-include 'inc/footer.php'
-?>
-    </div>
-
-    <?php
+include 'inc/footer.php';
 include 'inc/js.html'
 ?>
 
