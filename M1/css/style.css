@@ -88,7 +88,8 @@ a {
 }
 
 .form-control {
-    width: 80%
+    width: 80%;
+    resize: none;
 }
 
 #filter {
@@ -167,6 +168,7 @@ img {
 #titel {
     justify-content:center;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .cols {
@@ -230,33 +232,21 @@ img {
     font-size: 14px;
 }
 
-#name {
-    height: 35px;
-    width: 400px;
-}
-
 #bewertung  {
     height: 37px;
     width: 125px;
 }
-#name{
-    width: 145px;
-}
-#mahlzeiten{
-    width: 125px;
-    height: 35px;
 
-}
-#bemerkung{
-        position: absolute;
+#bemerkung{   
+        width: 180px;
         bottom: 10px;
         left: 200px;
-    margin-bottom: 80px;
-    
+        margin-bottom: 80px;
+        margin-left: 20px;
 }
 
 #sendbtn {
-    margin-left: 110px;
+    margin-left: 10px;
     width: 80px;
     font-family: "Comic Sans MS";
 }
