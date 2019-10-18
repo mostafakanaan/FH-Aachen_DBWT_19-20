@@ -40,7 +40,7 @@ nav.col-5 {
 }
 
 .productcol {
-    height: 200px;
+    height: 190px;
 }
 
 a {
@@ -103,8 +103,11 @@ a {
     margin-top: 17px;
 }
 
-.card {
+.background {
     background-image: url("../img/background.jpeg");
+}
+
+.card {
     margin-top: 60px;
     width: 13rem; height: 13rem;
 }
@@ -168,17 +171,12 @@ img {
 #titel {
     justify-content:center;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .cols {
     text-align: center;
     padding-left: 0px;
-}
-
-#details {
-    margin-left: 300px;
-    margin-bottom: 15px;
 }
 
 #produktimg {
@@ -234,21 +232,22 @@ img {
 
 #bewertung  {
     height: 37px;
-    width: 125px;
+    width: 85px;
+    font-size: 11px;
+    font-weight: bold;
 }
 
 #bemerkung{   
-        width: 180px;
-        bottom: 10px;
-        left: 200px;
+        width: 280px;
         margin-bottom: 80px;
-        margin-left: 20px;
 }
 
 #sendbtn {
-    margin-left: 10px;
-    width: 80px;
     font-family: "Comic Sans MS";
+    width: 105px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 #banner{
@@ -272,4 +271,22 @@ img {
 
 #ratingrow {
     height: 215px;
+}
+
+#benutzername {
+    margin-top: 10px;
+}
+
+#name {
+    width: 355px;
+}
+
+#mahlzeiten {
+    width: 150px;
+}
+
+#detailsTitel {
+    margin-bottom: 10px;
+    justify-content:center;
+    align-content: center;
 }

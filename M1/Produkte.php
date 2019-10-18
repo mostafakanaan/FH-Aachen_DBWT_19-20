@@ -25,7 +25,7 @@ include 'inc/navbar.html'
 
     <div class="row">
         <div class="col-3">
-            <div class="card" id="bigcard">
+            <div class="card background" id="bigcard">
                 <div class="card-body">
                     <h5 class="card-title">Speisenliste filtern</h5>
                     <div class="form-group">
@@ -62,7 +62,7 @@ include 'inc/navbar.html'
         </div>
 
 <div class="col-9">
-            <div class="row" id="titel">
+            <div class="row background" id="titel">
                 <h2>Verfügbare Speisen (Bestseller)</h2>
             </div>
 
@@ -84,13 +84,12 @@ include 'inc/navbar.html'
                     <a href="Detail.php" class="underline">Details</a>
                 </div>
             </div>
-            <div class="row"><br></div>
             <div class="row">
                 <div class="col-3 cols productcol"><img src="img/falafel.jpg" alt="Falafel" class="smallimg">
                     <p class="produkt">Falafel</p>
                     <a href="Detail.php" class="underline">Details</a>
                 </div>
-                <div class="col-3 cols productcol"><img src="img/Currywurst.png" alt="Currywurst" class="smallimg">
+                <div class="col-3 cols productcol"><img src="img/Currywurst.jpg" alt="Currywurst" class="smallimg">
                     <p class="produkt">Currywurst</p>
                     <a href="Detail.php" class="underline">Details</a>
                 </div>
