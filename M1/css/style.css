@@ -230,7 +230,7 @@ img {
     font-size: 14px;
 }
 
-#bewertung  {
+.bewertung  {
     height: 37px;
     width: 85px;
     font-size: 11px;
@@ -281,7 +281,7 @@ img {
     width: 355px;
 }
 
-#mahlzeiten {
+.mahlzeiten {
     width: 150px;
 }
 

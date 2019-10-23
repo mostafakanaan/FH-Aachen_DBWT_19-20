@@ -89,12 +89,12 @@
                             <input type="hidden" name="matrikel" value="3167397"/>
                             <input type="hidden" name="kontrolle" value="KAN"/>
                             <div class="form-group" id="benutzername">
-                                <input id="name" class="form-control" name="benutzer" placeholder="Benutzername" id="name">
+                                <input id="name" class="form-control" name="benutzer" placeholder="Benutzername">
                             </div>
                             <div class="row"> 
                                 <div class="col-4">
-                                    <div class="form-group" id="mahlzeiten">
-                                        <select class="form-control" name="mahlzeit" id="mahlzeiten">
+                                    <div class="form-group mahlzeiten">
+                                        <select class="form-control mahlzeiten" name="mahlzeit">
                                             <option disabled selected class="align-text-center">Mahlzeit</option>
                                             <option>Curry Wok</option>
                                             <option>Schnitzel</option>
@@ -108,8 +108,8 @@
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="form-group" id="bewertung">
-                                        <select class="form-control" name="bewertung" id="bewertung">
+                                    <div class="form-group bewertung">
+                                        <select class="form-control" name="bewertung">
                                             <option disabled selected class="align-text-center">Bewertung</option>
                                             <option>1</option>
                                             <option>2</option>
@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3">
-                                    <button type="submit" id="sendbtn" class="btn btn-primary" id="bewertungsubmit"><i class="far fa-check-circle"></i> Senden
+                                    <button type="submit" id="sendbtn" class="btn btn-primary"><i class="far fa-check-circle"></i> Senden
                                     </button>
                                 </div>
 
@@ -146,6 +146,6 @@
     include 'inc/footer.php';
     include 'inc/js.html'
     ?>
-
+</div>
 </body>
 </html>
