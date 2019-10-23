@@ -31,7 +31,7 @@ a.nav-link {
 }
 
 nav li:last-child a {
-    border-right: 0 solid black;
+    border-right: 0;
 }
 
 nav.col-5 {
