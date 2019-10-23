@@ -108,8 +108,8 @@
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="form-group bewertung">
-                                        <select class="form-control" name="bewertung">
+                                    <div class="form-group">
+                                        <select class="form-control bewertung" name="bewertung">
                                             <option disabled selected class="align-text-center">Bewertung</option>
                                             <option>1</option>
                                             <option>2</option>
