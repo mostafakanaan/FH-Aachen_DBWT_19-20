@@ -1,33 +1,26 @@
-/* Meilenstein 1 */
+/* Meilenstein 2 */
 body {
     margin-top: 10px;
     height: 100%;
 }
 
 header.row {
-    margin-bottom: 5px;
+    border-bottom: 1px solid #d9dedb;
+    margin-bottom: 15px;
 }
-#search{
-    margin-top: 5px;
+
+footer.row {
+    border-top: 1px solid #d9dedb;
+    margin-top: 20px;
+    padding-top: 15px;
 }
+
 .nav{
     margin-top: 10px;
-}
-ul.nav {
-    padding-left: 20px;
 }
 
 nav a {
     border-right: 1px solid black;
-}
-
-nav a.last {
-    border-right: 0 solid black;
-}
-
-a.nav-link {
-    padding-top: .1rem;
-    padding-bottom: .1rem;
 }
 
 nav li:last-child a {
@@ -39,12 +32,34 @@ nav.col-5 {
     width: 500px;
 }
 
-.productcol {
-    height: 190px;
-}
-
 a {
     color: #00b5ad
+}
+
+a.nav-link {
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+}
+
+
+#search {
+    margin-top: 5px;
+}
+
+ul.nav {
+    padding-left: 20px;
+}
+
+img {
+    font-size: 12px;
+    font-style: italic;
+}
+
+
+
+
+.productcol {
+    height: 190px;
 }
 
 .btn {
@@ -156,10 +171,7 @@ a {
     margin-bottom: 0;
 }
 
-img {
-    font-size: 12px;
-    font-style: italic;
-}
+
 
 .smallimg {
     height: 60%;
@@ -238,8 +250,8 @@ img {
 }
 
 #bemerkung{   
-        width: 280px;
-        margin-bottom: 80px;
+    width: 280px;
+    margin-bottom: 80px;
 }
 
 #sendbtn {
