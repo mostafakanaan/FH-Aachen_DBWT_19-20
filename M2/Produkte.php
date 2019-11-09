@@ -22,7 +22,6 @@ include 'inc/navbar.html'
 ?>
 
 <main>
-
     <div class="row">
         <div class="col-3">
             <div class="card background" id="bigcard">

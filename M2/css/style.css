@@ -55,8 +55,12 @@ img {
     font-style: italic;
 }
 
-
-
+label[for=name]
+{
+margin-right: 15px;
+margin-left: 20px;
+padding-top: 5px;
+}
 
 .productcol {
     height: 190px;
@@ -134,6 +138,7 @@ img {
 #login {
     margin-top: 0px;
     margin-bottom: 25px;
+    height: 18rem;
 }
 
 #register {
@@ -171,7 +176,16 @@ img {
     margin-bottom: 0;
 }
 
-
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 
 .smallimg {
     height: 60%;
@@ -220,17 +234,12 @@ img {
     margin-top: 4px;
 }
 
-.btn-lg {
-    width: 160px;
-    margin-top: 18px;
-}
-
 #email, #password {
     width: 10.5rem;
 }
 
 #email {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 #myTab {
@@ -258,7 +267,7 @@ img {
     font-family: "Comic Sans MS";
     width: 105px;
     height: 40px;
-    margin-left: 10px;
+    margin-left: 75px;
     margin-top: 10px;
 }
 
@@ -275,14 +284,6 @@ img {
 }
 #buttons{
     margin-bottom: 10px;
-}
-
-#loginrow {
-    height: 220px;
-}
-
-#ratingrow {
-    height: 215px;
 }
 
 #benutzername {
