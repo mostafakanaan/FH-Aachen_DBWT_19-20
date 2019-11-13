@@ -11,7 +11,7 @@
         	<!-- die Deko-Striche evtl schöner -->
             <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Registrieren</a></li>
-            <li class="nav-item"><a class="nav-link active" href="#">Zutatenliste</a></li>
+            <li class="nav-item"><a class="nav-link active" href="Zutaten.php">Zutatenliste</a></li>
             <li class="nav-item"><a class="nav-link active" href="Impressum.php">Impressum</a></li>
         </ul>
     </nav>
