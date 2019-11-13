@@ -1,11 +1,13 @@
+<!--$Page ist die Dateiendung in der URL z.b. Start.php-->
+<?php $page = basename($_SERVER['PHP_SELF']); ?>
 <header class="row">
     <div class="col-3">
         <h1>e-Mensa</h1>
     </div>
     <nav class="col-6">
         <ul class="nav">
-            <li class="nav-item"><a class="nav-link" href="Start.php">Start</a></li>
-            <li class="nav-item"><a class="nav-link" href="Produkte.php">Mahlzeiten</a></li>
+            <li class="nav-item"><a class="nav-link <?php if ($page == 'Start.php')  echo " disabled" ?> " href="Start.php">Start</a></li>
+            <li class="nav-item"><a class="nav-link <?php if ($page == 'Produkte.php')  echo " disabled" ?> " href="Produkte.php">Mahlzeiten</a></li>
             <li class="nav-item"><a class="nav-link active" href="#">Bestellung</a></li>
             <li class="nav-item"><a class="nav-link active" target="_blank" href="https://www.fh-aachen.de/">FH-Aachen</a></li>
         </ul>

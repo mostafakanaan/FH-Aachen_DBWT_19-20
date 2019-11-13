@@ -1,0 +1,13 @@
+{
+    "name": "mk6651s/m2",
+    "description": "Meilenstein 2",
+    "authors": [
+        {
+            "name": "Marko Kozlowski",
+            "email": "marko.kozlowski@alumni.fh-aachen.de"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^3.6"
+    }
+}

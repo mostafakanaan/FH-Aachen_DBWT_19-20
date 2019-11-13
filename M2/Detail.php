@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <!--Header bzw Nav include -->
-        <?php include 'inc/navbar.html'?>
+        <?php include 'inc/navbar.php' ?>
 
         <main>
             <div class="row background" id="detailsTitel">

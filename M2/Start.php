@@ -17,7 +17,7 @@
     <div class="container">
 <!--Header bzw Nav include -->
 <?php
-include 'inc/navbar.html'
+include 'inc/navbar.php'
 ?>
 
         <!-- content area -->
