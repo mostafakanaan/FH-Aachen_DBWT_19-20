@@ -27,4 +27,3 @@ $result = mysqli_query($connection, $query);
 echo mysqli_num_rows($result);
 
 ?>
-<img src="img/bio.png"  title="Bio" alt="Bioabzeichen"/>

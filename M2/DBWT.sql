@@ -1,11 +1,11 @@
--- SQL DDL Intro aus der Übung
--- TODO: IS A Relation + Kostet + hat bei Kategorien + andere dreieck relation unter FH Angehörige
--- Ihre Datenbank auswählen, ändern Sie den Namen entsprechend...
+-- SQL DDL Intro aus der ï¿½bung
+-- TODO: IS A Relation + Kostet + hat bei Kategorien + andere dreieck relation unter FH Angehï¿½rige
+-- Ihre Datenbank auswï¿½hlen, ï¿½ndern Sie den Namen entsprechend...
 USE `db3166667`;
 
--- Tabelle löschen, falls Sie existiert
--- Alle Tabellen die Fremdschlüssel enthalten werden als erstes gelöscht...
--- Reihenfolge beachten abhängigkeiten müssen stimmen....
+-- Tabelle lï¿½schen, falls Sie existiert
+-- Alle Tabellen die Fremdschlï¿½ssel enthalten werden als erstes gelï¿½scht...
+-- Reihenfolge beachten abhï¿½ngigkeiten mï¿½ssen stimmen....
 
 DROP TABLE IF EXISTS befreundet_mit;
 DROP TABLE IF EXISTS FHAng_gehoertzu_Fachbereich;
@@ -31,13 +31,13 @@ DROP TABLE IF EXISTS Benutzer;
 
 
 -- Empfohlen ist, zuerst die Attribute der Tabellen anzulegen und die Relationen
--- anschließend vorzunehmen. dabei werden Sie erkennen, dass nicht jede Lösch-
+-- anschlieï¿½end vorzunehmen. dabei werden Sie erkennen, dass nicht jede Lï¿½sch-
 -- reihenfolge (DROP) funktioniert.
 
 CREATE TABLE IF NOT EXISTS Benutzer (
     Nummer INT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE,
     `E-Mail` VARCHAR(255) NOT NULL UNIQUE, -- Backticks wegen Minus im namen
-    Bild VARBINARY(1000), -- verbessern Sie die Datentypen, wenn nötig
+    Bild VARBINARY(1000), -- verbessern Sie die Datentypen, wenn nï¿½tig
     Nutzername VARCHAR(50) NOT NULL UNIQUE,-- NOT NULL weil nicht optional
     AnlegeDatum TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     Vorname VARCHAR(255) NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS Bilder (
     ID INT UNSIGNED AUTO_INCREMENT NOT NULL,
     `Alt-Text` BOOL NOT NULL, -- denken Sie auch hier an Backticks
     Titel VARCHAR(255),
-    Binärdaten VARBINARY(255) NOT NULL,
+    Binï¿½rdaten VARBINARY(255) NOT NULL,
     PRIMARY KEY (ID)
 );
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS Kategorien (
 CREATE TABLE IF NOT EXISTS Bestellungen (
   Nummer INT UNSIGNED NOT NULL UNIQUE,
   Benutzer_Nummer INT UNSIGNED NOT NULL UNIQUE,
-  BestellZeitpunkt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, -- Hier musste ich die reihenfolge ändern da es sonst zu problemen gekommen ist
+  BestellZeitpunkt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, -- Hier musste ich die reihenfolge ï¿½ndern da es sonst zu problemen gekommen ist
   AbholZeitpunkt TIMESTAMP CHECK(AbholZeitpunkt > BestellZeitpunkt),
   Endpreis Double(4,2),
   PRIMARY KEY (Nummer),
@@ -82,6 +82,7 @@ CREATE TABLE IF NOT EXISTS Bestellungen (
 
 CREATE TABLE  IF NOT EXISTS Mahlzeiten(
     ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
     Kategorie_ID INT UNSIGNED NOT NULL,
     Beschreibung VARCHAR(255) NOT NULL,
     Vorrat INT UNSIGNED NOT NULL DEFAULT 0,
@@ -91,11 +92,11 @@ CREATE TABLE  IF NOT EXISTS Mahlzeiten(
 );
 
 CREATE TABLE IF NOT EXISTS Preise(
-    Jahr YEAR NOT NULL,
+    Jahr YEAR,
     Mahlzeiten_ID INT UNSIGNED NOT NULL,
-    Gastpreis DOUBLE(2,2) UNSIGNED NOT NULL,
-    Studentpreis DOUBLE(2,2) UNSIGNED CHECK ( Studentpreis > `MA-Preis`),
-    `MA-Preis` DOUBLE(2,2) UNSIGNED,
+    Gastpreis DOUBLE(4,2) UNSIGNED,
+    Studentpreis DOUBLE(4,2) UNSIGNED CHECK ( Studentpreis > `MA-Preis`),
+    `MA-Preis` DOUBLE(4,2) UNSIGNED,
     PRIMARY KEY(Jahr, Mahlzeiten_ID),
     CONSTRAINT fk_mahlZeitenID_preise FOREIGN KEY(Mahlzeiten_ID) REFERENCES `Mahlzeiten`(ID)
 );
@@ -148,7 +149,7 @@ CREATE TABLE IF NOT EXISTS Kommentare(
 
 CREATE TABLE IF NOT EXISTS  Mitarbeiter(
     Nummer INT UNSIGNED NOT NULL UNIQUE,
-    Büro VARCHAR(4),
+    Bï¿½ro VARCHAR(4),
     Telefon VARCHAR(15),
     PRIMARY KEY (Nummer),
     FOREIGN KEY (Nummer) REFERENCES FH_Angehoerige(Nummer) ON DELETE cascade
@@ -222,19 +223,19 @@ CREATE TABLE IF NOT EXISTS Bestellung_enthaelt_Mahlzeit (
       FOREIGN KEY (Bestell_ID) REFERENCES `Bestellungen`(Nummer),
       FOREIGN KEY (Mahlzeit_ID) REFERENCES `Mahlzeiten`(ID)
 );
--- Create tables müssen ebenfalls die richtige reihenfolge besitzen...
+-- Create tables mï¿½ssen ebenfalls die richtige reihenfolge besitzen...
 -- ALTER Anweisungen
 
 ALTER TABLE Preise
 DROP FOREIGN KEY fk_mahlZeitenID_preise;
 
-ALTER TABLE Preise -- Preise löschen
+ALTER TABLE Preise -- Preise lï¿½schen
 ADD CONSTRAINT fk_mahlZeitenID_preise FOREIGN KEY (Mahlzeiten_ID) REFERENCES Mahlzeiten(ID) ON DELETE CASCADE;
 
 ALTER TABLE Kommentare
 DROP FOREIGN KEY fk_mahlZeitenID_kommentare;
 
-ALTER TABLE Kommentare -- Preise löschen
+ALTER TABLE Kommentare -- Preise lï¿½schen
 ADD CONSTRAINT fk_mahlZeitenID_kommentare FOREIGN KEY (Mahlzeiten_ID) REFERENCES Mahlzeiten(ID) ON DELETE SET NULL;
 
 ALTER TABLE Mahl_enthaelt_zutat
