@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!--TODO: Tabelle: Tooltip(Text beim  hovern der Zutaten) Siehe Paket 3-->
+<!--TODO: Tabelle: Checkbox bei Vegan, Vegetarisch,Glutenfrei (siehe Paket 3)-->
+<!--TODO: Aussehen bisschen anpassen-->
 <html lang="de">
 <head>
     <meta charset="utf-8">
