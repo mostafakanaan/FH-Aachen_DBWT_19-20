@@ -30,7 +30,16 @@
         <?php
         $query = 'SELECT ID,Name,Vegan,Vegetarisch,Glutenfrei,Bio FROM Zutaten ORDER BY Bio DESC,Name;'; //Query um an die Zutaten zu kommen
         //Connectiion string..
-        $connection = mysqli_connect('149.201.88.110','s_mk6651s',',SDS@A8.AC', 'db3166667','3306');
+        $dotenv = Dotenv\Dotenv::create(__DIR__,'.env');
+        $dotenv->load();
+        $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS','DB_PORT']);
+        $connection = mysqli_connect(
+            getenv('DB_HOST'),
+            getenv('DB_USER'),
+            getenv('DB_PASS'),
+            getenv('DB_NAME'),
+            (int) getenv('DB_PORT')
+        );
 
         //Erros abfangen...
         if(mysqli_connect_errno()){
