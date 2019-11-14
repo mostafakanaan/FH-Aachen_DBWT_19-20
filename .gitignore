@@ -1,1 +1,5 @@
 .DS_Store
+.idea
+.sql_conf.env
+sql_conf.env
+.env
