@@ -284,3 +284,23 @@ INSERT INTO `Studenten`VALUES ((
 INSERT INTO `Mitarbeiter`VALUES ((
     SELECT nummer FROM `Benutzer` WHERE `E-Mail` = 'nutzer3@gmx.de'
     ),'E113','+49100');
+
+-- INSERTS FOR PRICES AND FOOD
+INSERT INTO `Kategorien`(Bezeichnung) VALUES ('Test Kate');
+INSERT INTO `Mahlzeiten`( Name, Kategorie_ID ,Beschreibung, Vorrat, Verfuegbar) VALUES ('Curry Wok', '1', 'Wok mit Curry', '10','1');
+INSERT INTO `Mahlzeiten`( Name, Kategorie_ID ,Beschreibung, Vorrat, Verfuegbar) VALUES ('Schnitzel', '1', 'Dünne panierte gebratene Scheibe Schweinefleisch mit Beilage(Reis/Pommes).', '12','1');
+INSERT INTO `Mahlzeiten`( Name, Kategorie_ID ,Beschreibung, Vorrat, Verfuegbar) VALUES ('Bratrolle', '1', 'Brat mit Rolle', '0','0');
+INSERT INTO `Mahlzeiten`( Name, Kategorie_ID ,Beschreibung, Vorrat, Verfuegbar) VALUES ('Krautsalat', '1', 'Kraut mit Salat', '8','1');
+INSERT INTO `Mahlzeiten`( Name, Kategorie_ID ,Beschreibung, Vorrat, Verfuegbar) VALUES ('Falafel', '1', 'Fala mit fel', '13','1');
+INSERT INTO `Mahlzeiten`( Name, Kategorie_ID ,Beschreibung, Vorrat, Verfuegbar) VALUES ('Currywurst', '1', 'Wurst mit Curry', '10','1');
+INSERT INTO `Mahlzeiten`( Name, Kategorie_ID ,Beschreibung, Vorrat, Verfuegbar) VALUES ('Käsestulle', '1', 'Stulle mit Käse', '13','1');
+INSERT INTO `Mahlzeiten`( Name, Kategorie_ID ,Beschreibung, Vorrat, Verfuegbar) VALUES ('Spiegelei', '1', 'Ei mit Spiegel', '10','1');
+
+INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','2','6.95','5.95','4.95');
+INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','1','99.99','98.95','97.95');
+INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','3','13.80','12.95','11.95');
+INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','4','88.99','85.95','80.95');
+INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','5','5.99','4.95','3.95');
+INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','6','18.18','17.17','16.16');
+INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','7','99.99','98.95','97.95');
+INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','8','3.99','2.95','1.95');
