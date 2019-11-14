@@ -1,3 +1,4 @@
+<?php require __DIR__ . '/vendor/autoload.php'; ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -15,26 +16,31 @@
 </head>
 
 <?php
-$query = 'SELECT ID,Name,Beschreibung,Verfuegbar,Gastpreis FROM Mahlzeiten INNER JOIN Preise P on Mahlzeiten.ID = P.Mahlzeiten_ID ;'; //Query um an die Zutaten zu kommen
+$query = 'SELECT ID,Name,Verfuegbar FROM Mahlzeiten;'; //Query um an die Zutaten zu kommen
 //Connectiion string..
-$connection = mysqli_connect('149.201.88.110','s_mk6651s',',SDS@A8.AC', 'db3166667','3306');
+$dotenv = Dotenv\Dotenv::create(__DIR__,'.env');
+$dotenv->load();
+$dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS','DB_PORT']);
+$connection = mysqli_connect(
+    getenv('DB_HOST'),
+    getenv('DB_USER'),
+    getenv('DB_PASS'),
+    getenv('DB_NAME'),
+    (int) getenv('DB_PORT')
+);
 
 //Erros abfangen...
 if(mysqli_connect_errno()){
     printf("Verbindung zur Datenbank konnte nicht hergestellt werden: %s\n", mysqli_connect_error());
 }
 $result = mysqli_query($connection, $query);
-$mahlid = $_GET['id']; // Setze get Paramter für den Dynamischen aufruf..
 
-if ($result) { // Query ausführen..
-    $arrayofrows = mysqli_fetch_all($result); //Speichere alle Daten in einem Array..
-    echo "<pre>";
-    print_r($arrayofrows[$mahlid - 1]); // -1 damit die übergabe parameter mit der ID in der Datenbank übereinstimmen
-    echo "</pre>";
-
-    echo "<pre>";
-    print_r($_GET['id']);
-    echo "</pre>";
+if ($result) {// Query ausführen..
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<pre>';
+        echo print_r($row);
+        echo '</pre>';
+    }
 
 
 }

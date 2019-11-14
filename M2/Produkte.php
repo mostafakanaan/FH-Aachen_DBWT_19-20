@@ -1,4 +1,25 @@
-<?php require __DIR__ . '/vendor/autoload.php'; ?>
+<?php require __DIR__ . '/vendor/autoload.php';
+//Connectiion string..
+$query = 'SELECT Mahlzeiten.id, Mahlzeiten.Name,Mahlzeiten.Beschreibung,Mahlzeiten.Vorrat,Mahlzeiten.Verfuegbar, P.`Alt-Text`,P.Titel,P.Binaerdaten
+FROM Mahlzeiten INNER JOIN Mahlzeit_hat_Bild B on Mahlzeiten.ID = B.Mahlzeiten_ID INNER JOIN Bilder P on P.ID = B.Bild_ID;'; //Query um an die Zutaten zu kommen
+//Connectiion string..
+$dotenv = Dotenv\Dotenv::create(__DIR__,'.env');
+$dotenv->load();
+$dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS','DB_PORT']);
+$connection = mysqli_connect(
+    getenv('DB_HOST'),
+    getenv('DB_USER'),
+    getenv('DB_PASS'),
+    getenv('DB_NAME'),
+    (int) getenv('DB_PORT')
+);
+
+//Erros abfangen...
+if(mysqli_connect_errno()){
+    printf("Verbindung zur Datenbank konnte nicht hergestellt werden: %s\n", mysqli_connect_error());
+}
+$result = mysqli_query($connection, $query);
+?>
 
 <!DOCTYPE html>
 <html lang="de">
@@ -68,40 +89,26 @@ include 'inc/navbar.php'
             </div>
 
             <div class="row">
-                <div class="col-3 cols"><img src="img/CWok.jpg" alt="Curry Wok" class="smallimg">
-                    <p class="produkt">Curry Wok</p>
-                    <a href="Detail.php" class="underline">Details</a>
-                </div>
-                <div class="col-3 cols"><img src="img/Schnitzel.jpg" alt="Schnitzel" class="smallimg">
-                    <p class="produkt">Schnitzel</p>
-                    <a href="Detail.php" class="underline">Details</a>
-                </div>
-                <div class="col-3 cols"><img src="img/Bratrolle.jpg" alt="Bratrolle" class="smallimg">
-                    <p class="grauerText produkt">Bratrolle</p>
-                    <p class="grauerText">vergriffen</p>
-                </div>
-                <div class="col-3 cols"><img src="img/Krautsalat.jpg" alt="Krautsalat" class="smallimg">
-                    <p class="produkt">Krautsalat</p>
-                    <a href="Detail.php" class="underline">Details</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3 cols productcol"><img src="img/falafel.jpg" alt="Falafel" class="smallimg">
-                    <p class="produkt">Falafel</p>
-                    <a href="Detail.php" class="underline">Details</a>
-                </div>
-                <div class="col-3 cols productcol"><img src="img/Currywurst.jpg" alt="Currywurst" class="smallimg">
-                    <p class="produkt">Currywurst</p>
-                    <a href="Detail.php" class="underline">Details</a>
-                </div>
-                <div class="col-3 cols productcol"><img src="img/Kaesestulle.jpg" alt="Kaesestulle" class="smallimg">
-                    <p class="produkt">Käsestulle</p>
-                    <a href="Detail.php" class="underline">Details</a>
-                </div>
-                <div class="col-3 cols productcol"><img src="img/spiegelei.jpg" alt="Spiegelei" class="smallimg">
-                    <p class="produkt">Spiegelei</p>
-                    <a href="Detail.php" class="underline">Details</a>
-                </div>
+                <?php
+                if ($result) {// Query ausführen..
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id =$row['id'] -1; //ID richtig setzen.. -> bessere lösung: alles in ein Array wie bei Detail.php
+                        if($row['Verfuegbar']) {// Wenn Produkt verfügbar ist..
+                         echo '<div class="col-3 cols"><img src="data:image/gif;base64,'.base64_encode($row["Binaerdaten"]).'" alt="'. $row['Alt-Text']. '" class="smallimg">
+                        <p class="produkt">' . $row['Name'] . '</p>
+                        <a href="Detail.php?id=' . $id . '" class="underline">Details</a>
+                        </div>';
+                        }else {//Wenn Produkt vergriffen ist...
+                        echo '<div class="col-3 cols"><img src="data:image/gif;base64,'.base64_encode($row['Binaerdaten']).'" alt="'.$row['Alt-Text'].'" class="smallimg">
+                        <p class="grauerText produkt">' . $row['Name'] . '</p>
+                        <a  class="grauerText">vergriffen</a>
+                        </div>';
+
+                        }
+                    }
+                }
+                mysqli_close($connection);
+                ?>
             </div>
         </div>
     </div>

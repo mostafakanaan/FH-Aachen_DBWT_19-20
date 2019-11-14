@@ -52,10 +52,10 @@ CREATE TABLE IF NOT EXISTS Benutzer (
 
 CREATE TABLE IF NOT EXISTS Bilder (
     ID INT UNSIGNED AUTO_INCREMENT NOT NULL,
-    `Alt-Text` BOOL NOT NULL, -- denken Sie auch hier an Backticks
+    `Alt-Text` VARCHAR(255) NOT NULL, -- denken Sie auch hier an Backticks
     Titel VARCHAR(255),
-    Bin�rdaten VARBINARY(255) NOT NULL,
-    PRIMARY KEY (ID)
+    Binaerdaten MEDIUMBLOB NOT NULL,
+    PRIMARY KEY (ID),
 );
 
 CREATE TABLE IF NOT EXISTS Kategorien (
@@ -300,7 +300,7 @@ INSERT INTO `Mitarbeiter`VALUES ((
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Exportiere Daten aus Tabelle public.zutaten: ~36 rows (ungefähr)
-/*!40000 ALTER TABLE `zutaten` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Zutaten` DISABLE KEYS */;
 INSERT INTO `Zutaten` (`ID`, `Name`, `Bio`, `Vegan`, `Vegetarisch`, `Glutenfrei`) VALUES
 	(1, 'Fisch', 1, 0, 1, 1),
 	(2, 'Paniermehl', 1, 1, 1, 0),
@@ -338,7 +338,7 @@ INSERT INTO `Zutaten` (`ID`, `Name`, `Bio`, `Vegan`, `Vegetarisch`, `Glutenfrei`
 	(9105, 'Paprika', 1, 1, 1, 1),
 	(9107, 'Fenchel', 1, 1, 1, 1),
 	(9110, 'Sojasprossen', 1, 1, 1, 1);
-/*!40000 ALTER TABLE `zutaten` ENABLE KEYS */;
+/*!40000 ALTER TABLE `Zutaten` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
@@ -365,3 +365,4 @@ INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) V
 INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','6','18.18','17.17','16.16');
 INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','7','99.99','98.95','97.95');
 INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','8','3.99','2.95','1.95');
+
