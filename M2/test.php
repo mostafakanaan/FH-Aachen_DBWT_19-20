@@ -15,7 +15,7 @@
 </head>
 
 <?php
-$query = 'SELECT ID,Name,Vegan,Vegetarisch,Glutenfrei,Bio FROM Zutaten;'; //Query um an die Zutaten zu kommen
+$query = 'SELECT ID,Name,Beschreibung,Verfuegbar,Gastpreis FROM Mahlzeiten INNER JOIN Preise P on Mahlzeiten.ID = P.Mahlzeiten_ID ;'; //Query um an die Zutaten zu kommen
 //Connectiion string..
 $connection = mysqli_connect('149.201.88.110','s_mk6651s',',SDS@A8.AC', 'db3166667','3306');
 
@@ -24,6 +24,20 @@ if(mysqli_connect_errno()){
     printf("Verbindung zur Datenbank konnte nicht hergestellt werden: %s\n", mysqli_connect_error());
 }
 $result = mysqli_query($connection, $query);
-echo mysqli_num_rows($result);
+$mahlid = $_GET['id']; // Setze get Paramter für den Dynamischen aufruf..
+
+if ($result) { // Query ausführen..
+    $arrayofrows = mysqli_fetch_all($result); //Speichere alle Daten in einem Array..
+    echo "<pre>";
+    print_r($arrayofrows[$mahlid - 1]); // -1 damit die übergabe parameter mit der ID in der Datenbank übereinstimmen
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($_GET['id']);
+    echo "</pre>";
+
+
+}
+mysqli_close($connection);
 
 ?>

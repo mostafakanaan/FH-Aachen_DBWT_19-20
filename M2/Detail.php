@@ -13,6 +13,26 @@
     integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
     crossorigin="anonymous">
 </head>
+<?php
+$query = 'SELECT ID,Name,Beschreibung,Verfuegbar,Gastpreis FROM Mahlzeiten INNER JOIN Preise P on Mahlzeiten.ID = P.Mahlzeiten_ID ;'; //Query um an die Zutaten zu kommen
+//Connectiion string..
+$connection = mysqli_connect('149.201.88.110','s_mk6651s',',SDS@A8.AC', 'db3166667','3306');
+
+//Erros abfangen...
+if(mysqli_connect_errno()){
+    printf("Verbindung zur Datenbank konnte nicht hergestellt werden: %s\n", mysqli_connect_error());
+}
+$result = mysqli_query($connection, $query);
+$mahlid = $_GET['id']; // Setze get Paramter für den Dynamischen aufruf..
+
+if ($result) { // Query ausführen..
+    $arrayofrows = mysqli_fetch_all($result); //Speichere alle Daten in einem Array..
+
+
+}
+mysqli_close($connection);
+
+?>
 <body>
     <div class="container">
         <!--Header bzw Nav include -->
@@ -20,7 +40,9 @@
 
         <main>
             <div class="row background" id="detailsTitel">
-                <h2 class="align-text-center" id="details">Details für "Schnitzel"</h2>
+
+                <h2 class="align-text-center" id="details">Details für <?php  echo '"'. $arrayofrows[$mahlid][1]. '"' ?></h2>
+<!--                Mahlid = id in der url als Getparamter in [1] ist der name der Mahlzeit gespeichert...-->
             </div>
 
             <div class="row">
@@ -60,8 +82,7 @@
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane active" id="beschreibung" role="tabpanel">Dünne panierte gebratene Scheibe Schweinefleisch mit
-                            Beilage(Reis/Pommes).
+                        <div class="tab-pane active" id="beschreibung" role="tabpanel"><?php echo $arrayofrows[$mahlid][2]?>
                         </div>
                         <div class="tab-pane" id="zutaten" role="tabpanel" aria-labelledby="zutaten-tab">Schweinefleisch
                             (80%), Mehl (Weizen, Mais), Rapsöl, Palmfett, modifizierte Weizenstärke,
@@ -127,7 +148,7 @@
                 </div>
                 <div class="col-2 align-text-center" id="preiscol">
                     <p id="spreis"><b>Gast-</b>Preis :</p>
-                    <p id="preis">5,95€</p>
+                    <p id="preis"> <?php echo $arrayofrows[$mahlid][4]?> </p>
                     <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-utensils"></i> Vorbestellen
                     </button>
                 </div>
