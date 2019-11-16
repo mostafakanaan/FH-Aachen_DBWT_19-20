@@ -19,6 +19,8 @@ if(mysqli_connect_errno()){
     printf("Verbindung zur Datenbank konnte nicht hergestellt werden: %s\n", mysqli_connect_error());
 }
 $result = mysqli_query($connection, $query);
+$limit = @$_GET['limit'] ?: '8';//Limit GET Parameter, wenn kein Limit angegeben ist der Default wert 8
+$available = @$_GET['avail'] ?: 'false';
 ?>
 
 <!DOCTYPE html>
@@ -91,20 +93,22 @@ include 'inc/navbar.php'
             <div class="row">
                 <?php
                 if ($result) {// Query ausführen..
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while ($row = mysqli_fetch_assoc($result) and $limit > 0) {
                         $id = $row['id'] -1; //ID richtig setzen.. -> bessere lösung: alles in ein Array wie bei Detail.php
                         if($row['Verfuegbar']) {// Wenn Produkt verfügbar ist..
                          echo '<div class="col-3 cols"><img src="data:image/gif;base64,'.base64_encode($row["Binaerdaten"]).'" alt="'. $row['Alt-Text']. '" class="smallimg">
                         <p class="produkt">' . $row['Name'] . '</p>
                         <a href="Detail.php?id=' . $id . '" class="underline">Details</a>
                         </div>';
-                        }else {//Wenn Produkt vergriffen ist...
+                        }else if(!($row['Verfuegbar']) ){//Wenn Produkt vergriffen ist...
+                            if($available == "false"){
                         echo '<div class="col-3 cols"><img src="data:image/gif;base64,'.base64_encode($row['Binaerdaten']).'" alt="'.$row['Alt-Text'].'" class="smallimg">
                         <p class="grauerText produkt">' . $row['Name'] . '</p>
                         <a  class="grauerText">vergriffen</a>
                         </div>';
-
                         }
+                    }
+                        $limit--;
                     }
                 }
                 mysqli_close($connection);

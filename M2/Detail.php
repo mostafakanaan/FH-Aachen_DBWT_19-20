@@ -34,7 +34,7 @@ if(mysqli_connect_errno()){
     printf("Verbindung zur Datenbank konnte nicht hergestellt werden: %s\n", mysqli_connect_error());
 }
 $result = mysqli_query($connection, $query);
-$mahlid = $_GET['id']; // Setze get Paramter für den Dynamischen aufruf..
+$mahlid = $_GET['id'];// Setze get Paramter für den Dynamischen aufruf..
 
 if ($result) { // Query ausführen..
     $arrayofrows = mysqli_fetch_all($result); //Speichere alle Daten in einem Array..
