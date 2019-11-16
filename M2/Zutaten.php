@@ -62,8 +62,8 @@
             <?php if ($result) { // Query ausführen..
                 while ($row = mysqli_fetch_assoc($result)) {
                     $name = $row['Name'];
-                    echo '<tr> <td> <a href="https://www.google.com/search?q=' .$name .'"target="_blank"',
-                    'title="Suchen Sie nach ' . $name . ' im Web">' , $name,
+                    echo '<tr> <td> <a href="https://www.google.com/search?q=' .$name .'" target="_blank"',
+                    ' title="Suchen Sie nach ' . $name . ' im Web">' , $name,
                     ($row['Bio']? '<img src="img/bio.png"  title="Bio" alt="Bioabzeichen"/>' : ''),
                     '</a> </td> <td class="table-element">',
                     ($row['Vegan']? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'),

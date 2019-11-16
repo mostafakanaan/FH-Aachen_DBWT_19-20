@@ -13,7 +13,6 @@
         </ul>
     </nav>
     <div class="col-3">
-        <label for="search" class="visuallyhidden">Suche</label>
         <form action="http://www.google.de/search" class="row" method="get" target="_blank" id="search" title="Suche in fh-aachen.de">
             <input id="suchbegriff" type="text" name="q" class="form-control" placeholder="Suchen.." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Suchen..'" autocomplete="off"/>
             <input type="hidden" name="as_sitesearch" value="https://www.fh-aachen.de/"/>

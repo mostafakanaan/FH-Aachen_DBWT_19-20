@@ -65,7 +65,7 @@ if(empty($arrayofrows[$mahlid])){//Prüfen ob die ID Valid ist
                 <div class="col-2" id="logincol">
                     <div class="card background" id="login">
                         <div class="card-body align-text-center">
-                            <h5 class="card-title align-text-center"><i class="fas fa-sign-in-alt"></i> Login</h6>
+                            <h5 class="card-title align-text-center"><i class="fas fa-sign-in-alt"></i> Login</h5>
                             <div class="form-group">
                                 <label for="email">Benutzer</label>
                                 <input type="email" class="form-control" id="email" placeholder="Benutzer-ID.." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Benutzer-ID..'" autocomplete="off">
@@ -148,11 +148,9 @@ if(empty($arrayofrows[$mahlid])){//Prüfen ob die ID Valid ist
 
                                 <div class="row">
                                     <div class="col-5">
-                                        <div class="form-group" id=bemerkung>
                                             <label for="bemerkung" class="visuallyhidden"></label>
                                             <textarea class="form-control" id="bemerkung" name="bemerkung"
                                             placeholder="Wie hat's Ihnen geschmeckt?"></textarea>
-                                        </div>
                                     </div>
                                     <div class="col-3">
                                         <button type="submit" id="sendbtn" class="btn btn-primary"><i class="far fa-check-circle"></i> Senden
