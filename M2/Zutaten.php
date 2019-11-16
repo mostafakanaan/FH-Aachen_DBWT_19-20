@@ -1,14 +1,12 @@
 <?php require __DIR__ . '/vendor/autoload.php'; ?>
 <!DOCTYPE html>
-<!--TODO: Tabelle: Tooltip(Text beim  hovern der Zutaten) Siehe Paket 3-->
-<!--TODO: Tabelle: Checkbox bei Vegan, Vegetarisch,Glutenfrei (siehe Paket 3)-->
-<!--TODO: Aussehen bisschen anpassen-->
+<!-- TODO: table-element/e in der css zentrieren -->
 <html lang="de">
 <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>eMensa - Startseite</title>
+    <title>eMensa - Zutatenliste</title>
     <meta name="description" content="Startseite der eMensa">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -51,7 +49,7 @@
         <h3><?php echo 'Zutaten ' .'('.$count.')' ?></h3>
         <table class="table table-striped">
             <!--    Tabellen Kopf -->
-            <thead>
+            <thead class="thead-dark">
             <tr>
                 <th>Zutat</th>
                 <th>Vegan?</th>
@@ -63,10 +61,18 @@
             <!--  Zutaten Row  -->
             <?php if ($result) { // Query ausführen..
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<tr> <td> <a href="https://www.google.com/search?q=' .$row['Name'] .'"target="_blank">', $row['Name'];  if($row['Bio']){ echo '<img src="img/bio.png"  title="Bio" alt="Bioabzeichen"/>';}  echo '</td> <td>'. $row['Vegan'] . '</a> </td> <td>'. $row['Vegetarisch'] . '</td> <td>'. $row['Glutenfrei'] . '</td></tr>' ;
+                    $name = $row['Name'];
+                    echo '<tr> <td> <a href="https://www.google.com/search?q=' .$name .'"target="_blank"',
+                    'title="Suchen Sie nach ' . $name . ' im Web">' , $name,
+                    ($row['Bio']? '<img src="img/bio.png"  title="Bio" alt="Bioabzeichen"/>' : ''),
+                    '</a> </td> <td class="table-element">',
+                    ($row['Vegan']? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'),
+                    '</td> <td class="table-element">',
+                    ($row['Vegetarisch']? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'),
+                    '</td> <td class="table-element">',
+                    ($row['Glutenfrei']? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'),
+                    '</td> </tr>';
                 }
-
-
             }
             mysqli_close($connection);
             ?>

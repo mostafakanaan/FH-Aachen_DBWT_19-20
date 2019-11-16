@@ -15,8 +15,9 @@
     crossorigin="anonymous">
 </head>
 <?php
-$query = 'SELECT ID,Name,Beschreibung,Verfuegbar,Gastpreis FROM Mahlzeiten INNER JOIN Preise P on Mahlzeiten.ID = P.Mahlzeiten_ID ;'; //Query um an die Zutaten zu kommen
-//Connectiion string..
+$query = 'SELECT Mahlzeiten.id, X.Gastpreis, Mahlzeiten.Name,Mahlzeiten.Beschreibung,Mahlzeiten.Vorrat,Mahlzeiten.Verfuegbar, P.`Alt-Text`,P.Titel,P.Binaerdaten
+FROM Mahlzeiten INNER JOIN Mahlzeit_hat_Bild B on Mahlzeiten.ID = B.Mahlzeiten_ID INNER JOIN Bilder P on P.ID = B.Bild_ID
+INNER JOIN Preise X ON Mahlzeiten.ID = X.Mahlzeiten_ID;'; //Query um an die Zutaten zu kommen
 //Connectiion string..
 $dotenv = Dotenv\Dotenv::create(__DIR__,'.env');
 $dotenv->load();
@@ -41,7 +42,12 @@ if ($result) { // Query ausführen..
 
 }
 mysqli_close($connection);
+if(empty($arrayofrows[$mahlid])){//Prüfen ob die ID Valid ist
+    header('Location:Produkte.php');//Wenn nicht leite zur Produkt.php um..
+    exit;
+}else{
 
+}
 ?>
 <body>
     <div class="container">
@@ -51,8 +57,8 @@ mysqli_close($connection);
         <main>
             <div class="row background" id="detailsTitel">
 
-                <h2 class="align-text-center" id="details">Details für <?php  echo '"'. $arrayofrows[$mahlid][1]. '"' ?></h2>
-<!--                Mahlid = id in der url als Getparamter in [1] ist der name der Mahlzeit gespeichert...-->
+                <h2 class="align-text-center" id="details">Details für <?php  echo '"'. $arrayofrows[$mahlid][2]. '"' ?></h2>
+<!--                Mahlid = id in der url als Getparamter in [2] ist der name der Mahlzeit gespeichert...-->
             </div>
 
             <div class="row">
@@ -73,7 +79,8 @@ mysqli_close($connection);
                     </p>
                 </div>
                 <div class="col-6" id="produktcol">
-                    <img src="img/Schnitzel.jpg" id="produktimg" alt="Schnitzel"/>
+
+                    <img src="data:image/gif;base64,<?php echo base64_encode($arrayofrows[$mahlid][8]) ?>" id="produktimg" alt=" <?php  echo $arrayofrows[$mahlid][6] ?>"/>
 
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" id="myTab" role="tablist"> 
@@ -92,7 +99,7 @@ mysqli_close($connection);
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane active" id="beschreibung" role="tabpanel"><?php echo $arrayofrows[$mahlid][2]?>
+                        <div class="tab-pane active" id="beschreibung" role="tabpanel"><?php echo $arrayofrows[$mahlid][3]?>
                         </div>
                         <div class="tab-pane" id="zutaten" role="tabpanel" aria-labelledby="zutaten-tab">Schweinefleisch
                             (80%), Mehl (Weizen, Mais), Rapsöl, Palmfett, modifizierte Weizenstärke,
@@ -158,13 +165,12 @@ mysqli_close($connection);
                 </div>
                 <div class="col-2 align-text-center" id="preiscol">
                     <p id="spreis"><b>Gast-</b>Preis :</p>
-                    <p id="preis"> <?php echo $arrayofrows[$mahlid][4]?> </p>
+                    <p id="preis"> <?php echo $arrayofrows[$mahlid][1]?> </p>
                     <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-utensils"></i> Vorbestellen
                     </button>
                 </div>
             </div>   
         </main>
-
         <!-- Footer -->
         <?php include 'inc/footer.php';include 'inc/js.html'?>
     </div>
