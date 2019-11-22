@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "170c3b8d5da320f5eec64ed71b7a485a",
+    "content-hash": "7dddaed9a6921ed21426565ae91de398",
     "packages": [
         {
             "name": "phpoption/phpoption",
@@ -178,6 +178,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-mysqli": "*"
+    },
     "platform-dev": []
 }
