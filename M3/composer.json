@@ -1,5 +1,5 @@
 {
-    "name": "mk6651s/m3",
+    "name": "mk6651s/m2",
     "description": "Meilenstein 2",
     "authors": [
         {
@@ -8,6 +8,7 @@
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "^3.6"
+        "vlucas/phpdotenv": "^3.6",
+      "ext-mysqli": "*"
     }
 }

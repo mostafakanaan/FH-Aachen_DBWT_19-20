@@ -52,9 +52,9 @@
             <thead class="thead-dark">
             <tr>
                 <th>Zutat</th>
-                <th>Vegan?</th>
-                <th>Vegetarisch?</th>
-                <th>Glutenfrei?</th>
+                <th class="table-element">Vegan?</th>
+                <th class="table-element">Vegetarisch?</th>
+                <th class="table-element">Glutenfrei?</th>
             </tr>
             </thead>
             <tbody>
