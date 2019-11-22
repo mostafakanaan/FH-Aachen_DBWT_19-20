@@ -75,9 +75,12 @@ padding-top: 5px;
     height: 50px;
 }
 
+.table-element {
+    text-align: center;
+}
+
 .splash img {
     width: 100%
-    height
 }
 
 .not-splash img {
