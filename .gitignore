@@ -1,4 +1,5 @@
+!.gitignore
 sql_conf.env
 übungen/
 .*
-!.gitignore
+.zip
