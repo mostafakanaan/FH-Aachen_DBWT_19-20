@@ -1,0 +1,305 @@
+/* Meilenstein 2 */
+body {
+    margin-top: 10px;
+    height: 100%;
+}
+
+header.row {
+    border-bottom: 1px solid #d9dedb;
+    margin-bottom: 15px;
+}
+
+footer.row {
+    border-top: 1px solid #d9dedb;
+    margin-top: 20px;
+    padding-top: 15px;
+}
+
+.nav{
+    margin-top: 10px;
+}
+
+nav a {
+    border-right: 1px solid black;
+}
+
+nav li:last-child a {
+    border-right: 0;
+}
+
+nav.col-5 {
+    height: 50px;
+    width: 500px;
+}
+
+a {
+    color: #00b5ad
+}
+
+a.nav-link {
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+}
+
+
+#search {
+    margin-top: 5px;
+}
+
+ul.nav {
+    padding-left: 20px;
+}
+
+img {
+    font-size: 12px;
+    font-style: italic;
+}
+
+label[for=name]
+{
+margin-right: 15px;
+margin-left: 20px;
+padding-top: 5px;
+}
+
+.productcol {
+    height: 190px;
+}
+
+.btn {
+    background-color: #00b5ad;
+    border-color: #00b5ad
+}
+
+.copyright {
+    height: 50px;
+}
+
+.splash img {
+    width: 100%
+    height
+}
+
+.not-splash img {
+    width: 75%
+}
+
+.splash, button {
+    margin-bottom: 12px;
+    width: 150px;
+}
+
+.searchbutton {
+    width: 37px;
+    height: 37px;
+}
+
+.signinbtn {
+    margin-left: 80px;
+}
+
+#legga {
+    margin-left: 30px
+}
+
+.fa-copyright {
+    margin-top: 13px;
+}
+
+.form-control {
+    width: 80%;
+    resize: none;
+}
+
+#filter {
+    margin-left: 30px;
+}
+
+#kategorien {
+    width: 180px;
+    height: 30px;
+    margin-left: 12px;
+    margin-top: 17px;
+}
+
+.background {
+    background-image: url("../img/background.jpeg");
+}
+
+.card {
+    margin-top: 60px;
+    width: 13rem; height: 13rem;
+}
+
+#bigcard {
+    width: 15rem; height: 17rem;
+}
+
+#login {
+    margin-top: 0px;
+    margin-bottom: 25px;
+    height: 18rem;
+}
+
+#register {
+    width: 13rem; font-size: 15px;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.card-body {
+    justify-content:center;
+    align-content: center;
+}
+
+.nav-link, .underline {
+    text-decoration: underline;
+}
+
+.form-check {
+    padding-left: .0rem;
+    margin-top: 25px;
+    margin-bottom: 18px;
+}
+
+.align-text-center {
+    text-align: center;
+}
+
+.grauerText {
+    color: #4e555b
+}
+
+.produkt {
+    margin-bottom: 0;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.smallimg {
+    height: 60%;
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#titel {
+    justify-content:center;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.cols {
+    text-align: center;
+    padding-left: 0px;
+}
+
+#produktimg {
+    height: 50%;
+    width: 100%;
+
+}
+
+#spreis {
+    font-size: large;
+    margin-top: 10px;
+}
+
+#preis {
+    font-size: x-large;
+    font-weight: bold;
+    font-family: "Droid Sans Mono";
+    margin-top: 22px;
+}
+
+#produktcol {
+    width: 500px;
+    height: 430px;
+    margin-left: 75px;
+    margin-right: 25px;
+}
+
+#bottom_nav {
+    margin-top: 4px;
+}
+
+#email, #password {
+    width: 10.5rem;
+}
+
+#email {
+    margin-bottom: 15px;
+}
+
+#myTab {
+    padding-left: .0rem;
+}
+
+#beschreibung, #zutaten {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.bewertung  {
+    height: 37px;
+    width: 85px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#bemerkung{   
+    width: 280px;
+    margin-bottom: 80px;
+}
+
+#sendbtn {
+    font-family: "Comic Sans MS";
+    width: 105px;
+    height: 40px;
+    margin-left: 75px;
+    margin-top: 10px;
+}
+
+#banner{
+    height: 220px;
+    width: 1110px;
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+#food{
+    object-fit: cover;
+    height: 110px;
+    width: 730px;
+}
+#buttons{
+    margin-bottom: 10px;
+}
+
+#benutzername {
+    margin-top: 10px;
+}
+
+#name {
+    width: 355px;
+}
+
+.mahlzeiten {
+    width: 150px;
+}
+
+#detailsTitel {
+    margin-bottom: 10px;
+    justify-content:center;
+    align-content: center;
+}

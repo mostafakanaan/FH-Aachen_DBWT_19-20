@@ -1,0 +1,119 @@
+Meilenstein 1: 
+Vorbereitung:
+
+System	Windows NT DESKTOP-MSEBHU6 10.0 build 17763 (Windows 10) AMD64
+Apache Version	Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.3.9
+Server Root	C:/xampp/apache
+
+
+? Beschreiben Sie im Dossier stichpunktartig, wie Sie mit der bisher erlernten Technik (statisches HTML) den Shop umsetzen müssten, wenn
+vom Kunden zu allen acht Mahlzeiten die zugehörigen Detail-Seiten gefordert werden
+-> Für jede Mahlzeit eine Details.html anlegen um dort die Informationen abzulegen.
+Ich würde für jedes Produkt eine .html anlegen und jede richtig verlinken 
+
+
+Fragen die mir bei der Programmierung gekommen sind:
+-Die Tags von verschiedenen CSS Styles und Attributen
+-Warum Fehler bei der Absenden der Form kam -> falscher Name bei den Attribute
+-Warum meine Textarea und select nach oben aufgehen und nicht nachunten
+-Was für eine Grid aufteilung bei den Seiten am schlausten ist
+-Was genau Position Absolute macht etc
+-Wie ich mein Footer und meine Navbar auslagern kann -> PHP Include
+
+
+
+Meilenstein 2:
+
+✎ was das Semikolon am Ende einer Anweisung bewirkt
+	Schließt eine SQL Anweisung ab.
+
+✎ wie Sie die binären Relationstypen (1:1, 1:N, N:M) abgebildet haben
+	1:1 -> 1 kommt zu 1
+	1:N -> N kommt zu 1
+	N:M -> eigene Tabelle 
+✎ den Unterschied zwischen Tabellen- und Spalten-Constraints und wann welche Art sinnvoll ist
+	Spalten Constraints -> Sind die Attribut werte, wenn man die Prüft.
+	Tabellen Constrains -> Primary Key, Foreinkey Cascade etc.
+
+✎ wie Sie den Aufzählungsdatentyp ENUM, den MariaDB unterstützt, per CHECK Constraint auch in anderen DBMS nachbilden könnten
+ 	    CONSTRAINT checkstudiengang CHECK(
+        studiengang = 'INF' OR
+        studiengang = 'ET' OR
+        studiengang = 'MCD' OR
+        studiengang = 'ISE' OR
+        studiengang = 'WI'
+        )
+✎ welche Constraints in MariaDB welchem Zweck dienen
+	checkstudiengang -> überprüft ob der Studiengang der eingegeben wurde valide ist.
+	fk_mahlZeitenID_kommentare -> Name sagt alles (CONSTRAINT deshalb um es später mit alter table zuändern siehe aufgaben stellung)
+
+✎ wieso Sie die Datenbank information_schema sehen
+	Weil dort die ganze DB Logik hinterlegt sind wie Metadaten, Informationen über den Server, datentypen etc.
+	Und jeder User darauf lesenden zugriff haben MUSS.
+
+	Paket 3 Anzahl der Zutaten neben überschrift
+ ✎ Welche Möglichkeiten für diese Umsetzung kennen Sie
+ 	1. Alle Rows in einem Array speichern und die Array länge ausgeben.
+ 	2. mit einer While fetch_assoc machen und eine zähl variable hochzählen
+ 	3. oder eine SQL Query und die Rows zählen lassen
+
+ 	Backup der Zutaten Tabelle
+ ✎ Notieren Sie die dazu erforderliche SQL-Queries im Dossier
+-- --------------------------------------------------------
+-- Host:                         149.201.88.110
+-- Server Version:               10.4.8-MariaDB-1:10.4.8+maria~bionic-log - mariadb.org binary distribution
+-- Server Betriebssystem:        debian-linux-gnu
+-- HeidiSQL Version:             10.2.0.5599
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Exportiere Daten aus Tabelle public.zutaten: ~36 rows (ungefähr)
+/*!40000 ALTER TABLE `zutaten` DISABLE KEYS */;
+INSERT INTO `Zutaten` (`ID`, `Name`, `Bio`, `Vegan`, `Vegetarisch`, `Glutenfrei`) VALUES
+	(1, 'Fisch', 1, 0, 1, 1),
+	(2, 'Paniermehl', 1, 1, 1, 0),
+	(80, 'Aal', 0, 0, 0, 1),
+	(81, 'Forelle', 0, 0, 0, 1),
+	(82, 'Barsch', 0, 0, 0, 1),
+	(83, 'Lachs', 0, 0, 0, 1),
+	(84, 'Lachs', 1, 0, 0, 1),
+	(85, 'Heilbutt', 0, 0, 0, 1),
+	(86, 'Heilbutt', 1, 0, 0, 1),
+	(100, 'Kurkumin', 1, 1, 1, 1),
+	(101, 'Riboflavin', 0, 1, 1, 1),
+	(123, 'Amaranth', 1, 1, 1, 1),
+	(150, 'Zuckerkulör', 0, 1, 1, 1),
+	(171, 'Titandioxid', 0, 1, 1, 1),
+	(220, 'Schwefeldioxid', 0, 1, 1, 1),
+	(270, 'Milchsäure', 0, 1, 1, 1),
+	(322, 'Lecithin', 0, 1, 1, 1),
+	(330, 'Zitronensäure', 1, 1, 1, 1),
+	(999, 'Weizenmehl', 1, 1, 1, 0),
+	(1000, 'Weizenmehl', 0, 1, 1, 0),
+	(1001, 'Hanfmehl', 1, 1, 1, 1),
+	(1010, 'Zucker', 0, 1, 1, 1),
+	(1013, 'Traubenzucker', 0, 1, 1, 1),
+	(1015, 'Branntweinessig', 0, 1, 1, 1),
+	(2019, 'Karotten', 0, 1, 1, 1),
+	(2020, 'Champignons', 0, 1, 1, 1),
+	(2101, 'Schweinefleisch', 0, 0, 0, 1),
+	(2102, 'Speck', 0, 0, 0, 1),
+	(2103, 'Alginat', 0, 1, 1, 1),
+	(2105, 'Paprika', 0, 1, 1, 1),
+	(2107, 'Fenchel', 0, 1, 1, 1),
+	(2108, 'Sellerie', 0, 1, 1, 1),
+	(9020, 'Champignons', 1, 1, 1, 1),
+	(9105, 'Paprika', 1, 1, 1, 1),
+	(9107, 'Fenchel', 1, 1, 1, 1),
+	(9110, 'Sojasprossen', 1, 1, 1, 1);
+/*!40000 ALTER TABLE `zutaten` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
