@@ -43,7 +43,7 @@ if ($result) { // Query ausführen..
 }
 mysqli_close($connection);
 if(empty($arrayofrows[$mahlid])){//Prüfen ob die ID Valid ist
-    header('Location:Produkte.php');//Wenn nicht leite zur Produkt.php um..
+    header('refresh:3;URL=Produkte.php');//Wenn nicht leite zur Produkt.php um..
     exit;
 }else{
 
