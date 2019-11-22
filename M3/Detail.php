@@ -108,13 +108,17 @@ if(empty($arrayofrows)){//Prüfen ob die ID Valid ist
                         </div>
                         <div class="tab-pane" id="zutaten" role="tabpanel" aria-labelledby="zutaten-tab">
 <!--                            Zutaten ausgabe..-->
-<!--                            --><?php
-//                            foreach($arrayofrowszutat as $zutat){
-//                                echo $zutat;
-//                            }
-//                            echo '<pre>';
-//                            echo print_r($arrayofrowszutat);
-//                            echo '</pre>';
+                            <?php
+                            foreach($arrayofrowszutat as $zutat){// Alle Zutaten im Array ausgeben...
+                                if($zutat == end($arrayofrowszutat)){//Wenn das die letzte Zutat im Array ist...
+                                    echo $zutat[2];
+
+                                }else{//Wenns nicht die letzte ist...
+                                    echo $zutat[2] . ', ';
+                                }
+
+                            }
+
 
                             ?>
                         </div>
