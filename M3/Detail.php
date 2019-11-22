@@ -15,9 +15,14 @@
     crossorigin="anonymous">
 </head>
 <?php
+$mahlid = $_GET['id'];// Setze get Paramter für den Dynamischen aufruf..
+
 $query = 'SELECT Mahlzeiten.id, X.Gastpreis, Mahlzeiten.Name,Mahlzeiten.Beschreibung,Mahlzeiten.Vorrat,Mahlzeiten.Verfuegbar, P.`Alt-Text`,P.Titel,P.Binaerdaten
 FROM Mahlzeiten INNER JOIN Mahlzeit_hat_Bild B on Mahlzeiten.ID = B.Mahlzeiten_ID INNER JOIN Bilder P on P.ID = B.Bild_ID
-INNER JOIN Preise X ON Mahlzeiten.ID = X.Mahlzeiten_ID;'; //Query um an die Zutaten zu kommen
+INNER JOIN Preise X ON Mahlzeiten.ID = X.Mahlzeiten_ID WHERE B.Mahlzeiten_ID ='. $mahlid . ';'; //Query um an die Zutaten zu kommen
+
+$zutatquery = 'SELECT `Mahl_enthaelt_zutat`.`Mahlzeit_ID`, `Mahl_enthaelt_zutat`.`Zutat_ID`, Z.Name  FROM `Mahl_enthaelt_zutat` INNER JOIN Zutaten Z on `Mahl_enthaelt_zutat`.`Zutat_ID` = Z.ID WHERE Mahlzeit_ID ='. $mahlid . ';' ; //Query um an die Zutaten zu kommen
+//Query um an alle Zutaten zu kommen mit INNER JOIN
 //Connectiion string..
 $dotenv = Dotenv\Dotenv::create(__DIR__,'.env');
 $dotenv->load();
@@ -34,15 +39,15 @@ if(mysqli_connect_errno()){
     printf("Verbindung zur Datenbank konnte nicht hergestellt werden: %s\n", mysqli_connect_error());
 }
 $result = mysqli_query($connection, $query);
-$mahlid = $_GET['id'];// Setze get Paramter für den Dynamischen aufruf..
+$result2 = mysqli_query($connection, $zutatquery);
 
-if ($result) { // Query ausführen..
+if ($result and $result2) { // Query ausführen..
     $arrayofrows = mysqli_fetch_all($result); //Speichere alle Daten in einem Array..
-
+    $arrayofrowszutat = mysqli_fetch_all($result2);// Speichere alle daten in einem Array <- Zutaten..
 
 }
 mysqli_close($connection);
-if(empty($arrayofrows[$mahlid])){//Prüfen ob die ID Valid ist
+if(empty($arrayofrows)){//Prüfen ob die ID Valid ist
     header('refresh:3;URL=Produkte.php');//Wenn nicht leite zur Produkt.php um..
     exit;
 }else{
@@ -57,7 +62,7 @@ if(empty($arrayofrows[$mahlid])){//Prüfen ob die ID Valid ist
         <main>
             <div class="row background" id="detailsTitel">
 
-                <h2 class="align-text-center" id="details">Details für <?php  echo '"'. $arrayofrows[$mahlid][2]. '"' ?></h2>
+                <h2 class="align-text-center" id="details">Details für <?php  echo '"'. $arrayofrows[0][2]. '"' ?></h2>
 <!--                Mahlid = id in der url als Getparamter in [2] ist der name der Mahlzeit gespeichert...-->
             </div>
 
@@ -80,7 +85,7 @@ if(empty($arrayofrows[$mahlid])){//Prüfen ob die ID Valid ist
                 </div>
                 <div class="col-6" id="produktcol">
 
-                    <img src="data:image/gif;base64,<?php echo base64_encode($arrayofrows[$mahlid][8]) ?>" id="produktimg" alt=" <?php  echo $arrayofrows[$mahlid][6] ?>"/>
+                    <img src="data:image/gif;base64,<?php echo base64_encode($arrayofrows[0][8]) ?>" id="produktimg" alt=" <?php  echo $arrayofrows[0][6] ?>"/>
 
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" id="myTab" role="tablist"> 
@@ -99,12 +104,19 @@ if(empty($arrayofrows[$mahlid])){//Prüfen ob die ID Valid ist
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane active" id="beschreibung" role="tabpanel"><?php echo $arrayofrows[$mahlid][3]?>
+                        <div class="tab-pane active" id="beschreibung" role="tabpanel"><?php echo $arrayofrows[0][3]?>
                         </div>
-                        <div class="tab-pane" id="zutaten" role="tabpanel" aria-labelledby="zutaten-tab">Schweinefleisch
-                            (80%), Mehl (Weizen, Mais), Rapsöl, Palmfett, modifizierte Weizenstärke,
-                            jodiertes Speisesalz, Kartoffelstärke, Stabilisator: Natriumcitrate; Glukosesirup, Gewürze,
-                            Hefe, Aroma, Dextrose, Zitronensaftpulver.
+                        <div class="tab-pane" id="zutaten" role="tabpanel" aria-labelledby="zutaten-tab">
+<!--                            Zutaten ausgabe..-->
+<!--                            --><?php
+//                            foreach($arrayofrowszutat as $zutat){
+//                                echo $zutat;
+//                            }
+//                            echo '<pre>';
+//                            echo print_r($arrayofrowszutat);
+//                            echo '</pre>';
+
+                            ?>
                         </div>
                         <div class="tab-pane" id="bewertungen" role="tabpanel">
                             <form action="http://bc5.m2c-lab.fh-aachen.de/form.php" method="post" id="bewertungsform">
@@ -163,7 +175,7 @@ if(empty($arrayofrows[$mahlid])){//Prüfen ob die ID Valid ist
                 </div>
                 <div class="col-2 align-text-center" id="preiscol">
                     <p id="spreis"><b>Gast-</b>Preis :</p>
-                    <p id="preis"> <?php echo $arrayofrows[$mahlid][1]?> </p>
+                    <p id="preis"> <?php echo $arrayofrows[0][1]?> </p>
                     <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-utensils"></i> Vorbestellen
                     </button>
                 </div>

@@ -16,8 +16,11 @@
 </head>
 
 <?php
-$query = 'SELECT ID,Name,Verfuegbar FROM Mahlzeiten;'; //Query um an die Zutaten zu kommen
-//Connectiion string..
+$id = $_GET['id'];
+$query = 'SELECT Mahlzeiten.id, X.Gastpreis, Mahlzeiten.Name,Mahlzeiten.Beschreibung,Mahlzeiten.Vorrat,Mahlzeiten.Verfuegbar, P.`Alt-Text`,P.Titel,P.Binaerdaten
+FROM Mahlzeiten INNER JOIN Mahlzeit_hat_Bild B on Mahlzeiten.ID = B.Mahlzeiten_ID INNER JOIN Bilder P on P.ID = B.Bild_ID
+INNER JOIN Preise X ON Mahlzeiten.ID = X.Mahlzeiten_ID WHERE B.Mahlzeiten_ID ='. $id . ';';
+
 $dotenv = Dotenv\Dotenv::create(__DIR__,'.env');
 $dotenv->load();
 $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS','DB_PORT']);
@@ -36,11 +39,12 @@ if(mysqli_connect_errno()){
 $result = mysqli_query($connection, $query);
 
 if ($result) {// Query ausführen..
-    while ($row = mysqli_fetch_assoc($result)) {
+        $row = mysqli_fetch_all($result);// Speichere alle daten in einem Array <- Zutaten..
+
         echo '<pre>';
         echo print_r($row);
         echo '</pre>';
-    }
+
 
 
 }
