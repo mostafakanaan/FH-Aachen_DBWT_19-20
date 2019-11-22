@@ -17,9 +17,7 @@
 
 <?php
 $id = $_GET['id'];
-$query = 'SELECT Mahlzeiten.id, X.Gastpreis, Mahlzeiten.Name,Mahlzeiten.Beschreibung,Mahlzeiten.Vorrat,Mahlzeiten.Verfuegbar, P.`Alt-Text`,P.Titel,P.Binaerdaten
-FROM Mahlzeiten INNER JOIN Mahlzeit_hat_Bild B on Mahlzeiten.ID = B.Mahlzeiten_ID INNER JOIN Bilder P on P.ID = B.Bild_ID
-INNER JOIN Preise X ON Mahlzeiten.ID = X.Mahlzeiten_ID WHERE B.Mahlzeiten_ID ='. $id . ';';
+$query = 'SELECT * FROM `Kategorien;';
 
 $dotenv = Dotenv\Dotenv::create(__DIR__,'.env');
 $dotenv->load();
@@ -41,9 +39,18 @@ $result = mysqli_query($connection, $query);
 if ($result) {// Query ausführen..
         $row = mysqli_fetch_all($result);// Speichere alle daten in einem Array <- Zutaten..
 
+//        echo '<pre>';
+//        echo print_r($row);
+//        echo '</pre>';
+    foreach($row as $kate){
+
         echo '<pre>';
-        echo print_r($row);
+        print_r($kate);
         echo '</pre>';
+        if($kate[1] == NULL){
+            echo $kate[3];
+        }
+    }
 
 
 

@@ -2,6 +2,8 @@
 //Connectiion string..
 $query = 'SELECT Mahlzeiten.id, Mahlzeiten.Name,Mahlzeiten.Beschreibung,Mahlzeiten.Vorrat,Mahlzeiten.Verfuegbar, P.`Alt-Text`,P.Titel,P.Binaerdaten
 FROM Mahlzeiten INNER JOIN Mahlzeit_hat_Bild B on Mahlzeiten.ID = B.Mahlzeiten_ID INNER JOIN Bilder P on P.ID = B.Bild_ID;'; //Query um an die Zutaten zu kommen
+
+$katequery = 'SELECT * FROM `Kategorien;';
 //Connectiion string..
 $dotenv = Dotenv\Dotenv::create(__DIR__,'.env');
 $dotenv->load();
@@ -19,6 +21,7 @@ if(mysqli_connect_errno()){
     printf("Verbindung zur Datenbank konnte nicht hergestellt werden: %s\n", mysqli_connect_error());
 }
 $result = mysqli_query($connection, $query);
+$kateresult = mysqli_query($connection, $katequery);
 $limit = @$_GET['limit'] ?: '8';//Limit GET Parameter, wenn kein Limit angegeben ist der Default wert 8
 $available = @$_GET['avail'] ?: 'false';
 ?>
@@ -54,22 +57,23 @@ include 'inc/navbar.php'
                     <h5 class="card-title">Speisenliste filtern</h5>
                     <div class="form-group">
                         <select class="form-contro align-items-center" id="kategorien">
-
-                            <option disabled selected class="align-text-center">Kategorien :</option>
-                            <option>Asiatisch</option>
-                            <option>Burger</option>
-                            <option>Deutsche Gerichte</option>
-                            <option>Döner</option>
-                            <option>Hähnchen</option>
-                            <option>Kuchen</option>
-                            <option>Pizza</option>
-                            <option>Rindfleisch</option>
-                            <option>Salate</option>
-                            <option>Schnitzel</option>
-                            <option>Wok</option>
+                          <?php
+                          if ($kateresult) {// Query ausführen..
+                              $optgrouprow = mysqli_fetch_all($kateresult); //$optgroup index 0 -> ID 1-> Kategorie_ID 2 -> BILD ID 3 -> Bezeichnung
+                              foreach($optgrouprow as $optgroup) {
+                                  if($optgroup[1] == NULL )//Ab in ein OPTGroup
+                                      echo '<optgroup label="'. $optgroup[3] .'">';
+                                      foreach($optgrouprow as $option) {//Suche alle die zu der OPTGroup gehören...
+                                              if($optgroup[0] == $option[1]){//$row -> Obergruppe $rows -> Subgruppen
+                                                  echo '<option>'. $option[3] .'</option>';
+                                              }
+                                          }
+                                  echo '</optgroup>';//Wenn alle unterkategorien gefunden wurden..
+                              }
+                          }
+                          ?>
                         </select>
                     </div>
-
                     <div class="form-check">
                         <ul style="list-style: none">
                             <li><input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
