@@ -232,7 +232,7 @@ ALTER TABLE Preise -- Preise loeschen
 ALTER TABLE Kommentare
     DROP FOREIGN KEY fk_mahlZeitenID_kommentare;
 
-ALTER TABLE Kommentare -- Preise l�schen
+ALTER TABLE Kommentare -- Preise loeschen
     ADD CONSTRAINT fk_mahlZeitenID_kommentare FOREIGN KEY (Mahlzeiten_ID) REFERENCES Mahlzeiten (ID) ON DELETE SET NULL;
 
 ALTER TABLE Mahl_enthaelt_zutat
