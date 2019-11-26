@@ -367,3 +367,25 @@ INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) V
 INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','7','99.99','98.95','97.95');
 INSERT INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis, Studentpreis, `MA-Preis`) VALUES ('2019','8','3.99','2.95','1.95');
 
+
+INSERT INTO `Kategorien` (`ID`, `Kategorie_ID`, `Bild_ID`, `Bezeichnung`) VALUES
+    (2, NULL, NULL, 'Generell'),
+    (3, 2, NULL, 'Alle zeigen'),
+    (4, NULL, NULL, 'Um die Welt'),
+    (5, 4, NULL, 'Italienisches'),
+    (6, 4, NULL, 'Amerikanisches'),
+    (7, 4, NULL, 'Ungarisches'),
+    (8, 4, NULL, 'Schwedisches'),
+    (9, 4, NULL, 'Griechisches'),
+    (10, 4, NULL, 'Mexikanisches');
+
+
+INSERT INTO `Mahlzeit_hat_Bild` (`Mahlzeiten_ID`, `Bild_ID`) VALUES
+    (1, 3),
+    (2, 7),
+    (3, 1),
+    (4, 6),
+    (5, 4),
+    (6, 2),
+    (7, 5),
+    (8, 8);

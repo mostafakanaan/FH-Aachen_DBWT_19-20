@@ -72,12 +72,12 @@ include 'inc/navbar.php'
         <div class="col-3">
             <div class="card background" id="bigcard">
                 <div class="card-body">
+                    <!--                            Form für Filter...-->
                     <form action="Produkte.php" method="get">
 
                         <h5 class="card-title">Speisenliste filtern</h5>
                         <div class="form-group">
                             <select class="form-contro align-items-center" id="kategorien">
-    <!--                            Form für Filter...-->
                                 <?php
                               if ($kateresult) {// Query ausführen..
                                   $optgrouprow = mysqli_fetch_all($kateresult); //$optgroup index 0 -> ID 1-> Kategorie_ID 2 -> BILD ID 3 -> Bezeichnung
@@ -87,7 +87,7 @@ include 'inc/navbar.php'
                                           echo '<optgroup label="'. $optgroup[3] .'">';
                                           foreach($optgrouprow as $option) {//Suche alle die zu der OPTGroup gehören...
                                                   if($optgroup[0] == $option[1]){//$optgroup -> Obergruppe $option -> Subgruppen
-                                                      echo '<option>'. $option[3] .'</option>';
+                                                      echo '<option value="'. $option[3] .'">'. $option[3] .'</option>';
                                                   }
                                               }
                                       echo '</optgroup>';//Wenn alle unterkategorien gefunden wurden..
