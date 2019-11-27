@@ -66,11 +66,11 @@
                     ' title="Suchen Sie nach ' . $name . ' im Web">' , $name,
                     ($row['Bio']? '<img src="img/bio.png"  title="Bio" alt="Bioabzeichen"/>' : ''),
                     '</a> </td> <td class="table-element">',
-                    ($row['Vegan']? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'),
+                    ($row['Vegan']? '<i class="far fa-check-circle fa-2x"></i>' : '<i class="far fa-times-circle fa-2x"></i>'),
                     '</td> <td class="table-element">',
-                    ($row['Vegetarisch']? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'),
+                    ($row['Vegetarisch']? '<i class="far fa-check-circle fa-2x"></i>' : '<i class="far fa-times-circle fa-2x"></i>'),
                     '</td> <td class="table-element">',
-                    ($row['Glutenfrei']? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'),
+                    ($row['Glutenfrei']? '<i class="far fa-check-circle fa-2x"></i>' : '<i class="far fa-times-circle fa-2x"></i>'),
                     '</td> </tr>';
                 }
             }
