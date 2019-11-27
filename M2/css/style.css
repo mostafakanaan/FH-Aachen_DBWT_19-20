@@ -1,4 +1,4 @@
-/* Meilenstein 2 */
+/* Meilenstein 3 */
 body {
     margin-top: 10px;
     height: 100%;
@@ -206,6 +206,14 @@ padding-top: 5px;
 .cols {
     text-align: center;
     padding-left: 0px;
+}
+
+.fa-check-circle {
+    color: green;
+}
+
+.fa-times-circle {
+    color: red;
 }
 
 #produktimg {
