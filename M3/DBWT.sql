@@ -30,13 +30,13 @@ CREATE TABLE IF NOT EXISTS Benutzer
     Nummer       INT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE,
     `E-Mail`     VARCHAR(255) NOT NULL UNIQUE,    -- Backticks wegen minus im namen
     Nutzername   VARCHAR(50)  NOT NULL UNIQUE,    -- NOT NULL weil nicht optional
-    Vorname      VARCHAR(255) NOT NULL,           -- TODO: 255?
-    Nachname     VARCHAR(255) NOT NULL,           -- TODO: ... 70 ist optimal!
+    Vorname      VARCHAR(70) NOT NULL,
+    Nachname     VARCHAR(70) NOT NULL,
     Bild         VARBINARY(1000),
     AnlegeDatum  TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     Geburtsdatum DATE,
     `Alter`      INT AS (FLOOR(DATEDIFF(CURRENT_DATE, Geburtsdatum) / 365.25)),
-    Aktiv        BOOL         NOT NULL DEFAULT 1, -- TODO: warum default 1?
+    Aktiv        BOOL         NOT NULL DEFAULT 1,
     LetzterLogin TIMESTAMP             DEFAULT 0,
     `Hash`       VARCHAR(60)  NOT NULL,
     PRIMARY KEY (Nummer)
@@ -45,8 +45,8 @@ CREATE TABLE IF NOT EXISTS Benutzer
 CREATE TABLE IF NOT EXISTS Bilder
 (
     ID          INT UNSIGNED AUTO_INCREMENT NOT NULL,
-    `Alt-Text`  VARCHAR(255)                NOT NULL, -- TODO: 125 ist empfohlen
-    Titel       VARCHAR(255),                         -- TODO: 70 ist empfohlen
+    `Alt-Text`  VARCHAR(125)                NOT NULL,
+    Titel       VARCHAR(70),
     Binaerdaten MEDIUMBLOB                  NOT NULL,
     PRIMARY KEY (ID)
 );
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS Kategorien
     ID           INT UNSIGNED NOT NULL AUTO_INCREMENT,
     Kategorie_ID INT UNSIGNED,
     Bild_ID      INT UNSIGNED,
-    Bezeichnung  VARCHAR(255) NOT NULL, -- TODO: 255 zu viel fuer eine Bezeichung. vllt 50?
+    Bezeichnung  VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID),
     CONSTRAINT fk_kateID_bild FOREIGN KEY (Bild_ID) REFERENCES `Bilder` (ID) ON DELETE SET NULL,
     CONSTRAINT fk_mahlZeitenID_kate FOREIGN KEY (Kategorie_ID) REFERENCES `Kategorien` (ID) ON DELETE SET NULL
@@ -306,66 +306,9 @@ VALUES ((
 
 -- INSERTS FOR ZUTATEN
 -- --------------------------------------------------------
--- Host:                         149.201.88.110
--- Server Version:               10.4.8-MariaDB-1:10.4.8+maria~bionic-log - mariadb.org binary distribution
--- Server Betriebssystem:        debian-linux-gnu
--- HeidiSQL Version:             10.2.0.5599
--- --------------------------------------------------------
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT = @@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS = @@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS = 0 */;
-/*!40101 SET @OLD_SQL_MODE = @@SQL_MODE, SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO' */;
-
--- Exportiere Daten aus Tabelle public.zutaten: ~36 rows (ungefähr)
-/*!40000 ALTER TABLE `Zutaten`
-    DISABLE KEYS */;
-REPLACE INTO `Zutaten` (`ID`, `Name`, `Bio`, `Vegan`, `Vegetarisch`, `Glutenfrei`)
-VALUES (1, 'Fisch', 1, 0, 1, 1),
-       (2, 'Paniermehl', 1, 1, 1, 0),
-       (80, 'Aal', 0, 0, 0, 1),
-       (81, 'Forelle', 0, 0, 0, 1),
-       (82, 'Barsch', 0, 0, 0, 1),
-       (83, 'Lachs', 0, 0, 0, 1),
-       (84, 'Lachs', 1, 0, 0, 1),
-       (85, 'Heilbutt', 0, 0, 0, 1),
-       (86, 'Heilbutt', 1, 0, 0, 1),
-       (100, 'Kurkumin', 1, 1, 1, 1),
-       (101, 'Riboflavin', 0, 1, 1, 1),
-       (123, 'Amaranth', 1, 1, 1, 1),
-       (150, 'Zuckerkulör', 0, 1, 1, 1),
-       (171, 'Titandioxid', 0, 1, 1, 1),
-       (220, 'Schwefeldioxid', 0, 1, 1, 1),
-       (270, 'Milchsäure', 0, 1, 1, 1),
-       (322, 'Lecithin', 0, 1, 1, 1),
-       (330, 'Zitronensäure', 1, 1, 1, 1),
-       (999, 'Weizenmehl', 1, 1, 1, 0),
-       (1000, 'Weizenmehl', 0, 1, 1, 0),
-       (1001, 'Hanfmehl', 1, 1, 1, 1),
-       (1010, 'Zucker', 0, 1, 1, 1),
-       (1013, 'Traubenzucker', 0, 1, 1, 1),
-       (1015, 'Branntweinessig', 0, 1, 1, 1),
-       (2019, 'Karotten', 0, 1, 1, 1),
-       (2020, 'Champignons', 0, 1, 1, 1),
-       (2101, 'Schweinefleisch', 0, 0, 0, 1),
-       (2102, 'Speck', 0, 0, 0, 1),
-       (2103, 'Alginat', 0, 1, 1, 1),
-       (2105, 'Paprika', 0, 1, 1, 1),
-       (2107, 'Fenchel', 0, 1, 1, 1),
-       (2108, 'Sellerie', 0, 1, 1, 1),
-       (9020, 'Champignons', 1, 1, 1, 1),
-       (9105, 'Paprika', 1, 1, 1, 1),
-       (9107, 'Fenchel', 1, 1, 1, 1),
-       (9110, 'Sojasprossen', 1, 1, 1, 1);
-
-
-/*!40000 ALTER TABLE `Zutaten`
-    ENABLE KEYS */;
-
-/*!40101 SET SQL_MODE = IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS = IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
-/*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;
+REPLACE INTO Zutaten
+SELECT *
+FROM public.zutaten;
 
 
 REPLACE INTO `Kategorien`(Bezeichnung)
@@ -396,3 +339,13 @@ VALUES ('2019', '2', '6.95', '5.95', '4.95'),
        ('2019', '7', '99.99', '98.95', '97.95'),
        ('2019', '8', '3.99', '2.95', '1.95');
 
+
+REPLACE INTO Mahlzeit_hat_Bild(Mahlzeiten_ID, Bild_ID)
+VALUES (1, 1),
+       (2, 2),
+       (3, 3),
+       (4, 4),
+       (5, 5),
+       (6, 6),
+       (7, 7),
+       (8, 8);
