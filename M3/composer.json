@@ -9,6 +9,13 @@
     ],
     "require": {
         "vlucas/phpdotenv": "^3.6",
-      "ext-mysqli": "*"
+      "ext-mysqli": "*",
+        "eftec/bladeone": "^3.31"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "eftec\\": "vendor/eftec/"
+        }
     }
 }

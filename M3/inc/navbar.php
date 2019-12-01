@@ -2,7 +2,7 @@
 <?php $page = basename($_SERVER['PHP_SELF']); ?>
 <header class="row">
     <div class="col-3">
-        <h1>e-Mensa</h1>
+        <h1>e-eeeMensa</h1>
     </div>
     <nav class="col-6">
         <ul class="nav">
