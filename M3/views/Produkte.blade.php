@@ -18,11 +18,11 @@
                     <?php
                     if ($result) {// Query ausführen..
                         while ($row = mysqli_fetch_assoc($result) and $limit > 0) {
-                            $id = $row['id']; //ID richtig setzen.. -> bessere lösung: alles in ein Array wie bei Detail.php
+                            $id = $row['id']; //ID richtig setzen.. -> bessere lösung: alles in ein Array wie bei DetailController.php
                             if($row['Verfuegbar']) {// Wenn Produkt verfügbar ist..
                                 echo '<div class="col-3 cols"><img src="data:image/gif;base64,'.base64_encode($row["Binaerdaten"]).'" alt="'. $row['Alt-Text']. '" class="smallimg">
                         <p class="produkt">' . $row['Name'] . '</p>
-                        <a href="Detail.php?id=' . $id . '" class="underline">Details</a>
+                        <a href="DetailController.php?id=' . $id . '" class="underline">Details</a>
                         </div>';
                             }else if(!($row['Verfuegbar']) ){//Wenn Produkt vergriffen ist...
                                 if($available == "false"){
