@@ -24,5 +24,7 @@ FROM Mahlzeiten INNER JOIN Mahlzeit_hat_Bild B on Mahlzeiten.ID = B.Mahlzeiten_I
 
     $result = mysqli_query($connection, $query);
     $kateresult = mysqli_query($connection, $katequery);
+    mysqli_close($connection);
+
 }
 ?>

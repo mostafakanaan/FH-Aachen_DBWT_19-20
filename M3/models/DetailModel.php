@@ -20,6 +20,7 @@ INNER JOIN Preise X ON Mahlzeiten.ID = X.Mahlzeiten_ID WHERE B.Mahlzeiten_ID ='.
         exit;
     }else{
     }
+    mysqli_close($connection);
 
 }
 ?>
