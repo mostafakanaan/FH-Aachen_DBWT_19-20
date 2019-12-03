@@ -327,8 +327,6 @@ VALUES ('Bratrolle', '1', 'Brat mit Rolle', '0', '0'),
 REPLACE INTO Mahl_enthaelt_zutat (Mahlzeit_ID, Zutat_ID)
 VALUES (1,80),(1,2103),(1,123);
 
-REPLACE INTO Mahlzeit_hat_Bild (Mahlzeiten_ID, Bild_ID) VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8);
-
 REPLACE INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis,  `MA-Preis`, Studentpreis)
 VALUES ('2019', '2', '6.95', '5.95', '4.95'),
        ('2019', '1', '99.99', '98.95', '97.95'),

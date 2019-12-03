@@ -327,8 +327,6 @@ VALUES ('Bratrolle', '1', 'Brat mit Rolle', '0', '0'),
 REPLACE INTO Mahl_enthaelt_zutat (Mahlzeit_ID, Zutat_ID)
 VALUES (1,80),(1,2103),(1,123);
 
-REPLACE INTO Mahlzeit_hat_Bild (Mahlzeiten_ID, Bild_ID) VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8);
-
 REPLACE INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis,  `MA-Preis`, Studentpreis)
 VALUES ('2019', '2', '6.95', '5.95', '4.95'),
        ('2019', '1', '99.99', '98.95', '97.95'),
@@ -340,29 +338,6 @@ VALUES ('2019', '2', '6.95', '5.95', '4.95'),
        ('2019', '8', '3.99', '2.95', '1.95');
 
 
-<<<<<<< HEAD
-INSERT INTO `Kategorien` (`ID`, `Kategorie_ID`, `Bild_ID`, `Bezeichnung`) VALUES
-    (2, NULL, NULL, 'Generell'),
-    (3, 2, NULL, 'Alle zeigen'),
-    (4, NULL, NULL, 'Um die Welt'),
-    (5, 4, NULL, 'Italienisches'),
-    (6, 4, NULL, 'Amerikanisches'),
-    (7, 4, NULL, 'Ungarisches'),
-    (8, 4, NULL, 'Schwedisches'),
-    (9, 4, NULL, 'Griechisches'),
-    (10, 4, NULL, 'Mexikanisches');
-
-
-INSERT INTO `Mahlzeit_hat_Bild` (`Mahlzeiten_ID`, `Bild_ID`) VALUES
-    (1, 3),
-    (2, 7),
-    (3, 1),
-    (4, 6),
-    (5, 4),
-    (6, 2),
-    (7, 5),
-    (8, 8);
-=======
 REPLACE INTO Mahlzeit_hat_Bild(Mahlzeiten_ID, Bild_ID)
 VALUES (1, 1),
        (2, 2),
@@ -372,4 +347,3 @@ VALUES (1, 1),
        (6, 6),
        (7, 7),
        (8, 8);
->>>>>>> add8e28ee45611c2e5ab60f48f32860e1bfab6f1
