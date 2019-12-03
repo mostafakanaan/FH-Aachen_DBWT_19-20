@@ -1,11 +1,8 @@
 <?php
-require "vendor/autoload.php";
-require __DIR__ . '/vendor/autoload.php';
+namespace Emensa\Controller {
+    include(__DIR__ . '/../models/ImpressumModel.php');
 
-Use eftec\bladeone\BladeOne;
+    $view= [];
 
-$views = __DIR__ . '/views';
-$cache = __DIR__ . '/cache';
-$blade = new BladeOne($views,$cache,BladeOne::MODE_AUTO);
-
-echo $blade->run("Impressum",array());
+}
+?>

@@ -1,0 +1,3 @@
+<?php $this->startSection('pageTitle','Impressum'); ?>
+<?php $this->startSection('content'); ?>
+<p>Sie werden in Kürze weitergeleitet..</p>
