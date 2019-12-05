@@ -7,7 +7,6 @@
                     @include('Filter',['kateresult' => $kateresult])
                 </div>
             </div>
-
             <div class="col-9">
                 <div class="row background" id="titel">
                     <h2>Verfügbare Speisen (Bestseller)</h2>

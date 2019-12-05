@@ -3,7 +3,7 @@
         <form action="Produkte.php" method="GET">
             <h5 class="card-title">Speisenliste filtern</h5>
             <div class="form-group">
-                <select class="form-contro align-items-center" id="kategorien">
+                <select class="form-contro align-items-center" name="kat" id="kategorien">
                     <?php
                     if ($kateresult) {// Query ausführen..
                         $optgrouprow = mysqli_fetch_all($kateresult); //$optgroup index 0 -> ID 1-> Kategorie_ID 2 -> BILD ID 3 -> Bezeichnung
@@ -13,7 +13,7 @@
                                 echo '<optgroup label="'. $optgroup[3] .'">';
                             foreach($optgrouprow as $option) {//Suche alle die zu der OPTGroup gehören...
                                 if($optgroup[0] == $option[1]){//$optgroup -> Obergruppe $option -> Subgruppen
-                                    echo '<option value="{{$id}}"'. $option[3] .'">'. $option[3] .'</option>';
+                                     echo '<option value="'.  $option[0] .'" name="kat"  >' . $option[3] . '</option>';
                                 }
                             }
                             echo '</optgroup>';//Wenn alle unterkategorien gefunden wurden..
@@ -24,12 +24,18 @@
             </div>
             <div class="form-check">
                 <ul style="list-style: none">
-                    <li><input class="form-check-input" type="checkbox" value="available" id="avaiable">
-                        <label class="form-check-label" for="defaultCheck1">nur verfügbare</label></li>
-                    <li><input class="form-check-input" type="checkbox" value="vegetarian" id="vegetarian">
-                        <label class="form-check-label" for="defaultCheck2">nur vegetarische</label></li>
-                    <li><input class="form-check-input" type="checkbox" value="vegan" id="vegan">
-                        <label class="form-check-label" for="defaultCheck3">nur vegane</label></li>
+                    <li>
+                        <input class="form-check-input" type="checkbox"  name="avail" value="1" id="available">
+                        <label class="form-check-label" for="defaultCheck1">nur verfügbare</label>
+                    </li>
+                    <li>
+                        <input class="form-check-input" type="checkbox" name="vegetarisch" value="1" id="vegetarian">
+                        <label class="form-check-label" for="defaultCheck2">nur vegetarische</label>
+                    </li>
+                    <li>
+                        <input class="form-check-input" type="checkbox" name="vegan" value="1" id="vegan">
+                        <label class="form-check-label" for="defaultCheck3">nur vegane</label>
+                    </li>
                 </ul>
             </div>
                 <button class="btn btn-dark" id="filter" type="submit">Speisen filtern</button>
