@@ -1,6 +1,6 @@
  <div class="card-body">
  <!--                            Form für Filter...-->
- <form action="Produkte.php" method="get">
+ <form action="Produkte.php" method="GET">
  <h5 class="card-title">Speisenliste filtern</h5>
  <div class="form-group">
  <select class="form-contro align-items-center" id="kategorien">
@@ -13,7 +13,7 @@
  echo '<optgroup label="'. $optgroup[3] .'">';
  foreach($optgrouprow as $option) {//Suche alle die zu der OPTGroup gehören...
  if($optgroup[0] == $option[1]){//$optgroup -> Obergruppe $option -> Subgruppen
- echo '<option value="'. $option[3] .'">'. $option[3] .'</option>';
+ echo '<option value="{{$id}}"'. $option[3] .'">'. $option[3] .'</option>';
  }
  }
  echo '</optgroup>';//Wenn alle unterkategorien gefunden wurden..
@@ -24,14 +24,15 @@
  </div>
  <div class="form-check">
  <ul style="list-style: none">
- <li><input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+ <li><input class="form-check-input" type="checkbox" value="available" id="avaiable">
  <label class="form-check-label" for="defaultCheck1">nur verfügbare</label></li>
- <li><input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+ <li><input class="form-check-input" type="checkbox" value="vegetarian" id="vegetarian">
  <label class="form-check-label" for="defaultCheck2">nur vegetarische</label></li>
- <li><input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+ <li><input class="form-check-input" type="checkbox" value="vegan" id="vegan">
  <label class="form-check-label" for="defaultCheck3">nur vegane</label></li>
  </ul>
  </div>
- <a href="#" class="btn btn-dark" id="filter">Speisen filtern</a>
+<?php /*            <a class="btn btn-dark" type="submit" id="filter" value="Submit" >Speisen filtern</a>*/ ?>
+ <button class="btn btn-dark" id="filter" type="submit">Speisen filtern</button>
  </form>
  </div>

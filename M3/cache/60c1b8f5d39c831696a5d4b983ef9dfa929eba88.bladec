@@ -16,7 +16,7 @@
  <div class="row">
  <?php
  if ($result) {// Query ausführen..
- while ($row = mysqli_fetch_assoc($result) and $limit > 0) {
+ while ($row = mysqli_fetch_assoc($result)) {
  $id = $row['id']; //ID richtig setzen.. -> bessere lösung: alles in ein Array wie bei DetailController.php
  if($row['Verfuegbar'] == '1') {// Wenn Produkt verfügbar ist..
  echo '<div class="col-3 cols"><img src="data:image/gif;base64,'.base64_encode($row["Binaerdaten"]).'" alt="'. $row['Alt-Text']. '" class="smallimg">
@@ -24,14 +24,11 @@
  <a href="Detail.php?id=' . $id . '" class="underline">Details</a>
  </div>';
  }else if($row['Verfuegbar'] == '0') {//Wenn Produkt vergriffen ist...
-//                                if($available == "1"){
  echo '<div class="col-3 cols"><img src="data:image/gif;base64,'.base64_encode($row['Binaerdaten']).'" alt="'.$row['Alt-Text'].'" class="smallimg">
  <p class="grauerText produkt">' . $row['Name'] . '</p>
  <a  class="grauerText">vergriffen</a>
  </div>';
-//                                }
  }
- $limit--;
  }
  }
  ?>
