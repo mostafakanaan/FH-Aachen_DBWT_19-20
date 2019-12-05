@@ -1,5 +1,6 @@
 !.gitignore
 sql_conf.env
 übungen/
+M3/cache/
 .*
 *.zip
