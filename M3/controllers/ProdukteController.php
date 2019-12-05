@@ -9,7 +9,8 @@ namespace Emensa\Controller {
         'available'=>$available,
         'kat'=>$kat,
         'vegetarisch'=>$vegetarisch,
-        'vegan'=>$vegan
+        'vegan'=>$vegan,
+        'query'=>$query
     ];
 
 }

@@ -4,8 +4,8 @@ namespace Emensa\Model {
     $mahlid = $_GET['id'];// Setze get Paramter für den Dynamischen aufruf..
 
     $query = 'SELECT Mahlzeiten.id, X.Gastpreis, Mahlzeiten.Name,Mahlzeiten.Beschreibung,Mahlzeiten.Vorrat,Mahlzeiten.Verfuegbar, P.`Alt-Text`,P.Titel,P.Binaerdaten
-FROM Mahlzeiten INNER JOIN Mahlzeit_hat_Bild B on Mahlzeiten.ID = B.Mahlzeiten_ID INNER JOIN Bilder P on P.ID = B.Bild_ID
-INNER JOIN Preise X ON Mahlzeiten.ID = X.Mahlzeiten_ID WHERE B.Mahlzeiten_ID ='. $mahlid . ';'; //Query um an die Zutaten zu kommen
+            FROM Mahlzeiten INNER JOIN Mahlzeit_hat_Bild B on Mahlzeiten.ID = B.Mahlzeiten_ID INNER JOIN Bilder P on P.ID = B.Bild_ID
+            INNER JOIN Preise X ON Mahlzeiten.ID = X.Mahlzeiten_ID WHERE B.Mahlzeiten_ID ='. $mahlid . ';'; //Query um an die Zutaten zu kommen
     $zutatquery = 'SELECT `Mahl_enthaelt_zutat`.`Mahlzeit_ID`, `Mahl_enthaelt_zutat`.`Zutat_ID`, Z.Name  FROM `Mahl_enthaelt_zutat` INNER JOIN Zutaten Z on `Mahl_enthaelt_zutat`.`Zutat_ID` = Z.ID WHERE Mahlzeit_ID ='. $mahlid . ';' ; //Query um an die Zutaten zu kommen
 //Query um an alle Zutaten zu kommen mit INNER JOIN
 
@@ -21,6 +21,5 @@ INNER JOIN Preise X ON Mahlzeiten.ID = X.Mahlzeiten_ID WHERE B.Mahlzeiten_ID ='.
     }else{
     }
     mysqli_close($connection);
-
 }
 ?>
