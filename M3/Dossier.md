@@ -19,20 +19,20 @@ Ich würde für jedes Produkt eine .html anlegen und jede richtig verlinken.
 - Wie ich mein Footer und meine Navbar auslagern kann -> PHP Include
 
 
-##Meilenstein 2:
-###✎ was das Semikolon am Ende einer Anweisung bewirkt
+## Meilenstein 2:
+### ✎ was das Semikolon am Ende einer Anweisung bewirkt
 Schließt eine SQL Anweisung ab,  aber macht eigentlich keinen unterschied.
 
-###✎ wie Sie die binären Relationstypen (1:1, 1:N, N:M) abgebildet haben
+### ✎ wie Sie die binären Relationstypen (1:1, 1:N, N:M) abgebildet haben
 1:1 -> 1 kommt zu 1
 1:N -> N kommt zu 1
 N:M -> eigene Tabelle
 
-###✎ den Unterschied zwischen Tabellen- und Spalten-Constraints und wann welche Art sinnvoll ist
+### ✎ den Unterschied zwischen Tabellen- und Spalten-Constraints und wann welche Art sinnvoll ist
 Spalten Constraints -> Sind die Attribut werte, wenn man die Prüft.
 Tabellen Constrains -> Primary Key, Foreinkey Cascade etc.
 
-###✎ wie Sie den Aufzählungsdatentyp ENUM, den MariaDB unterstützt, per CHECK Constraint auch in anderen DBMS nachbilden könnten
+### ✎ wie Sie den Aufzählungsdatentyp ENUM, den MariaDB unterstützt, per CHECK Constraint auch in anderen DBMS nachbilden könnten
 ```sql
      CONSTRAINT checkstudiengang CHECK(
         studiengang = 'INF' OR
@@ -43,41 +43,41 @@ Tabellen Constrains -> Primary Key, Foreinkey Cascade etc.
         )
 ```
 
-###✎ welche Constraints in MariaDB welchem Zweck dienen
+### ✎ welche Constraints in MariaDB welchem Zweck dienen
 checkstudiengang -> überprüft ob der Studiengang der eingegeben wurde valide ist.
 fk_mahlZeitenID_kommentare -> Name sagt alles (CONSTRAINT deshalb um es später mit alter table zuändern siehe aufgaben stellung)
 
-###✎ wieso Sie die Datenbank information_schema sehen
+### ✎ wieso Sie die Datenbank information_schema sehen
 Weil dort die ganze DB Logik hinterlegt sind wie Metadaten, Informationen über den Server, datentypen etc.
 Und jeder User darauf lesenden zugriff haben MUSS.
-###✎  Paket 3 Anzahl der Zutaten neben überschrift. Welche Möglichkeiten für diese Umsetzung kennen Sie
+### ✎  Paket 3 Anzahl der Zutaten neben überschrift. Welche Möglichkeiten für diese Umsetzung kennen Sie
  	 Alle Rows in einem Array speichern und die Array länge ausgeben.
  	Mit einer While fetch_assoc machen und eine zähl variable hochzählen
  	Oder eine SQL Query und die Rows zählen lassen
 
-###✎ Backup der Zutaten Tabelle  Notieren Sie die dazu erforderliche SQL-Queries im Dossier
+### ✎ Backup der Zutaten Tabelle  Notieren Sie die dazu erforderliche SQL-Queries im Dossier
 ```sql
 REPLACE INTO Zutaten
 SELECT *
 FROM public.zutaten;
 ```
-##Meilenstein 3: 
+## Meilenstein 3: 
 
-###✎ ... weshalb Sie plötzlich einen Cookie gesetzt bekommen nachdem Sie Werte in die Session schreiben. Lassen Sie sich den Cookie einmal anzeigen im Browser (Entwickler-Tools).
+### ✎ ... weshalb Sie plötzlich einen Cookie gesetzt bekommen nachdem Sie Werte in die Session schreiben. Lassen Sie sich den Cookie einmal anzeigen im Browser (Entwickler-Tools).
 
-###✎ ... die Situation auf Serverseite, wenn Sie den Cookie löschen und einen weiteren Request absenden.
+### ✎ ... die Situation auf Serverseite, wenn Sie den Cookie löschen und einen weiteren Request absenden.
 
-###✎ ... wie eine Anmeldung auch ohne Verwendung von Cookies realisiert werden könnte. Recherchieren Sie.
+### ✎ ... wie eine Anmeldung auch ohne Verwendung von Cookies realisiert werden könnte. Recherchieren Sie.
 
-###✎ ... wie die Stored Procedure aussieht, die Ihnen den korrekten Preis zu einer genannten Nutzer-Nummer und einer Mahlzeiten-ID zurückgibt. (oder verwenden Sie sie direkt in der Anwendung).
+### ✎ ... wie die Stored Procedure aussieht, die Ihnen den korrekten Preis zu einer genannten Nutzer-Nummer und einer Mahlzeiten-ID zurückgibt. (oder verwenden Sie sie direkt in der Anwendung).
 
-###✎ Notieren Sie im Dossier, welche verschiedenen Fehler durch Ihre Constraints entstehen können. Erzeugen Sie diese Fehler per SQL einmal und notieren Sie sich die Fehlermeldung im Dossier. Es geht vorrangig um das Anlegen von Studierenden
+### ✎ Notieren Sie im Dossier, welche verschiedenen Fehler durch Ihre Constraints entstehen können. Erzeugen Sie diese Fehler per SQL einmal und notieren Sie sich die Fehlermeldung im Dossier. Es geht vorrangig um das Anlegen von Studierenden
 
-###✎ ... welche Probleme Ihnen aufgefallen sind bei der Umsetzung des MVC-Pattern.
+### ✎ ... welche Probleme Ihnen aufgefallen sind bei der Umsetzung des MVC-Pattern.
 
-###✎ ... welche Situationen es geben kann, wenn wirklich viele Benutzer gleichzeitig diese Art von Registrierung durchführen.
+### ✎ ... welche Situationen es geben kann, wenn wirklich viele Benutzer gleichzeitig diese Art von Registrierung durchführen.
 
-###✎ ... welcher Aspekt in der E-Mensa sich noch für Transaktionen anbieten könnte.
+### ✎ ... welcher Aspekt in der E-Mensa sich noch für Transaktionen anbieten könnte.
 
 
 
