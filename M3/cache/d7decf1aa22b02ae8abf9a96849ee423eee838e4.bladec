@@ -13,7 +13,7 @@
  echo '<optgroup label="'. $optgroup[3] .'">';
  foreach($optgrouprow as $option) {//Suche alle die zu der OPTGroup gehören...
  if($optgroup[0] == $option[1]){//$optgroup -> Obergruppe $option -> Subgruppen
- echo '<option value="'.  $option[0] .'" name="kat">' . $option[3] . '</option>';
+ echo '<option value="'.  $option[0] .'" name="kat"  >' . $option[3] . '</option>';
  }
  }
  echo '</optgroup>';//Wenn alle unterkategorien gefunden wurden..
