@@ -48,7 +48,7 @@
         <div class="col-3 copyright">
             <i class="far fa-copyright"></i>
             DBWT
-            @php date("d.m.Y", time()) @endphp
+            @php echo date("d.m.Y", time()) @endphp
         </div>
         <nav class="col-6">
             <ul class="nav" id="bottom_nav">
