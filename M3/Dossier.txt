@@ -21,7 +21,7 @@ Fragen die mir bei der Programmierung gekommen sind:
 -Wie ich mein Footer und meine Navbar auslagern kann -> PHP Include
 
 
-
+------------------------------------------------------------------------------------
 Meilenstein 2:
 
 ✎ was das Semikolon am Ende einer Anweisung bewirkt
@@ -59,7 +59,41 @@ Meilenstein 2:
 
  	Backup der Zutaten Tabelle
  ✎ Notieren Sie die dazu erforderliche SQL-Queries im Dossier
--- --------------------------------------------------------
+
 REPLACE INTO Zutaten
 SELECT *
 FROM public.zutaten;
+
+
+-------------------------------------------------------------------------
+
+Meilenstein 3: 
+
+✎ ... weshalb Sie plötzlich einen Cookie gesetzt bekommen nachdem Sie Werte in die Session schreiben. Lassen Sie sich den Cookie einmal
+anzeigen im Browser (Entwickler-Tools).
+
+
+✎ ... die Situation auf Serverseite, wenn Sie den Cookie löschen und einen weiteren Request absenden.
+
+
+✎ ... wie eine Anmeldung auch ohne Verwendung von Cookies realisiert werden könnte. Recherchieren Sie.
+
+
+✎ ... wie die Stored Procedure aussieht, die Ihnen den korrekten Preis zu einer genannten Nutzer-Nummer und einer Mahlzeiten-ID
+zurückgibt. (oder verwenden Sie sie direkt in der Anwendung).
+
+
+✎ Notieren Sie im Dossier, welche verschiedenen Fehler durch Ihre Constraints entstehen können. Erzeugen Sie diese Fehler per SQL einmal
+und notieren Sie sich die Fehlermeldung im Dossier. Es geht vorrangig um das Anlegen von Studierenden
+
+
+✎ ... welche Probleme Ihnen aufgefallen sind bei der Umsetzung des MVC-Pattern.
+
+
+✎ ... welche Situationen es geben kann, wenn wirklich viele Benutzer gleichzeitig diese Art von Registrierung durchführen.
+
+
+✎ ... welcher Aspekt in der E-Mensa sich noch für Transaktionen anbieten könnte.
+
+
+
