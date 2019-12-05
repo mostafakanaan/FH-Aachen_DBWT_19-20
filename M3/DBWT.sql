@@ -1,4 +1,4 @@
-USE `db3167397`;
+USE `xcrash_db3`;
 
 -- Tabelle loeschen, falls Sie existiert
 -- Alle Tabellen, die Fremdschluessel enthalten, werden als erstes geloescht...
@@ -310,22 +310,45 @@ REPLACE INTO Zutaten
 SELECT *
 FROM public.zutaten;
 
+REPLACE INTO Kategorien(ID,Kategorie_ID,Bezeichnung)
+VALUES (1,'','Generell'),
+        (2,1,'Alle zeigen'),
+        (3,'','Um die Welt'),
+        (4,3,'Italienisches'),
+        (5,3,'Amerikanisches'),
+        (6,3,'Ungarisches'),
+        (7,3,'Schwedisches'),
+        (8,3,'Griechisches'),
+        (9,3,'Mexikanisches'),
+        (10,'','Saisonal');
 
-REPLACE INTO `Kategorien`(Bezeichnung)
-VALUES ('Kate1'),('Kate2'),('Kate3');
+
 
 REPLACE INTO `Mahlzeiten`(Name, Kategorie_ID, Beschreibung, Vorrat, Verfuegbar)
-VALUES ('Bratrolle', '1', 'Brat mit Rolle', '0', '0'),
-       ('Currywurst', '1', 'Wurst mit Curry', '10', '1'),
-       ('Curry Wok', '1', 'Wok mit Curry', '10', '1'),
-       ('Falafel', '1', 'Fala mit fel', '13', '1'),
-       ('Käsestulle', '1', 'Stulle mit Käse', '13', '1'),
-       ('Krautsalat', '1', 'Kraut mit Salat', '8', '1'),
-       ('Schnitzel', '1', 'Dünne panierte gebratene Scheibe Schweinefleisch mit Beilage(Reis/Pommes).', '12', '1'),
-       ('Spiegelei', '1', 'Ei mit Spiegel', '10', '1');
+VALUES ('Bratrolle', '5', 'Brat mit Rolle', '0', '0'),
+       ('Currywurst', '5', 'Wurst mit Curry', '10', '1'),
+       ('Curry Wok', '9', 'Wok mit Curry', '10', '1'),
+       ('Falafel', '9', 'Fala mit fel', '13', '1'),
+       ('Käsestulle', '4', 'Stulle mit Käse', '13', '1'),
+       ('Krautsalat', '4', 'Kraut mit Salat', '8', '1'),
+       ('Schnitzel', '6', 'Dünne panierte gebratene Scheibe Schweinefleisch mit Beilage(Reis/Pommes).', '12', '1'),
+       ('Spiegelei', '7', 'Ei mit Spiegel', '10', '1');
 
-REPLACE INTO Mahl_enthaelt_zutat (Mahlzeit_ID, Zutat_ID)
-VALUES (1,80),(1,2103),(1,123);
+REPLACE INTO Mahl_enthaelt_zutat(Mahlzeit_ID,Zutat_ID)
+VALUES (1,2101),
+        (1,2),
+        (2,2101),
+        (3,999),
+        (3,1010),
+        (5,270),
+        (5,999),
+        (6,9020),
+        (6,9110),
+        (7,2101),
+        (7,2),
+        (8,1001),
+        (8,2102);
+
 
 REPLACE INTO `Preise`(Jahr, Mahlzeiten_ID, Gastpreis,  `MA-Preis`, Studentpreis)
 VALUES ('2019', '2', '6.95', '5.95', '4.95'),
