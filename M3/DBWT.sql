@@ -311,16 +311,16 @@ SELECT *
 FROM public.zutaten;
 
 REPLACE INTO Kategorien(ID,Kategorie_ID,Bezeichnung)
-VALUES (1,'','Generell'),
+VALUES (1,NULL,'Generell'),
         (2,1,'Alle zeigen'),
-        (3,'','Um die Welt'),
+        (3,NULL,'Um die Welt'),
         (4,3,'Italienisches'),
         (5,3,'Amerikanisches'),
         (6,3,'Ungarisches'),
         (7,3,'Schwedisches'),
         (8,3,'Griechisches'),
         (9,3,'Mexikanisches'),
-        (10,'','Saisonal');
+        (10,NULL,'Saisonal');
 
 
 
