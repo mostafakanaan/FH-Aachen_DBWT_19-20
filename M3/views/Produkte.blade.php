@@ -1,20 +1,19 @@
 @extends('app')
 @section('pageTitle','Produkte')
 @section('content')
-     <div class="row">
-            <div class="col-3">
-                <div class="card background" id="bigcard">
-                    @include('Filter',['kateresult' => $kateresult])
-                </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="card background" id="bigcard">
+                @include('Filter',['kateresult' => $kateresult])
             </div>
-            <div class="col-9">
-                <div class="row background" id="titel">
-                    <h2>Verfügbare Speisen (Bestseller)</h2>
-                </div>
+        </div>
+        <div class="col-9">
+            <div class="row background" id="titel">
+                <h2>Verfügbare Speisen (Bestseller)</h2>
+            </div>
 
-                <div class="row">
-                    <?php
-                    if ($result) {// Query ausführen..
+            <div class="row">
+                @php if ($result) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row['id']; //ID richtig setzen.. -> bessere lösung: alles in ein Array wie bei DetailController.php
                             if($row['Verfuegbar'] == '1') {// Wenn Produkt verfügbar ist..
@@ -30,8 +29,8 @@
                             }
                         }
                     }
-                    ?>
-                </div>
+                @endphp
             </div>
         </div>
+    </div>
 @endsection

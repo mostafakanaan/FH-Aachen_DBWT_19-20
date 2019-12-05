@@ -21,7 +21,7 @@ namespace Emensa\Model {
          ($vegetarisch ? ' AND 0 = ALL (SELECT  Zutaten.Vegan FROM Zutaten Zutaten WHERE Zutaten.ID = MEZ.Zutat_ID)' : '') . //Vegetarisch abfrage
          ($kat != 0 ? ' AND K.ID =' . $kat : '') .  ' GROUP BY Mahlzeiten.id' . ($limit != 0 ? ' LIMIT ' . $limit : ''); // Kategorie abfrage -> Group By um mehrfache Einträge zusammen zu fassen..
 
-    $katequery = 'SELECT * FROM `Kategorien;'; // Um an alle Kategorien ran zu kommen...
+    $katequery = 'SELECT * FROM `Kategorien`;'; // Um an alle Kategorien ran zu kommen...
 
 
     $result = mysqli_query($connection, $query);

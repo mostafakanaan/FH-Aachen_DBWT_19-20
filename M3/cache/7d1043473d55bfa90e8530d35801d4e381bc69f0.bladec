@@ -21,10 +21,8 @@
  </div>
  <nav class="col-6">
  <ul class="nav">
- <li class="nav-item"><a class="nav-link  <?php if($page == 'Start.php'): ?>  <?php echo static::e(" disabled"); ?> <?php endif; ?> "
- href="Start.php">Start</a></li>
- <li class="nav-item"><a class="nav-link <?php if($page == 'Produkte.php'): ?>  <?php echo static::e(" disabled"); ?> <?php endif; ?> "
- href="Produkte.php">Mahlzeiten</a></li>
+ <li class="nav-item"><a class="nav-link  <?php if($page == 'Start.php'): ?>  <?php echo static::e(" disabled"); ?> <?php endif; ?> " href="Start.php">Start</a></li>
+ <li class="nav-item"><a class="nav-link <?php if($page == 'Produkte.php'): ?>  <?php echo static::e(" disabled"); ?> <?php endif; ?> " href="Produkte.php">Mahlzeiten</a></li>
  <li class="nav-item"><a class="nav-link active" href="#">Bestellung</a></li>
  <li class="nav-item"><a class="nav-link active" target="_blank" href="https://www.fh-aachen.de/">FH-Aachen</a>
  </li>
@@ -50,8 +48,7 @@
  <div class="col-3 copyright">
  <i class="far fa-copyright"></i>
  DBWT
- <?php echo static::e(date("d.m.Y", time())); ?>
-
+ <?php  date("d.m.Y", time())  ?>
  </div>
  <nav class="col-6">
  <ul class="nav" id="bottom_nav">
