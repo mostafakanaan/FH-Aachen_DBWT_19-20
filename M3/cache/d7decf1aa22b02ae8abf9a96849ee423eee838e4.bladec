@@ -5,6 +5,7 @@
  <div class="form-group">
  <select class="form-contro align-items-center" name="kat" id="kategorien">
  <?php
+ //FIXME: Wenn Alle anzeigen -> wieder alle anzeigen...
  if ($kateresult) {// Query ausführen..
  $optgrouprow = mysqli_fetch_all($kateresult); //$optgroup index 0 -> ID 1-> Kategorie_ID 2 -> BILD ID 3 -> Bezeichnung
  //same for $option
