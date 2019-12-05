@@ -21,7 +21,7 @@ Fragen die mir bei der Programmierung gekommen sind:
 -Wie ich mein Footer und meine Navbar auslagern kann -> PHP Include
 
 
-
+------------------------------------------------------------------------------------
 Meilenstein 2:
 
 ✎ was das Semikolon am Ende einer Anweisung bewirkt
@@ -59,14 +59,16 @@ Meilenstein 2:
 
  	Backup der Zutaten Tabelle
  ✎ Notieren Sie die dazu erforderliche SQL-Queries im Dossier
--- --------------------------------------------------------
+
 REPLACE INTO Zutaten
 SELECT *
 FROM public.zutaten;
 
 
+-------------------------------------------------------------------------
 
 Meilenstein 3: 
+
 ✎ ... weshalb Sie plötzlich einen Cookie gesetzt bekommen nachdem Sie Werte in die Session schreiben. Lassen Sie sich den Cookie einmal
 anzeigen im Browser (Entwickler-Tools).
 
