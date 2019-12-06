@@ -144,6 +144,13 @@ padding-top: 5px;
     height: 18rem;
 }
 
+#registration {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 30rem;
+    width: 25rem;
+}
+
 #register {
     width: 13rem; font-size: 15px;
 }
@@ -307,6 +314,15 @@ padding-top: 5px;
 
 .mahlzeiten {
     width: 150px;
+}
+
+.registerbox {
+    width: 95%;
+    margin-bottom: 15px;
+}
+
+.form-check-input {
+    display: inline-block;
 }
 
 #detailsTitel {
