@@ -13,8 +13,7 @@
  </div>
 
  <div class="row">
- <?php
- if ($result) {// Query ausführen..
+ <?php  if ($result) {
  while ($row = mysqli_fetch_assoc($result)) {
  $id = $row['id']; //ID richtig setzen.. -> bessere lösung: alles in ein Array wie bei DetailController.php
  if($row['Verfuegbar'] == '1') {// Wenn Produkt verfügbar ist..

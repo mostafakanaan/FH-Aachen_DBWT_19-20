@@ -312,7 +312,7 @@ FROM public.zutaten;
 
 REPLACE INTO Kategorien(ID,Kategorie_ID,Bezeichnung)
 VALUES (1,NULL,'Generell'),
-        (2,1,'Alle zeigen'),
+        (0,1,'Alle zeigen'),
         (3,NULL,'Um die Welt'),
         (4,3,'Italienisches'),
         (5,3,'Amerikanisches'),
