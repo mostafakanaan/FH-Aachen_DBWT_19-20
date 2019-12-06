@@ -1,4 +1,4 @@
-USE `xcrash_db3`;
+USE `db3167397`;
 
 -- Tabelle loeschen, falls Sie existiert
 -- Alle Tabellen, die Fremdschluessel enthalten, werden als erstes geloescht...

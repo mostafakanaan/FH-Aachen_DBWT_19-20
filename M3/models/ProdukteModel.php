@@ -19,7 +19,7 @@ namespace Emensa\Model {
     INNER JOIN Kategorien K on Mahlzeiten.Kategorie_ID = K.ID WHERE Mahlzeiten.Name IS NOT NULL '. ($available ? ' AND Mahlzeiten.Verfuegbar = 1 ' : '') . // Vefügbar abfrage
          ($vegan ? ' AND 1 = ALL (SELECT  Zutaten.Vegan FROM Mahl_enthaelt_zutat INNER JOIN Zutaten on Mahl_enthaelt_zutat.Zutat_ID = Zutaten.ID WHERE Mahl_enthaelt_zutat.Mahlzeit_ID = Mahlzeiten.id)' : '') . //vegan abfrage
          ($vegetarisch ? ' AND 1 = ALL (SELECT  Zutaten.Vegetarisch FROM Mahl_enthaelt_zutat INNER JOIN Zutaten on Mahl_enthaelt_zutat.Zutat_ID = Zutaten.ID WHERE Mahl_enthaelt_zutat.Mahlzeit_ID = Mahlzeiten.id)' : '') . //Vegetarisch abfrage
-         ($kat != 0 ? ' AND K.ID =' . $kat : '') .  ' GROUP BY Mahlzeiten.id' . ($limit != 0 ? ' LIMIT ' . $limit : ''); // Kategorie abfrage -> Group By um mehrfache Einträge zusammen zu fassen..
+         ($kat != 2 ? ' AND K.ID =' . $kat : '') .  ' GROUP BY Mahlzeiten.id' . ($limit != 0 ? ' LIMIT ' . $limit : ''); // Kategorie abfrage -> Group By um mehrfache Einträge zusammen zu fassen..
 
     $katequery = 'SELECT * FROM `Kategorien`;'; // Um an alle Kategorien ran zu kommen...
 
