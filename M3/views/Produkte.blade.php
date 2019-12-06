@@ -33,7 +33,7 @@
                                         echo '</optgroup>';//Wenn alle unterkategorien gefunden wurden..
                                     }
                                 }
-                                ($_GET['kat'] != 2 ? $bestseller = $katedesc[$_GET['kat']] :  $bestseller = 'Bestseller');
+                                ($kat != 2 ? $bestseller = $katedesc[$_GET['kat']] :  $bestseller = 'Bestseller');
 
                                 ?>
                             </select>

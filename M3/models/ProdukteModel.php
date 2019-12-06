@@ -7,7 +7,7 @@ namespace Emensa\Model {
     $limit = @$_GET['limit'] ?: '8';
 //Limit GET Parameter, wenn kein Limit angegeben ist der Default wert 8
     $available = @$_GET['avail'] ?: '0';
-    $kat = @$_GET['kat'] ?: '0';
+    $kat = @$_GET['kat'] ?: '2';
     $vegetarisch = @$_GET['vegetarisch'] ?: '0';
     $vegan = @$_GET['vegan'] ?: '0';
 //*************
