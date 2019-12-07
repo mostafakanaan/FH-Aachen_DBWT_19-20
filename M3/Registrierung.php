@@ -9,9 +9,9 @@ $blade = new BladeOne($views, $cache, BladeOne::MODE_AUTO);
 
 include(__DIR__ .'/controllers/RegistrierenController.php');
 
-echo '<pre>';
-var_dump($view);
-echo '</pre>';
+//echo '<pre>';
+//var_dump($view);
+//echo '</pre>';
 
 
 if (isset($view['secondsuccess'])) {
