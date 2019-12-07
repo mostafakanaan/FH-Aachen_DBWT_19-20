@@ -64,20 +64,69 @@ FROM public.zutaten;
 ## Meilenstein 3: 
 
 ### ✎ ... weshalb Sie plötzlich einen Cookie gesetzt bekommen nachdem Sie Werte in die Session schreiben. Lassen Sie sich den Cookie einmal anzeigen im Browser (Entwickler-Tools).
+Wenn man Session_Start benutzt legt PHP Automatisch einen Cookie an mit dem Namen -> PHPSESSID (Standartmäßig) und speichert dort die 32-stellige Zeichenkette bzw Informationen aus dem HTTP Header.
+
 
 ### ✎ ... die Situation auf Serverseite, wenn Sie den Cookie löschen und einen weiteren Request absenden.
+- Cookie wird Serverseitig nicht mehr gefunden und der User ausgeloggt.
 
 ### ✎ ... wie eine Anmeldung auch ohne Verwendung von Cookies realisiert werden könnte. Recherchieren Sie.
+- Über die IP Adresse.
+- Canvas Fingerprint
+- ETAG
+https://www.kompyte.com/blog/5-ways-to-identify-your-users-without-using-cookies/
 
 ### ✎ ... wie die Stored Procedure aussieht, die Ihnen den korrekten Preis zu einer genannten Nutzer-Nummer und einer Mahlzeiten-ID zurückgibt. (oder verwenden Sie sie direkt in der Anwendung).
+```sql
+create
+    procedure UserRole(IN user int, OUT role varchar(10))
+BEGIN
+    DECLARE s INT;
+    DECLARE g INT;
+    DECLARE m INT;
+    SELECT count(Nummer) INTO s FROM Studenten WHERE Nummer = user;
+    SELECT count(Nummer) INTO g FROM Gaeste WHERE Nummer = user;
+    SELECT count(Nummer) INTO m FROM Mitarbeiter WHERE Nummer = user;
+    IF s = 1 THEN
+        SET role = 'Student';
+    ELSEIF m = 1 THEN
+        SET role = 'Gast';
+    ELSEIF g = 1 THEN
+        SET role = 'Mitarbeiter';
+    END IF;
+```
+
 
 ### ✎ Notieren Sie im Dossier, welche verschiedenen Fehler durch Ihre Constraints entstehen können. Erzeugen Sie diese Fehler per SQL einmal und notieren Sie sich die Fehlermeldung im Dossier. Es geht vorrangig um das Anlegen von Studierenden
+```sql
+Out of range value for column 'Matrikelnummer' at row 1
+```
+
+```sql
+Duplicate entry '12345678' for key 'Matrikelnummer'
+```
+```sql
+Data truncated for column 'Studiengang' at row 1
+```
+
 
 ### ✎ ... welche Probleme Ihnen aufgefallen sind bei der Umsetzung des MVC-Pattern.
+- Sehr verwirrend fürs erste den überblick zu behalten.
+- kein Routing (bei uns) die umsetzung war verwirrend.
+- Erst in Views und dann in MVC umschreiben war sehr Zeitintensiv..
+- Konzept muss 100%ig verinnerlicht werden
 
 ### ✎ ... welche Situationen es geben kann, wenn wirklich viele Benutzer gleichzeitig diese Art von Registrierung durchführen.
+- Datenbank Server wird überlastet wegen der Procedure.
+- laggs wegen keinem load balancing
+- Fehler in der Datenbank
 
 ### ✎ ... welcher Aspekt in der E-Mensa sich noch für Transaktionen anbieten könnte.
+- Berechnung des Warenkorbs
+
+
+
+
 
 
 
