@@ -66,7 +66,6 @@ namespace Emensa\Controller {
         $view['studiengang'] = $_POST['studiengang'];
         $view['telefon'] = $_POST['telefon'];
         $view['buero'] = $_POST['buero'];
-        if(isset($view['nickname'])) $view['nummer'] = 5;
 
 
         if (!isset($view['error'])) {
@@ -118,7 +117,7 @@ namespace Emensa\Controller {
                 }
             }
             $result = mysqli_query($connection, 'SELECT LAST_INSERT_ID();');
-            $view['id'] = mysqli_fetch_assoc($result);
+            $view['id'] = mysqli_fetch_assoc($result)['LAST_INSERT_ID()'];
             if (mysqli_error($connection)) {
                 mysqli_rollback($connection);
                 $error = true;

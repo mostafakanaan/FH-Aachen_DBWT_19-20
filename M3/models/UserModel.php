@@ -38,7 +38,7 @@ namespace Emensa\Model {
 
         public function getID($benutzername) {
             global $connection;
-            $sql = 'SELECT * FROM Benutzer WHERE `Nutzername` = \''.$benutzername.'\'';
+            $sql = 'SELECT Nummer FROM Benutzer WHERE `Nutzername` = \''.$benutzername.'\'';
             $result = mysqli_query($connection, $sql);
             return mysqli_fetch_all($result, assoc);
         }
