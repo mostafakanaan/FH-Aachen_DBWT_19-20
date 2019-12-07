@@ -46,7 +46,7 @@
  Hallo <?php echo static::e($_SESSION['user']); ?>, Sie sind angemeldet als <?php echo static::e($_SESSION['role']); ?>.
  <input type="submit" class="btn btn-primary button" name="action" value="Abmelden">
  <?php endif; ?>
- <input type="hidden" name="id" value="<?php echo static::e($arrayofrows[0][2]); ?>">
+ <input type="hidden" name="id" value="<?php echo static::e($arrayofrows[0][0]); ?>">
  </div>
  </form>
  </div>

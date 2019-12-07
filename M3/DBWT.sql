@@ -372,3 +372,22 @@ VALUES (1, 1),
        (8, 8);
 
 REPLACE INTO Fachbereiche(Name) VALUES ('ET'),('INF'), ('ISE'), ('MCD'), ('WI');
+
+
+create
+    procedure UserRole(IN user int, OUT role varchar(10))
+BEGIN
+    DECLARE s INT;
+    DECLARE g INT;
+    DECLARE m INT;
+    SELECT count(Nummer) INTO s FROM Studenten WHERE Nummer = user;
+    SELECT count(Nummer) INTO g FROM Gaeste WHERE Nummer = user;
+    SELECT count(Nummer) INTO m FROM Mitarbeiter WHERE Nummer = user;
+    IF s = 1 THEN
+        SET role = 'Student';
+    ELSEIF m = 1 THEN
+        SET role = 'Gast';
+    ELSEIF g = 1 THEN
+        SET role = 'Mitarbeiter';
+    END IF;
+END;

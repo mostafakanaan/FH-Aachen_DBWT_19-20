@@ -46,7 +46,7 @@
                                 Hallo {{$_SESSION['user']}}, Sie sind angemeldet als {{$_SESSION['role']}}.
                                 <input type="submit" class="btn btn-primary button" name="action" value="Abmelden">
                             @endif
-                            <input type="hidden" name="id" value="{{$arrayofrows[0][2]}}">
+                            <input type="hidden" name="id" value="{{$arrayofrows[0][0]}}">
                         </div>
                     </form>
                 </div>
