@@ -3,7 +3,7 @@
 <?php $this->startSection('content'); ?>
  <div class="row background" id="detailsTitel">
 
- <h2 class="align-text-center" id="details">Details für <?php  echo '"'. $arrayofrows[0][2]. '"' ?></h2>
+ <h2 class="align-text-center" id="details">Details für <?php  echo '"' . $arrayofrows[0][2] . '"' ?></h2>
  <!--                Mahlid = id in der url als Getparamter in [2] ist der name der Mahlzeit gespeichert...-->
  </div>
 
@@ -12,21 +12,53 @@
  <div class="card background" id="login">
  <div class="card-body align-text-center">
  <h5 class="card-title align-text-center"><i class="fas fa-sign-in-alt"></i> Login</h5>
+
+ <form action="Auth.php" method="POST">
  <div class="form-group">
+ <?php if(!isset($_SESSION['user'])): ?>
  <label for="email">Benutzer</label>
- <input type="email" class="form-control" id="email" placeholder="Benutzer-ID.." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Benutzer-ID..'" autocomplete="off">
+ <input type="text" name="benutzer" class="form-control" id="email"
+ placeholder="Benutzer-ID.."
+ onfocus="this.placeholder = ''" onblur="this.placeholder = 'Benutzer-ID..'"
+ autocomplete="off">
  <label for="password">Passwort</label>
- <input type="password" class="form-control" id="password" placeholder="Aktuelle Passwort.." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Aktuelle Passwort..'" autocomplete="off">
+ <input type="password" name="password" class="form-control" id="password"
+ placeholder="Aktuelles Passwort.."
+ onfocus="this.placeholder = ''"
+ onblur="this.placeholder = 'Aktuelles Passwort..'"
+ autocomplete="off">
+
+ <input type="submit" name="action" class="btn btn-dark align-text-center"
+ value="Anmelden">
+ <?php elseif($_SESSION['error'] == true): ?>
+ <?php  $_SESSION['error'] = false  ?>
+ <p class="alert alert-danger">Das hat nicht geklappt! Bitte versuchen sie es
+ erneut..</p>
+ <input type="text" class="form-control alert alert-danger" id="email" name="benutzer"
+ placeholder="Benutzer">
+ <br>
+ <input type="password" class="form-control alert alert-danger" id="password"
+ name="password"
+ placeholder="*******">
+ <br>
+ <input type="submit" class="btn btn-primary button" value="Anmelden">
+ <?php else: ?>
+ Hallo <?php echo static::e($_SESSION['user']); ?>, Sie sind angemeldet als <?php echo static::e($_SESSION['role']); ?>.
+ <input type="submit" class="btn btn-primary button" name="action" value="Abmelden">
+ <?php endif; ?>
+ <input type="hidden" name="id" value="<?php echo static::e($arrayofrows[0][2]); ?>">
  </div>
- <a class="btn btn-dark align-text-center" href="#">Anmelden</a>
+ </form>
  </div>
  </div>
- <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder Studenten zu sehen.
+ <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder
+ Studenten zu sehen.
  </p>
  </div>
  <div class="col-6" id="produktcol">
 
- <img src="data:image/gif;base64,<?php echo base64_encode($arrayofrows[0][8]) ?>" id="produktimg" alt=" <?php  echo $arrayofrows[0][6] ?>"/>
+ <img src="data:image/gif;base64,<?php echo base64_encode($arrayofrows[0][8]) ?>" id="produktimg"
+ alt=" <?php  echo $arrayofrows[0][6] ?>"/>
 
  <!-- Nav tabs -->
  <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -50,11 +82,11 @@
  <div class="tab-pane" id="zutaten" role="tabpanel" aria-labelledby="zutaten-tab">
  <!--                            Zutaten ausgabe..-->
  <?php
- foreach($arrayofrowszutat as $zutat){// Alle Zutaten im Array ausgeben...
- if($zutat == end($arrayofrowszutat)){//Wenn das die letzte Zutat im Array ist...
+ foreach ($arrayofrowszutat as $zutat) {// Alle Zutaten im Array ausgeben...
+ if ($zutat == end($arrayofrowszutat)) {//Wenn das die letzte Zutat im Array ist...
  echo $zutat[2];
 
- }else{//Wenns nicht die letzte ist...
+ } else {//Wenns nicht die letzte ist...
  echo $zutat[2] . ', ';
  }
 
@@ -68,7 +100,9 @@
  <div class="form-group" id="benutzername">
  <div class="row">
  <label for="name"><b>Benutzername:</b></label>
- <input id="name" class="form-control" name="benutzer" placeholder="zB: remmy.." onfocus="this.placeholder = ''" onblur="this.placeholder = 'zB: remmy..'" autocomplete="off">
+ <input id="name" class="form-control" name="benutzer" placeholder="zB: remmy.."
+ onfocus="this.placeholder = ''" onblur="this.placeholder = 'zB: remmy..'"
+ autocomplete="off">
  </div>
  </div>
  <div class="row">
@@ -108,7 +142,8 @@
  placeholder="Wie hat's Ihnen geschmeckt?"></textarea>
  </div>
  <div class="col-3">
- <button type="submit" id="sendbtn" class="btn btn-primary"><i class="far fa-check-circle"></i> Senden
+ <button type="submit" id="sendbtn" class="btn btn-primary"><i
+ class="far fa-check-circle"></i> Senden
  </button>
  </div>
  </div>
@@ -123,5 +158,5 @@
  </button>
  </div>
  </div>
- <?php $this->stopSection(); ?>
+<?php $this->stopSection(); ?>
 <?php if (@$_shouldextend[1]) { echo $this->runChild('app'); } ?>

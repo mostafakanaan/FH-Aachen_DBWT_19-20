@@ -3,6 +3,16 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-5">
+            @if (isset($error))
+                <fieldset class="alert alert-danger">
+                    <legend>Es gab Fehler beim Bearbeiten Ihrer Anfrage:</legend>
+                    <ul>
+                        @foreach ($error as $item)
+                            <li>{{$item}}</li>
+                        @endforeach
+                    </ul>
+                </fieldset>
+            @endif
             <form action="Registrierung.php" method="POST">
                 <div class="card background" id="registration">
                     <div class="card-body align-text-center">
@@ -33,20 +43,11 @@
                             <br><input class="form-check-input" type="checkbox" name="gast" id="gast">
                             <label class="form-check-label" for="gast">Gast</label>
                         </div>
+                        <input type="hidden" name="first" value="on">
                         <input type="submit" class="btn btn-dark align-text-center" value="Fortsetzen">
                     </div>
                 </div>
             </form>
-            @if (isset($error))
-                <fieldset class="error">
-                    <legend>Es gab Fehler beim Bearbeiten Ihrer Anfrage:</legend>
-                    <ul>
-                        @foreach ($error as $item)
-                            <li>{{$item}}</li>
-                        @endforeach
-                    </ul>
-                </fieldset>
-            @endif
         </div>
     </div>
 @endsection

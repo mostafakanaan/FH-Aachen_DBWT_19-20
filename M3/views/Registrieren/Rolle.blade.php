@@ -4,7 +4,17 @@
 
     <div class="row justify-content-center">
         <div class="col-5">
-            <form action="test.php" method="post">
+            @if (isset($error))
+                <fieldset class="alert alert-danger">
+                    <legend>Es gab Fehler beim Bearbeiten Ihrer Anfrage:</legend>
+                    <ul>
+                        @foreach ($error as $item)
+                            <li>{{$item}}</li>
+                        @endforeach
+                    </ul>
+                </fieldset>
+            @endif
+            <form action="Registrierung.php" method="post">
                 <div class="card background" id="registration">
                     <div class="card-body align-text-center">
                         <h3 class="card-title align-text-center">Benutzerdaten: </h3>
@@ -54,7 +64,7 @@
 
                                 <input type="hidden" name="nickname" value="{{$nickname}}">
                                 <input type="hidden" name="password" value="{{$password}}">
-
+                                <input type="hidden" name="second">
                                 <input type="submit" class="btn btn-dark align-text-center" value="Senden">
                             </div>
                     </div>

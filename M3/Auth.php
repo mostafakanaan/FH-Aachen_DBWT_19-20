@@ -5,9 +5,9 @@ session_start();
 $sql = 'SELECT Hash, Nummer FROM Benutzer B
 WHERE B.Nutzername = \''.$_POST['benutzer'].'\'';
 $result = mysqli_query($link, $sql);
-if ($result) {
-    $row = mysqli_fetch_assoc($result);
-}
+
+if ($result) $row = mysqli_fetch_assoc($result);
+
 if (password_verify($_POST['password'], $row['Hash'])) {
     $sql = 'CALL UserRole('.$row['Nummer'].', @role);';
     $result = mysqli_query($link, $sql);

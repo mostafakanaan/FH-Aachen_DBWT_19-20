@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS FH_Angehoerige
 CREATE TABLE IF NOT EXISTS Studenten
 (
     Nummer         INT UNSIGNED NOT NULL UNIQUE,
-    Martikelnummer INT UNSIGNED NOT NULL UNIQUE CHECK (LENGTH(Martikelnummer) = 8 or LENGTH(Martikelnummer) = 9),
+    Matrikelnummer INT UNSIGNED NOT NULL UNIQUE CHECK (LENGTH(Matrikelnummer) = 8 or LENGTH(Matrikelnummer) = 9),
     Studiengang    ENUM ('ET', 'INF', 'ISE', 'MCD', 'WI'),
     PRIMARY KEY (Nummer),
     FOREIGN KEY (Nummer) REFERENCES FH_Angehoerige (Nummer) ON DELETE CASCADE
@@ -283,14 +283,14 @@ VALUES ((
     WHERE `E-Mail` = 'nutzer3@gmx.de'
 ));
 
-REPLACE INTO `Studenten` (Nummer, Martikelnummer, Studiengang)
+REPLACE INTO `Studenten` (Nummer, Matrikelnummer, Studiengang)
 VALUES ((
             SELECT nummer
             FROM `Benutzer`
             WHERE `E-Mail` = 'nutzer1@gmx.de'
         ), 12345678, 'INF');
 
-REPLACE INTO `Studenten` (Nummer, Martikelnummer, Studiengang)
+REPLACE INTO `Studenten` (Nummer, Matrikelnummer, Studiengang)
 VALUES ((
             SELECT nummer
             FROM `Benutzer`
@@ -370,3 +370,5 @@ VALUES (1, 1),
        (6, 6),
        (7, 7),
        (8, 8);
+
+REPLACE INTO Fachbereiche(Name) VALUES ('ET'),('INF'), ('ISE'), ('MCD'), ('WI');
