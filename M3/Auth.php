@@ -13,9 +13,8 @@ if (password_verify($_POST['password'], $row['Hash'])) {
     $result = mysqli_query($connection, $sql);
     $sql = 'SELECT @role;';
     $result = mysqli_query($connection, $sql);
-    if ($result) {
+    if ($result)
         $row2 = mysqli_fetch_assoc($result);
-    }
     $_SESSION['user'] = $_POST['benutzer'];
     $_SESSION['role'] = $row2["@role"];
     $sql = 'UPDATE Benutzer B SET B.`LetzterLogin` = NOW() WHERE B.Nummer = '.$row['Nummer'];

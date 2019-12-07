@@ -3,8 +3,8 @@
 @section('content')
     <div class="row background" id="detailsTitel">
 
-        <h2 class="align-text-center" id="details">Details für <?php  echo '"' . $arrayofrows[0][2] . '"' ?></h2>
-        <!--                Mahlid = id in der url als Getparamter in [2] ist der name der Mahlzeit gespeichert...-->
+        <h2 class="align-text-center" id="details">Details für <?php  echo '"' . $arrayofrows[0][4] . '"' ?></h2>
+        <!--                Mahlid = id in der url als Getparamter in [4] ist der name der Mahlzeit gespeichert...-->
     </div>
 
     <div class="row">
@@ -15,7 +15,21 @@
 
                     <form action="Auth.php" method="POST">
                         <div class="form-group">
-                            @if (!isset($_SESSION['user']))
+
+                            @if ($_SESSION['error'] == true)
+                                @php $_SESSION['error'] = false @endphp
+                                <p class="alert alert-danger">Das hat nicht geklappt! Bitte versuchen sie es
+                                    erneut..</p>
+                                <input type="text" class="form-control alert alert-danger" id="email" name="benutzer"
+                                       placeholder="Benutzer">
+                                <br>
+                                <input type="password" class="form-control alert alert-danger" id="password"
+                                       name="password"
+                                       placeholder="*******">
+                                <br>
+                                <input type="submit" class="btn btn-primary button" value="Anmelden">
+
+                            @elseif (!isset($_SESSION['user']))
                                 <label for="email">Benutzer</label>
                                 <input type="text" name="benutzer" class="form-control" id="email"
                                        placeholder="Benutzer-ID.."
@@ -30,18 +44,6 @@
 
                                 <input type="submit" name="action" class="btn btn-dark align-text-center"
                                        value="Anmelden">
-                            @elseif ($_SESSION['error'] == true)
-                                @php $_SESSION['error'] = false @endphp
-                                <p class="alert alert-danger">Das hat nicht geklappt! Bitte versuchen sie es
-                                    erneut..</p>
-                                <input type="text" class="form-control alert alert-danger" id="email" name="benutzer"
-                                       placeholder="Benutzer">
-                                <br>
-                                <input type="password" class="form-control alert alert-danger" id="password"
-                                       name="password"
-                                       placeholder="*******">
-                                <br>
-                                <input type="submit" class="btn btn-primary button" value="Anmelden">
                             @else
                                 Hallo {{$_SESSION['user']}}, Sie sind angemeldet als {{$_SESSION['role']}}.
                                 <input type="submit" class="btn btn-primary button" name="action" value="Abmelden">
@@ -57,8 +59,8 @@
         </div>
         <div class="col-6" id="produktcol">
 
-            <img src="data:image/gif;base64,<?php echo base64_encode($arrayofrows[0][8]) ?>" id="produktimg"
-                 alt=" <?php  echo $arrayofrows[0][6] ?>"/>
+            <img src="data:image/gif;base64,<?php echo base64_encode($arrayofrows[0][10]) ?>" id="produktimg"
+                 alt=" <?php  echo $arrayofrows[0][8] ?>"/>
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -77,7 +79,7 @@
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane active" id="beschreibung" role="tabpanel"><?php echo $arrayofrows[0][3]?>
+                <div class="tab-pane active" id="beschreibung" role="tabpanel"><?php echo $arrayofrows[0][5]?>
                 </div>
                 <div class="tab-pane" id="zutaten" role="tabpanel" aria-labelledby="zutaten-tab">
                     <!--                            Zutaten ausgabe..-->
@@ -152,7 +154,16 @@
             </div>
         </div>
         <div class="col-2 align-text-center" id="preiscol">
-            <p id="spreis"><b>Gast-</b>Preis :</p>
+            <p id="spreis">
+                <?php
+//                    var_dump($_SESSION);
+                if($_SESSION['role']=='Student')
+                echo "<b>Studenten-</b>";
+                elseif ($_SESSION['role']=='Mitarbeiter')
+                echo "<b>MA-</b>";
+                else echo "<b>Gast-</b>";
+                ?>
+                Preis :</p>
             <p id="preis"> <?php echo $arrayofrows[0][1]?> </p>
             <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-utensils"></i> Vorbestellen
             </button>

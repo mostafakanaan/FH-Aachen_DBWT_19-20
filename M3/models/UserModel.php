@@ -40,7 +40,7 @@ namespace Emensa\Model {
             global $connection;
             $sql = 'SELECT Nummer FROM Benutzer WHERE `Nutzername` = \''.$benutzername.'\'';
             $result = mysqli_query($connection, $sql);
-            return mysqli_fetch_all($result, assoc);
+            return mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
     }
 }

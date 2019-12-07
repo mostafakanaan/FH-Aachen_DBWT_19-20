@@ -371,11 +371,10 @@ VALUES (1, 1),
        (7, 7),
        (8, 8);
 
-REPLACE INTO Fachbereiche(Name) VALUES ('ET'),('INF'), ('ISE'), ('MCD'), ('WI');
+REPLACE INTO Fachbereiche(Name) VALUES ('FB1'),('FB2'), ('FB3'), ('FB4'), ('FB5');
 
 
-create
-    procedure UserRole(IN user int, OUT role varchar(10))
+create PROCEDURE UserRole(IN user int, OUT role varchar(10))
 BEGIN
     DECLARE s INT;
     DECLARE g INT;

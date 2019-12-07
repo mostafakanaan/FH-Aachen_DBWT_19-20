@@ -42,9 +42,10 @@
                             <label for="fb">In welchem FB @if(isset($studi))studieren @else arbeiten @endif
                                 Sie?</label><br>
                             <select name="fb" id="fb" size="5" required>
-                                @foreach ($fb as $item)
-                                    <option value="{{$item['ID']}}">{{$item['Name']}}</option> {{--TODO--}}
-                                @endforeach
+                                <?php
+                                foreach ($fbs as $item)
+                                    echo "<option value='" . $item['ID'] . "'>" . $item['Name'] . "</option>";
+                                ?>
                             </select>
                             <div>
                                 @endif
