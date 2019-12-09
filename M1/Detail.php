@@ -15,6 +15,7 @@
 </head>
 <body>
     <div class="container">
+
         <!--Header bzw Nav include -->
         <?php
         include 'inc/navbar.html'

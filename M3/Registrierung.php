@@ -10,9 +10,7 @@ $blade = new BladeOne($views, $cache, BladeOne::MODE_AUTO);
 include(__DIR__ . '/controllers/RegistrierenController.php');
 
 
-//echo '<pre>';
-//var_dump($view);
-//echo '</pre>';
+
 
 //foreach ($view['fbs'] as $item)
 //    echo $item['ID'] . ' - ' . $item['Name'];

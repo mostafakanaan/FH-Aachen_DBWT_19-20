@@ -151,6 +151,13 @@ padding-top: 5px;
     width: 25rem;
 }
 
+.registration {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 23rem;
+    width: 25rem;
+}
+
 #register {
     width: 13rem; font-size: 15px;
 }
@@ -320,6 +327,12 @@ padding-top: 5px;
 .registerbox {
     width: 95%;
     margin-bottom: 15px;
+}
+.registerboxsmall {
+    display: inline-block;
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 15px;
 }
 
 .form-check-input {

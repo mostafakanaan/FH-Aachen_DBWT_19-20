@@ -10,6 +10,10 @@ namespace Emensa\Controller {
 
     require_once(__DIR__ . '/controllers/DetailController.php');
 
+//    echo '<pre>';
+//    var_dump($_SESSION);
+//    echo '</pre>';
+
     echo $blade->run("Detail", $view);
 
 

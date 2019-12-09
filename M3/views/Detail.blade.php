@@ -45,17 +45,24 @@
                                 <input type="submit" name="action" class="btn btn-dark align-text-center"
                                        value="Anmelden">
                             @else
-                                Hallo {{$_SESSION['user']}}, Sie sind angemeldet als {{$_SESSION['role']}}.
-                                <input type="submit" class="btn btn-primary button" name="action" value="Abmelden">
+                                <div class="row">
+                                    Hallo {{$_SESSION['user']}}, Sie sind angemeldet als {{$_SESSION['role']}}.
+                                </div>
+                                <br>
+                                <div class="row justify-content-center">
+                                    <input type="submit" class="btn btn-primary button" name="action" value="Abmelden">
+                                </div>
                             @endif
                             <input type="hidden" name="id" value="{{$arrayofrows[0][0]}}">
                         </div>
                     </form>
                 </div>
             </div>
-            <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder
-                Studenten zu sehen.
-            </p>
+            @if (!isset($_SESSION['user']))
+                <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder
+                    Studenten zu sehen.
+                </p>
+            @endif
         </div>
         <div class="col-6" id="produktcol">
 
@@ -156,15 +163,22 @@
         <div class="col-2 align-text-center" id="preiscol">
             <p id="spreis">
                 <?php
-//                    var_dump($_SESSION);
-                if($_SESSION['role']=='Student')
-                echo "<b>Studenten-</b>";
-                elseif ($_SESSION['role']=='Mitarbeiter')
-                echo "<b>MA-</b>";
+                if ($_SESSION['role'] == 'Student')
+                    echo "<b>Studenten-</b>";
+                elseif ($_SESSION['role'] == 'Mitarbeiter')
+                    echo "<b>MA-</b>";
                 else echo "<b>Gast-</b>";
                 ?>
                 Preis :</p>
-            <p id="preis"> <?php echo $arrayofrows[0][1]?> </p>
+            <p id="preis">
+                <?php
+                if ($_SESSION['role'] == 'Student')
+                    echo $arrayofrows[0][3];
+                elseif ($_SESSION['role'] == 'Mitarbeiter')
+                    echo $arrayofrows[0][2];
+                else echo $arrayofrows[0][1];
+                ?>
+            </p>
             <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-utensils"></i> Vorbestellen
             </button>
         </div>
