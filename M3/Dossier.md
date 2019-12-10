@@ -10,6 +10,14 @@
 Für jede Mahlzeit eine Details.html anlegen um dort die Informationen abzulegen.
 Ich würde für jedes Produkt eine .html anlegen und jede richtig verlinken.
 
+
+### ✎ Notieren Sie im Dossier, wie Ihre SQL Query für die Kategorien abgeändert werden muss, wenn dort nur noch Kategorien mit mindestens einer verfügbaren Mahlzeit zu finden sein werden
+```sql
+SELECT Kategorien.ID, Kategorien.Bezeichnung, Kategorien.Kategorie_ID AS Oberkategorie
+FROM Kategorien
+WHERE Kategorien.ID IN (SELECT Kategorie_ID FROM Mahlzeiten) OR Kategorien.Kategorie_ID IS NULL
+```
+
 ### ✎ Fragen die mir bei der Programmierung gekommen sind:
 - Die Tags von verschiedenen CSS Styles und Attributen
 - Warum Fehler bei der Absenden der Form kam -> falscher Name bei den Attribute
