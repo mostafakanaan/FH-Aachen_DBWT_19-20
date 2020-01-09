@@ -14,16 +14,16 @@
                     <form action="Auth.php" method="POST">
                         <div class="form-group">
 
-                                <p class="alert alert-danger">Das hat nicht geklappt! Bitte versuchen sie es
-                                    erneut..</p>
-                                <input type="text" class="form-control alert alert-danger" id="email" name="benutzer"
-                                       placeholder="Benutzer">
-                                <br>
-                                <input type="password" class="form-control alert alert-danger" id="password"
-                                       name="password"
-                                       placeholder="*******">
-                                <br>
-                                <input type="submit" class="btn btn-primary button" value="Anmelden">
+{{--                                <p class="alert alert-danger">Das hat nicht geklappt! Bitte versuchen sie es--}}
+{{--                                    erneut..</p>--}}
+{{--                                <input type="text" class="form-control alert alert-danger" id="email" name="benutzer"--}}
+{{--                                       placeholder="Benutzer">--}}
+{{--                                <br>--}}
+{{--                                <input type="password" class="form-control alert alert-danger" id="password"--}}
+{{--                                       name="password"--}}
+{{--                                       placeholder="*******">--}}
+{{--                                <br>--}}
+{{--                                <input type="submit" class="btn btn-primary button" value="Anmelden">--}}
 
                                 <label for="email">Benutzer</label>
                                 <input type="text" name="benutzer" class="form-control" id="email"
@@ -42,10 +42,10 @@
                                 <div class="row">
 
                                 </div>
-                                <br>
-                                <div class="row justify-content-center">
-                                    <input type="submit" class="btn btn-primary button" name="action" value="Abmelden">
-                                </div>
+{{--                                <br>--}}
+{{--                                <div class="row justify-content-center">--}}
+{{--                                    <input type="submit" class="btn btn-primary button" name="action" value="Abmelden">--}}
+{{--                                </div>--}}
                             <input type="hidden" name="id" value="">
                         </div>
                     </form>
@@ -149,7 +149,7 @@
         </div>
         <div class="col-2 align-text-center" id="preiscol">
             <p id="spreis">
-                Preis : <b>{{$mahlzeiten->Gastpreis}}</p></b>
+                Preis : <b>{{$mahlzeiten->Gastpreis}} </b>€</p>
             <p id="preis">
 
             </p>
