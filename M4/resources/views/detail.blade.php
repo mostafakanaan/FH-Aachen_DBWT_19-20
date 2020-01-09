@@ -13,7 +13,7 @@
                     <form  action="{{ route('login', [$id])}}" method="POST">
                         @csrf
                         <div class="form-group">
-                            @if ($_SESSION['error'] == true)
+                            @if($errors->any())
                                 @php $_SESSION['error'] = false @endphp
                                 <p class="alert alert-danger">Das hat nicht geklappt! Bitte versuchen sie es
                                     erneut..</p>

@@ -41,7 +41,6 @@ class DetailsController extends Controller
         session_start();
         $benutzer = DB::table('Benutzer')->where('Benutzer.Nutzername', '=',\request()->benutzer)
             ->select('Hash', 'Nummer')->first();
-
         if ( \request()->action == 'Anmelden' AND  $benutzer != null AND password_verify(\request()->password, $benutzer->Hash)){
 
 //            $sql = DB::select('CALL UserRole(\request()->Nummer, @role');
@@ -55,7 +54,7 @@ class DetailsController extends Controller
             unset($_SESSION['user']);
 //            unset($_SESSION['role']);
         } else {
-            $_SESSION['error'] = true;
+            return redirect()->back()->withErrors(['msg', 'The Message']);
         }
         if(!isset($_SESSION['angemeldet'])) {
             $_SESSION['angemeldet'] = 0;
