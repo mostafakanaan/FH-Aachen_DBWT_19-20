@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'Benutzer',
     ],
 
     /*
@@ -35,11 +35,14 @@ return [
     |
     */
 
+
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'Benutzer',
+
         ],
+
 
         'api' => [
             'driver' => 'token',
@@ -71,6 +74,10 @@ return [
             'model' => App\User::class,
         ],
 
+        'Benutzer' => [
+            'driver' => 'eloquent',
+            'model' => App\Benutzer::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -91,6 +98,11 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
+    'Benutzer' => [
+        'provider' => 'Benutzer',
+        'table' => 'password_resets',
+        'expire' => 60,
+    ],
 
     'passwords' => [
         'users' => [
