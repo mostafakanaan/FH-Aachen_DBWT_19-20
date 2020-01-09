@@ -149,7 +149,7 @@
         </div>
         <div class="col-2 align-text-center" id="preiscol">
             <p id="spreis">
-                Preis :</p>
+                Preis : <b>{{$mahlzeiten->Gastpreis}}</p></b>
             <p id="preis">
 
             </p>
