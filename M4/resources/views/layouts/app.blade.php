@@ -10,10 +10,10 @@
     <title>{{ config('app.name', 'eMensa') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery-3.4.1.slim.min.js') }}" defer></script>
     <script src="{{ asset('js/popper.min.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,8 +21,8 @@
 
     <!-- Styles -->
 {{--    own css--}}
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 {{--    Fontawesome--}}
     <link rel="dns-prefetch" href="//use.fontawesome.com">
     <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet">

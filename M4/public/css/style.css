@@ -57,9 +57,9 @@ img {
 
 label[for=name]
 {
-margin-right: 15px;
-margin-left: 20px;
-padding-top: 5px;
+    margin-right: 15px;
+    margin-left: 20px;
+    padding-top: 5px;
 }
 
 .productcol {
@@ -126,7 +126,7 @@ padding-top: 5px;
 }
 
 .background {
-    background-image: url("../img/background.jpeg");
+    background-image: url("../storage/background.jpeg");
 }
 
 .card {
@@ -194,14 +194,14 @@ padding-top: 5px;
 }
 
 .visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
 .smallimg {
@@ -284,7 +284,7 @@ padding-top: 5px;
     font-weight: bold;
 }
 
-#bemerkung{   
+#bemerkung{
     width: 280px;
     margin-bottom: 80px;
 }

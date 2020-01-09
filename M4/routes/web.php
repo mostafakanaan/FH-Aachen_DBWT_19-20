@@ -16,5 +16,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+//Get Routes
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/produkte/{limit}/{avail}/{vegan}', 'ProdukteController@index')->name('produkte');
+Route::get('/details/{id}', 'DetailsController@index')->name('detail'); //FIXME: add GET parameter for Mahlzeit..
+
