@@ -153,7 +153,26 @@
         </div>
         <div class="col-2 align-text-center" id="preiscol">
             <p id="spreis">
-                Preis : <b>{{$mahlzeiten->Gastpreis}} </b>€</p>
+                <b>
+                @if($_SESSION['role'] == 'Student')
+                    Studenten
+                @elseif($_SESSION['role'] == 'Mitarbeiter')
+                    MA
+                @else
+                    Gast
+                    @endif
+
+                </b>
+                -Preis :
+                <b>
+                @if($_SESSION['role'] == 'Student')
+                        {{$mahlzeiten->Studentpreis}}
+                @elseif($_SESSION['role'] == 'Mitarbeiter')
+                        {{$mahlzeiten->MA-Preis}}
+                 @else
+                        {{$mahlzeiten->Gastpreis}}
+                    @endif
+                </b>€</p>
             <p id="preis">
 
             </p>
