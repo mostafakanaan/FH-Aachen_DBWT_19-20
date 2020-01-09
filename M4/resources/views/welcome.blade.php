@@ -4,7 +4,7 @@
     <body>
     <div class="row">
         <div class="col splash">
-            <img src="img/banner.jpg" id="banner"
+            <img src="storage/banner.jpg" id="banner"
                  alt="eMensa Banner - Quelle: https://unsplash.com/photos/CgVqj1l-u44 "/>
         </div>
     </div>
@@ -45,7 +45,7 @@
             </p>
         </div>
         <div class="col not-splash">
-            <img src="img/food.jpg" id="food"
+            <img src="storage/food.jpg" id="food"
                  alt="Food Quelle: https://www.freepik.com/premium-photo/hand-drawn-pieces-pizza-pizza-sharing-share-business-shareholders_2359324.htm"/>
         </div>
     </div>
