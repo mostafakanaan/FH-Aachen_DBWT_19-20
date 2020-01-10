@@ -4,7 +4,7 @@
         <h2 class="align-text-center" id="details">Details für {{$mahlzeiten->Name}}</h2>
         <!--                Mahlid = id in der url als Getparamter in [4] ist der name der Mahlzeit gespeichert...-->
     </div>
-
+{{dd($kommentare)}}
     <div class="row">
         <div class="col-2" id="logincol">
             <div class="card background" id="login">
@@ -97,11 +97,13 @@
                     <form action="http://bc5.m2c-lab.fh-aachen.de/form.php" method="post" id="bewertungsform">
                         <input type="hidden" name="matrikel" value="3167397"/>
                         <input type="hidden" name="kontrolle" value="KAN"/>
-                        <div class="row" id="old-ratings">
-                            <h5> Die letzten fünf Bewertungen für Mahlzeit</h5> - Durchschnitt: 0.0
+                        <div class="row">
+                            <h5 id="old-ratings"> Die letzten fünf Bewertungen für {{$mahlzeiten->Name}}:</h5>   Ø Durchschnitt = 0.0
+{{--                            <i class="fas fa-star">--}}
                         </div>
                         <hr>
 
+                        @if($_SESSION['role'] == 'Student')
                         <div class="row">
                             <h4 id="mz-bewerten">Mahlzeit bewerten:</h4>
                             {{--                                <label for="name"><b>Benutzername:</b></label>--}}
@@ -109,28 +111,8 @@
                                    placeholder="zB: remmy.."
                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'zB: remmy..'"
                                    autocomplete="off">
-                            {{--TODO: aktuelle Benutzer und Mahlzeit--}}
-                            <input name="mahlzeit" value="Mahlzeit" type="hidden">
+                            <input name="{{$_SESSION['user']}}" value="{{$mahlzeiten->Name}}" type="hidden">
                         </div>
-
-                        {{--                        <div class="row">--}}
-                        {{--                            <div class="col-4">--}}
-                        {{--                                <div class="form-group mahlzeiten">--}}
-                        {{--                                    <select class="form-control mahlzeiten" name="mahlzeit">--}}
-                        {{--                                        <option disabled selected class="align-text-center">Mahlzeit</option>--}}
-                        {{--                                        <option>Curry Wok</option>--}}
-                        {{--                                        <option>Schnitzel</option>--}}
-                        {{--                                        <option>Bratrolle</option>--}}
-                        {{--                                        <option>Krautsalat</option>--}}
-                        {{--                                        <option>Falafel</option>--}}
-                        {{--                                        <option>Currywurst</option>--}}
-                        {{--                                        <option>Käsestulle</option>--}}
-                        {{--                                        <option>Spiegelei</option>--}}
-                        {{--                                    </select>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-
                         <div class="row">
                             <div class="col-2">
                                 <div class="form-group">
@@ -155,6 +137,7 @@
                                 </button>
                             </div>
                         </div>
+                        @endif
                     </form>
                 </div>
             </div>

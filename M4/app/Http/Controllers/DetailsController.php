@@ -23,10 +23,16 @@ class DetailsController extends Controller
 //          ->select(Mahlz)
           ->first();
 
+      $kommentare = DB::select('SELECT Vorname, Nachname, Bewertung, Bemerkung, Zeitpunkt FROM Kommentare
+    JOIN Studenten on Studenten.Nummer=Studenten_ID
+    JOIN Benutzer on Benutzer.Nummer=Studenten_ID
+    WHERE Mahlzeiten_ID=' . $id .
+    ' ORDER BY Zeitpunkt;');
+
       $zutaten = DB::table('Mahl_enthaelt_zutat')->join('Zutaten','Mahl_enthaelt_zutat.Zutat_ID'
           ,'=','Zutaten.ID')->where('Mahlzeit_ID','=',$id)->get();
 
-        return view('detail',['mahlzeiten' => $mahlzeiten, 'zutaten'=> $zutaten, 'id' => $id]);
+        return view('detail',['mahlzeiten' => $mahlzeiten, 'zutaten'=> $zutaten, 'id' => $id, 'kommentare' => $kommentare]);
     }
 
     public function auth($id)
