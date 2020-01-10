@@ -37,7 +37,7 @@
         </div>
         <nav class="col-6">
             <ul class="nav">
-                <li class="nav-item"><a class="nav-link" href="Start.php">Start</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">Start</a></li>
                 <li class="nav-item"><a class="nav-link" href="Produkte.php">Mahlzeiten</a></li>
                 <li class="nav-item"><a class="nav-link active" href="#">Bestellung</a></li>
                 <li class="nav-item"><a class="nav-link active" target="_blank" href="https://www.fh-aachen.de/">FH-Aachen</a>

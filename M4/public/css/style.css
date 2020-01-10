@@ -296,6 +296,15 @@ label[for=name]
     margin-left: 75px;
     margin-top: 10px;
 }
+#mz-bewerten {
+    margin-left: 20px;
+    font-family: serif;
+    text-decoration: underline;
+}
+
+#old-ratings {
+    margin-left: 10px;
+}
 
 #banner{
     height: 220px;

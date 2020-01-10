@@ -10,7 +10,7 @@
             <div class="card background" id="login">
                 <div class="card-body align-text-center">
                     <h5 class="card-title align-text-center"><i class="fas fa-sign-in-alt"></i> Login</h5>
-                    <form  action="{{ route('login', [$id])}}" method="POST">
+                    <form action="{{ route('login', [$id])}}" method="POST">
                         @csrf
                         <div class="form-group">
                             @if($errors->any())
@@ -56,9 +56,9 @@
                 </div>
             </div>
 
-                <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder
-                    Studenten zu sehen.
-                </p>
+            <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder
+                Studenten zu sehen.
+            </p>
 
         </div>
         <div class="col-6" id="produktcol">
@@ -90,38 +90,49 @@
                     <!--                            Zutaten ausgabe..-->
                     @foreach($zutaten as $key => $zutat)
                         {{$zutat->Name}}
-                        @endforeach
+                    @endforeach
 
                 </div>
                 <div class="tab-pane" id="bewertungen" role="tabpanel">
                     <form action="http://bc5.m2c-lab.fh-aachen.de/form.php" method="post" id="bewertungsform">
                         <input type="hidden" name="matrikel" value="3167397"/>
                         <input type="hidden" name="kontrolle" value="KAN"/>
-                        <div class="form-group" id="benutzername">
-                            <div class="row">
-                                <label for="name"><b>Benutzername:</b></label>
-                                <input id="name" class="form-control" name="benutzer" placeholder="zB: remmy.."
-                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'zB: remmy..'"
-                                       autocomplete="off">
-                            </div>
+                        <div class="row" id="old-ratings">
+                            <h5> Die letzten fünf Bewertungen für Mahlzeit</h5> - Durchschnitt: 0.0
                         </div>
+                        <hr>
+
                         <div class="row">
-                            <div class="col-4">
-                                <div class="form-group mahlzeiten">
-                                    <select class="form-control mahlzeiten" name="mahlzeit">
-                                        <option disabled selected class="align-text-center">Mahlzeit</option>
-                                        <option>Curry Wok</option>
-                                        <option>Schnitzel</option>
-                                        <option>Bratrolle</option>
-                                        <option>Krautsalat</option>
-                                        <option>Falafel</option>
-                                        <option>Currywurst</option>
-                                        <option>Käsestulle</option>
-                                        <option>Spiegelei</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-4">
+                            <h4 id="mz-bewerten">Mahlzeit bewerten:</h4>
+                            {{--                                <label for="name"><b>Benutzername:</b></label>--}}
+                            <input id="name" type="hidden" class="form-control" name="benutzer"
+                                   placeholder="zB: remmy.."
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'zB: remmy..'"
+                                   autocomplete="off">
+                            {{--TODO: aktuelle Benutzer und Mahlzeit--}}
+                            <input name="mahlzeit" value="Mahlzeit" type="hidden">
+                        </div>
+
+                        {{--                        <div class="row">--}}
+                        {{--                            <div class="col-4">--}}
+                        {{--                                <div class="form-group mahlzeiten">--}}
+                        {{--                                    <select class="form-control mahlzeiten" name="mahlzeit">--}}
+                        {{--                                        <option disabled selected class="align-text-center">Mahlzeit</option>--}}
+                        {{--                                        <option>Curry Wok</option>--}}
+                        {{--                                        <option>Schnitzel</option>--}}
+                        {{--                                        <option>Bratrolle</option>--}}
+                        {{--                                        <option>Krautsalat</option>--}}
+                        {{--                                        <option>Falafel</option>--}}
+                        {{--                                        <option>Currywurst</option>--}}
+                        {{--                                        <option>Käsestulle</option>--}}
+                        {{--                                        <option>Spiegelei</option>--}}
+                        {{--                                    </select>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+
+                        <div class="row">
+                            <div class="col-2">
                                 <div class="form-group">
                                     <select class="form-control bewertung" name="bewertung">
                                         <option disabled selected class="align-text-center">Bewertung</option>
@@ -133,9 +144,6 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-5">
                                 <label for="bemerkung" class="visuallyhidden"></label>
                                 <textarea class="form-control" id="bemerkung" name="bemerkung"
@@ -143,7 +151,7 @@
                             </div>
                             <div class="col-3">
                                 <button type="submit" id="sendbtn" class="btn btn-primary"><i
-                                        class="far fa-check-circle"></i> Senden
+                                            class="far fa-check-circle"></i> Senden
                                 </button>
                             </div>
                         </div>
@@ -154,22 +162,22 @@
         <div class="col-2 align-text-center" id="preiscol">
             <p id="spreis">
                 <b>
-                @if($_SESSION['role'] == 'Student')
-                    Studenten
-                @elseif($_SESSION['role'] == 'Mitarbeiter')
-                    MA
-                @else
-                    Gast
+                    @if($_SESSION['role'] == 'Student')
+                        Studenten
+                    @elseif($_SESSION['role'] == 'Mitarbeiter')
+                        MA
+                    @else
+                        Gast
                     @endif
 
                 </b>
                 -Preis :
                 <b>
-                @if($_SESSION['role'] == 'Student')
+                    @if($_SESSION['role'] == 'Student')
                         {{$mahlzeiten->Studentpreis}}
-                @elseif($_SESSION['role'] == 'Mitarbeiter')
+                    @elseif($_SESSION['role'] == 'Mitarbeiter')
                         {{$mahlzeiten->MA-Preis}}
-                 @else
+                    @else
                         {{$mahlzeiten->Gastpreis}}
                     @endif
                 </b>€</p>

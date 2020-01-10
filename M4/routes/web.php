@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/produkte/{limit}/{avail}/{vegan}', 'ProdukteController@index')->name('produkte');
 Route::get('/details/{id}', 'DetailsController@index')->name('detail'); //FIXME: add GET parameter for Mahlzeit..
+Route::get('/zutaten', 'ZutatenController@index')->name('zutaten'); // TODO
 
 //Post Routes
 Route::post('/login/{id}', 'DetailsController@auth')->name('login');
