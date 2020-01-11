@@ -94,6 +94,7 @@
                 </div>
                 <div class="tab-pane" id="bewertungen" role="tabpanel">
                     <form action="{{ route('bewertung', [2]) }}" method="post" id="bewertungsform">
+                        @csrf
                         <input type="hidden" name="matrikel" value="3167397"/>
                         <input type="hidden" name="kontrolle" value="KAN"/>
                         <div class="row background">
