@@ -137,7 +137,19 @@ Data truncated for column 'Studiengang' at row 1
 
 
 
-## Meilenstein 3: 
+## Meilenstein 4: 
 
+### ✎ Probleme:
+- @csrf token bei den Forms vergessen.
+- Einige Funktionen mussten angepasst werden.
+- Funktionsaufruf via Route mit Parameterübergabe
+- Andere Methoden zum Session handeling :
+```php
+Session::get(); Session::all(); Session::forget();..
+```
+- app.blade musste angepasst werden
+- andere Ordnerstruktur CSS/JS/Bilder mussten in den Public Ordner.
+- Bilder mussten via Console per Syslink an den Public/Storage Ordner gebunden werden.
+- Vendor Ordner musste in die Git Ignore..
 
 ### End
