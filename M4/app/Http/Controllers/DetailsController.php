@@ -78,6 +78,6 @@ class DetailsController extends Controller
         DB::table('Kommentare')
             ->updateOrInsert(['Mahlzeiten_ID' => $id, 'Studenten_ID' => 1, 'Bemerkung' => 'Hat nicht geschmeckt', 'Bewertung' => '1']);
 
-        return $this->index($id);
+        return redirect()->back();
     }
 }
