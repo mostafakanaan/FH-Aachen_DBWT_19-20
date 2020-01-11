@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col-2" id="logincol">
             <div class="card background" id="login">
+                {{dd(session()->all())}}
                 <div class="card-body align-text-center">
                     <h5 class="card-title align-text-center"><i class="fas fa-sign-in-alt"></i> Login</h5>
                     <form action="{{ route('login', [$id])}}" method="POST">

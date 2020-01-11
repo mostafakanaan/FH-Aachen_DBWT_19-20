@@ -64,9 +64,8 @@ class DetailsController extends Controller
             DB::select('call UserRole(?,@role  )', [$benutzer->Nummer]);
             $role = DB::select(DB::raw('select @role as role'));
 
-            $_SESSION['user'] = $_POST['benutzer'];
+            session(['user' => $_POST['benutzer']]);
             session(['role' => $role[0]->role]);
-
         } else if (\request()->action == 'Abmelden') {
 //            unset($_SESSION['user']);
 //            unset($_SESSION['role']);
