@@ -93,9 +93,10 @@
 
                 </div>
                 <div class="tab-pane" id="bewertungen" role="tabpanel">
-                    <form action="{{ route('detail', [$id], [Session::get('user')]) }}" method="post" id="bewertungsform">
+                    <form action="{{ route('bewertung', [$id, Session::get('user')] )}}" method="post"
+                          id="bewertungsform">
                         @csrf
-                        <input type="hidden" name="user" value="3167397"/>
+                        <input type="hidden" name="user" value="{{Session::get('user')}}"/>
                         <div class="row background">
 
                             @if($average!=0)

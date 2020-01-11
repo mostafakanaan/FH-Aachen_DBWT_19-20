@@ -74,10 +74,10 @@ class DetailsController extends Controller
 
     public function rate($id, $user)
     {
-        $benutzernummer = (int) DB::select("select Nummer from Benutzer where Nutzername=$user;");
-
+        $benutzernummer = DB::table('Benutzer')->where('Nutzername', '=', $user)->select('Nummer')
+            ->first();
         DB::table('Kommentare')
-            ->updateOrInsert(['Mahlzeiten_ID' => $id, 'Studenten_ID' => $benutzernummer, 'Bemerkung' => \request()->bemerkung, 'Bewertung' => \request()->bewertung]);
+            ->updateOrInsert(['Mahlzeiten_ID' => $id, 'Studenten_ID' => $benutzernummer->Nummer, 'Bemerkung' => \request()->bemerkung, 'Bewertung' => \request()->bewertung]);
 
         return redirect()->back();
     }
