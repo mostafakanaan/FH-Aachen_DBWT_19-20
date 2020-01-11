@@ -7,7 +7,6 @@
     <div class="row">
         <div class="col-2" id="logincol">
             <div class="card background" id="login">
-                {{dd(session()->all())}}
                 <div class="card-body align-text-center">
                     <h5 class="card-title align-text-center"><i class="fas fa-sign-in-alt"></i> Login</h5>
                     <form action="{{ route('login', [$id])}}" method="POST">
@@ -55,11 +54,11 @@
                     </form>
                 </div>
             </div>
-
-            <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder
-                Studenten zu sehen.
-            </p>
-
+            @if(\Illuminate\Support\Facades\Session::get('user') == null)
+                <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder
+                    Studenten zu sehen.
+                </p>
+            @endif
         </div>
         <div class="col-6" id="produktcol">
             <img src="data:image/gif;base64, {{base64_encode($mahlzeiten->Binaerdaten)}}" id="produktimg"
@@ -132,10 +131,11 @@
                                 <h4 id="mz-bewerten">Mahlzeit bewerten:</h4>
                                 {{--                                <label for="name"><b>Benutzername:</b></label>--}}
                                 <input id="name" type="hidden" class="form-control" name="benutzer"
+                                       value="{{Session::get('user')}}"
                                        placeholder="zB: remmy.."
                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'zB: remmy..'"
                                        autocomplete="off">
-                                <input name="{{Session::get('user')}}" value="{{$mahlzeiten->Name}}" type="hidden">
+                                <input name="mahlzeit" value="{{$mahlzeiten->Name}}" type="hidden">
                             </div>
                             <div class="row">
                                 <div class="col-2">
