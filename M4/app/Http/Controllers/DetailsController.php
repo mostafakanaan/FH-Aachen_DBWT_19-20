@@ -48,14 +48,6 @@ class DetailsController extends Controller
 
     public function auth($id)
     {
-//        "_token" => "Vokg1mPthkO7zgx5jOOpgO7wrJWWTcdbP1gDNXb9"
-//      "benutzer" => "dsad"
-//      "password" => "ada"
-//      "action" => "Anmelden"
-//      "id" => null
-
-        // \request()->benutzer
-        // \request()->password
         session_start();
         $benutzer = DB::table('Benutzer')->where('Benutzer.Nutzername', '=', \request()->benutzer)
             ->select('Hash', 'Nummer')->first();
@@ -67,8 +59,7 @@ class DetailsController extends Controller
             session(['user' => $_POST['benutzer']]);
             session(['role' => $role[0]->role]);
         } else if (\request()->action == 'Abmelden') {
-//            unset($_SESSION['user']);
-//            unset($_SESSION['role']);
+
             Session::forget('user');
             Session::forget('role');
         } else {
@@ -81,4 +72,12 @@ class DetailsController extends Controller
         return redirect()->back();
     }
 
+    public function rate($id)
+    {
+
+        DB::table('Kommentare')
+            ->updateOrInsert(['Mahlzeiten_ID' => $id, 'Studenten_ID' => 1, 'Bemerkung' => 'Hat nicht geschmeckt', 'Bewertung' => '1']);
+
+        return $this->index($id);
+    }
 }

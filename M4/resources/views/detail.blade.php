@@ -93,7 +93,7 @@
 
                 </div>
                 <div class="tab-pane" id="bewertungen" role="tabpanel">
-                    <form action="http://bc5.m2c-lab.fh-aachen.de/form.php" method="post" id="bewertungsform">
+                    <form action="{{ route('bewertung', (int)[Session::get([$id])])}}" method="post" id="bewertungsform">
                         <input type="hidden" name="matrikel" value="3167397"/>
                         <input type="hidden" name="kontrolle" value="KAN"/>
                         <div class="row background">
