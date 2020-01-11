@@ -4,7 +4,6 @@
         <h2 class="align-text-center" id="details">Details für {{$mahlzeiten->Name}}</h2>
         <!--                Mahlid = id in der url als Getparamter in [4] ist der name der Mahlzeit gespeichert...-->
     </div>
-{{dd($kommentare)}}
     <div class="row">
         <div class="col-2" id="logincol">
             <div class="card background" id="login">
@@ -145,9 +144,9 @@
         <div class="col-2 align-text-center" id="preiscol">
             <p id="spreis">
                 <b>
-                    @if($_SESSION['role'] == 'Student')
+                    @if(Session::get('role') == 'Student')
                         Studenten
-                    @elseif($_SESSION['role'] == 'Mitarbeiter')
+                    @elseif(Session::get('role') == 'Mitarbeiter')
                         MA
                     @else
                         Gast
@@ -156,9 +155,9 @@
                 </b>
                 -Preis :
                 <b>
-                    @if($_SESSION['role'] == 'Student')
+                    @if(Session::get('role') == 'Student')
                         {{$mahlzeiten->Studentpreis}}
-                    @elseif($_SESSION['role'] == 'Mitarbeiter')
+                    @elseif(Session::get('role') == 'Mitarbeiter')
                         {{$mahlzeiten->MA-Preis}}
                     @else
                         {{$mahlzeiten->Gastpreis}}

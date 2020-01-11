@@ -50,14 +50,11 @@ class DetailsController extends Controller
             ->select('Hash', 'Nummer')->first();
         if ( \request()->action == 'Anmelden' AND  $benutzer != null AND password_verify(\request()->password, $benutzer->Hash)){
             $nummer = (int)\request()->Nummer;
-            $sql = DB::select('CALL UserRole('.$nummer.',@role)');
-            $sql = DB::select('SELECT @role');
-//            $sql = DB::select('SELECT @role');
-            //Fehlt ..
-//            $sql = DB::select('UPDATE Benutzer B SET B.`LetzterLogin` = NOW() WHERE B.Nummer =');
-            DB::table('Benutzer')->where('Benutzer.Nummer', '=',\request()->nummer);
+            DB::select('call UserRole(?,@role  )', [$benutzer->Nummer]);
+            $role = DB::select(DB::raw('select @role as role'));
+
             $_SESSION['user'] = $_POST['benutzer'];
-            $_SESSION['role'] = $sql;//FIXME: kann nicht auf $sql->@role zugreifen wegen @ Symbol...
+            session(['role' => $role[0]->role]);
 
         }else if(\request()->action == 'Abmelden'){
             unset($_SESSION['user']);
