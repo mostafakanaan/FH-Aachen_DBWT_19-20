@@ -96,46 +96,70 @@
                     <form action="http://bc5.m2c-lab.fh-aachen.de/form.php" method="post" id="bewertungsform">
                         <input type="hidden" name="matrikel" value="3167397"/>
                         <input type="hidden" name="kontrolle" value="KAN"/>
-                        <div class="row">
-                            <h5 id="old-ratings"> Die letzten fünf Bewertungen für {{$mahlzeiten->Name}}:</h5>   Ø Durchschnitt = 0.0
-{{--                            <i class="fas fa-star">--}}
-                        </div>
-                        <hr>
+                        <div class="row background">
 
-                        @if($_SESSION['role'] == 'Student')
-                        <div class="row">
-                            <h4 id="mz-bewerten">Mahlzeit bewerten:</h4>
-                            {{--                                <label for="name"><b>Benutzername:</b></label>--}}
-                            <input id="name" type="hidden" class="form-control" name="benutzer"
-                                   placeholder="zB: remmy.."
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'zB: remmy..'"
-                                   autocomplete="off">
-                            <input name="{{$_SESSION['user']}}" value="{{$mahlzeiten->Name}}" type="hidden">
+                            @if($average!=0)
+                                <h5 id="old-ratings"> Die letzten fünf Bewertungen für {{$mahlzeiten->Name}}:</h5>
+                                <small> Ø Durchschnitt= {{number_format((float)$average, 2, '.', '')}} </small>
+                            @else
+                                <h5 id="old-ratings"> Keine Bewertungen für {{$mahlzeiten->Name}}.</h5>
+                            @endif
                         </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="form-group">
-                                    <select class="form-control bewertung" name="bewertung">
-                                        <option disabled selected class="align-text-center">Bewertung</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
+                        @foreach($kommentare as $kommentar)
+                            <div class="row">
+                                <div class="col-8">
+                                    <h5>{{$kommentar->Vorname . ' ' . $kommentar->Nachname}}</h5>
+                                </div>
+                                <div class="col-4">
+                                    @for($x=0; $x<$kommentar->Bewertung; $x++)
+                                        <i class="fas fa-star"></i>
+                                    @endfor
                                 </div>
                             </div>
-                            <div class="col-5">
-                                <label for="bemerkung" class="visuallyhidden"></label>
-                                <textarea class="form-control" id="bemerkung" name="bemerkung"
-                                          placeholder="Wie hat's Ihnen geschmeckt?"></textarea>
+                            <div class="row">
+                                <div class="col-8">
+                                    {{ $kommentar->Zeitpunkt }}
+                                </div>
+                                <div class="col-4">
+                                    {{ $kommentar->Bemerkung }}
+                                </div>
                             </div>
-                            <div class="col-3">
-                                <button type="submit" id="sendbtn" class="btn btn-primary"><i
-                                            class="far fa-check-circle"></i> Senden
-                                </button>
+                            <hr>
+                        @endforeach
+                        @if(Session::get('role') == 'Student')
+                            <div class="row">
+                                <h4 id="mz-bewerten">Mahlzeit bewerten:</h4>
+                                {{--                                <label for="name"><b>Benutzername:</b></label>--}}
+                                <input id="name" type="hidden" class="form-control" name="benutzer"
+                                       placeholder="zB: remmy.."
+                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'zB: remmy..'"
+                                       autocomplete="off">
+                                <input name="{{Session::get('user')}}" value="{{$mahlzeiten->Name}}" type="hidden">
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <select class="form-control bewertung" name="bewertung">
+                                            <option disabled selected class="align-text-center">Bewertung</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <label for="bemerkung" class="visuallyhidden"></label>
+                                    <textarea class="form-control" id="bemerkung" name="bemerkung"
+                                              placeholder="Wie hat's Ihnen geschmeckt?"></textarea>
+                                </div>
+                                <div class="col-3">
+                                    <button type="submit" id="sendbtn" class="btn btn-primary"><i
+                                                class="far fa-check-circle"></i> Senden
+                                    </button>
+                                </div>
+                            </div>
                         @endif
                     </form>
                 </div>
