@@ -23,8 +23,8 @@
                                        name="password"
                                        placeholder="*******">
                                 <br>
-                                <input type="submit" class="btn btn-primary button" value="Anmelden">
-                            @elseif (!isset($_SESSION['user']))
+                                <input type="submit" name="action" class="btn btn-primary button" value="Anmelden">
+                            @elseif (\Illuminate\Support\Facades\Session::get('user') == null)
                                 <label for="email">Benutzer</label>
                                 <input type="text" name="benutzer" class="form-control" id="email"
                                        placeholder="Benutzer-ID.."

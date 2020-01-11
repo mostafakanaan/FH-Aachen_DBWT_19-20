@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use function MongoDB\BSON\toJSON;
 
 class DetailsController extends Controller
@@ -67,8 +68,10 @@ class DetailsController extends Controller
             session(['role' => $role[0]->role]);
 
         } else if (\request()->action == 'Abmelden') {
-            unset($_SESSION['user']);
-            unset($_SESSION['role']);
+//            unset($_SESSION['user']);
+//            unset($_SESSION['role']);
+            Session::forget('user');
+            Session::forget('role');
         } else {
             return redirect()->back()->withErrors(['msg', 'The M']);
         }
