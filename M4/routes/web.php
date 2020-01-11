@@ -22,4 +22,4 @@ Route::get('/details/{id}', 'DetailsController@index')->name('detail');
 
 //Post Routes
 Route::post('/login/{id}', 'DetailsController@auth')->name('login');
-Route::post('/bewertung/{id}', 'DetailsController@rate')->name('bewertung');
+Route::post('/bewertung/{id}/{user}', 'DetailsController@rate')->name('bewertung');

@@ -24,7 +24,7 @@
                                        placeholder="*******">
                                 <br>
                                 <input type="submit" name="action" class="btn btn-primary button" value="Anmelden">
-                            @elseif (\Illuminate\Support\Facades\Session::get('user') == null)
+                            @elseif (Session::get('user') == null)
                                 <label for="email">Benutzer</label>
                                 <input type="text" name="benutzer" class="form-control" id="email"
                                        placeholder="Benutzer-ID.."
@@ -54,7 +54,7 @@
                     </form>
                 </div>
             </div>
-            @if(\Illuminate\Support\Facades\Session::get('user') == null)
+            @if(Session::get('user') == null)
                 <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder
                     Studenten zu sehen.
                 </p>
@@ -93,10 +93,9 @@
 
                 </div>
                 <div class="tab-pane" id="bewertungen" role="tabpanel">
-                    <form action="{{ route('bewertung', [2]) }}" method="post" id="bewertungsform">
+                    <form action="{{ route('detail', [$id], [Session::get('user')]) }}" method="post" id="bewertungsform">
                         @csrf
-                        <input type="hidden" name="matrikel" value="3167397"/>
-                        <input type="hidden" name="kontrolle" value="KAN"/>
+                        <input type="hidden" name="user" value="3167397"/>
                         <div class="row background">
 
                             @if($average!=0)

@@ -72,11 +72,12 @@ class DetailsController extends Controller
         return redirect()->back();
     }
 
-    public function rate($id)
+    public function rate($id, $user)
     {
+        $benutzernummer = (int) DB::select("select Nummer from Benutzer where Nutzername=$user;");
 
         DB::table('Kommentare')
-            ->updateOrInsert(['Mahlzeiten_ID' => $id, 'Studenten_ID' => 1, 'Bemerkung' => 'Hat nicht geschmeckt', 'Bewertung' => '1']);
+            ->updateOrInsert(['Mahlzeiten_ID' => $id, 'Studenten_ID' => $benutzernummer, 'Bemerkung' => \request()->bemerkung, 'Bewertung' => \request()->bewertung]);
 
         return redirect()->back();
     }
