@@ -13,7 +13,6 @@
                         @csrf
                         <div class="form-group">
                             @if($errors->any())
-                                @php $_SESSION['error'] = false @endphp
                                 <p class="alert alert-danger">Das hat nicht geklappt! Bitte versuchen sie es
                                     erneut..</p>
                                 <input type="text" class="form-control alert alert-danger" id="email" name="benutzer"
@@ -24,7 +23,7 @@
                                        placeholder="*******">
                                 <br>
                                 <input type="submit" name="action" class="btn btn-primary button" value="Anmelden">
-                            @elseif (Session::get('user') == null)
+                            @elseif (Session::get('user') == '')
                                 <label for="email">Benutzer</label>
                                 <input type="text" name="benutzer" class="form-control" id="email"
                                        placeholder="Benutzer-ID.."
@@ -54,7 +53,7 @@
                     </form>
                 </div>
             </div>
-            @if(Session::get('user') == null)
+            @if(Session::get('user') == '')
                 <p id="register">Melden Sie sich jetzt an, um die wirklich viel günstigeren Preise für Mitarbeiter oder
                     Studenten zu sehen.
                 </p>
@@ -93,7 +92,7 @@
 
                 </div>
                 <div class="tab-pane" id="bewertungen" role="tabpanel">
-                    <form action="{{ route('bewertung', [$id, Session::get('user')] )}}" method="post"
+                    <form action="{{ route('bewertung', [$id, session()->get('user')])}}" method="post"
                           id="bewertungsform">
                         @csrf
                         <input type="hidden" name="user" value="{{Session::get('user')}}"/>
@@ -106,6 +105,7 @@
                                 <h5 id="old-ratings"> Keine Bewertungen für {{$mahlzeiten->Name}}.</h5>
                             @endif
                         </div>
+                        <div class="col-12 scrollable">
                         @foreach($kommentare as $kommentar)
                             <div class="row">
                                 <div class="col-8">
@@ -163,6 +163,7 @@
                                 </div>
                             </div>
                         @endif
+                        </div>
                     </form>
                 </div>
             </div>

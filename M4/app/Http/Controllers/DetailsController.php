@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use mysql_xdevapi\Table;
 use function MongoDB\BSON\toJSON;
 
 class DetailsController extends Controller
@@ -15,6 +16,9 @@ class DetailsController extends Controller
         $_SESSION['error'] = false;
         $_SESSION['angemeldet'] = 0;
         $_SESSION['role'] = '';
+
+        if (!session()->exists('user'))
+            session(['user' => '']);
 
         $mahlzeiten = DB::table('Mahlzeiten')
             ->join('Mahlzeit_hat_Bild', 'Mahlzeiten.ID', '=', 'Mahlzeit_hat_Bild.Mahlzeiten_ID')
@@ -56,6 +60,7 @@ class DetailsController extends Controller
             DB::select('call UserRole(?,@role  )', [$benutzer->Nummer]);
             $role = DB::select(DB::raw('select @role as role'));
 
+            Session::forget('user');
             session(['user' => $_POST['benutzer']]);
             session(['role' => $role[0]->role]);
         } else if (\request()->action == 'Abmelden') {
@@ -76,8 +81,18 @@ class DetailsController extends Controller
     {
         $benutzernummer = DB::table('Benutzer')->where('Nutzername', '=', $user)->select('Nummer')
             ->first();
-        DB::table('Kommentare')
-            ->updateOrInsert(['Mahlzeiten_ID' => $id, 'Studenten_ID' => $benutzernummer->Nummer, 'Bemerkung' => \request()->bemerkung, 'Bewertung' => \request()->bewertung]);
+
+//        DB::table('Kommentare')
+//            ->updateOrInsert(['Mahlzeiten_ID' => $id, 'Studenten_ID' => $benutzernummer->Nummer, 'Bemerkung' => \request()->bemerkung, 'Bewertung' => \request()->bewertung]);
+
+        $bemerkung = '"'. \request()->bemerkung . '"';
+
+        DB::statement('REPLACE INTO Kommentare (Mahlzeiten_ID, Studenten_ID, Bemerkung, Bewertung) VALUES (' .
+            $id . ', ' .
+            $benutzernummer->Nummer . ', ' .
+            $bemerkung . ', ' .
+            \request()->bewertung . ');'
+        );
 
         return redirect()->back();
     }

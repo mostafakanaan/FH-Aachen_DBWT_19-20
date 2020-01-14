@@ -355,3 +355,10 @@ label[for=name]
     justify-content:center;
     align-content: center;
 }
+
+.scrollable {
+    height: 150px;
+    width: 570px;
+    position: absolute;
+    overflow-y: scroll;
+}
