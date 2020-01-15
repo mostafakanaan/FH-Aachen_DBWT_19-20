@@ -385,8 +385,8 @@ BEGIN
     IF s = 1 THEN
         SET role = 'Student';
     ELSEIF m = 1 THEN
-        SET role = 'Gast';
-    ELSEIF g = 1 THEN
         SET role = 'Mitarbeiter';
+    ELSEIF g = 1 THEN
+        SET role = 'Gast';
     END IF;
 END;
